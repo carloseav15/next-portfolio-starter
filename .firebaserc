@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "ceav-f9193"
+  },
+  "targets": {
+    "ceav-f9193": {
+      "hosting": {
+        "portfolio": [
+          "carlos-arancibia-portfolio"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

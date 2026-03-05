@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Carlos Arancibia Portfolio (2026)
 
-## Getting Started
+Portfolio website built with Next.js App Router, TypeScript, Tailwind CSS, and MDX.
 
-First, run the development server:
+## Product Direction
+- Goal: maximize interview conversion for Software Engineer I/II roles.
+- Positioning: `Software Engineer | Full-Stack & Mobile`.
+- Narrative anchor: production ownership, DigiApp delivery, Vanilla JavaScript e-commerce delivery, and active platform continuity.
+- Runtime: static export (`output: "export"`) for Firebase Hosting.
 
+## Stack
+- Next.js (App Router) + TypeScript
+- Tailwind CSS v4
+- MDX case studies from `/content/case-studies`
+- Optional privacy-first analytics script (Plausible-compatible)
+- Test stack: Vitest + Testing Library + Playwright
+
+## Local Setup
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
+```bash
+npm run dev
+npm run lint
+npm run typecheck
+npm run test
+npm run test:e2e
+npm run build
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Content Model (Source of Truth)
+- Profile contracts: `/Users/carancibia/Downloads/personal-web/lib/profile.ts`
+- Proof contracts: `/Users/carancibia/Downloads/personal-web/lib/proof.ts`
+- External links and evidence lane: `/Users/carancibia/Downloads/personal-web/lib/links.ts`
+- Case-study metadata/index: `/Users/carancibia/Downloads/personal-web/lib/caseStudies.ts`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Timeline Policy
+- DATEC LATAM: `Aug 2014 - Dec 2014`
+- Tismart: `Jan 2015 - May 2016`
+- Iglesia Tiempo de Cambio: `Jun 2016 - Dec 2019`
+- V@COMM: `Jan 2017 - Jun 2024`
+- Digicorp: `Dec 2019 - Jun 2024`
+- Diaz Brothers: `Jul 2024 - Dec 2025`
+- MatchdayOS product: `Jan 2026 - Present`
 
-## Learn More
+### Active Platforms Policy
+Employment timeline and platform continuity are represented separately.
 
-To learn more about Next.js, take a look at the following resources:
+Platforms marked active in production:
+- Octopus Payments Platform
+- Tiempo de Cambio Platform
+- Digicorp e-Commerce Platform
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Verified Store Links
+- Android (Google Play): `https://play.google.com/store/apps/details?id=digicorp.com.bo.main.digiecommerce&hl=es_419`
+- iOS (App Store Bolivia): `https://apps.apple.com/bo/app/digiapp-bolivia/id1527479911`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Route Coverage
+- `/` Home (editorial conversion flow + compact KPI strip)
+- `/about` Career Arc
+- `/case-studies`
+- `/case-studies/[slug]`
+- `/resume`
+- `/contact`
 
-## Deploy on Vercel
+## MDX Workflow
+1. Add or update `.mdx` files under `/Users/carancibia/Downloads/personal-web/content/case-studies`.
+2. Keep section structure stable: Context -> Problem -> Constraints -> Approach -> Results -> Learnings.
+3. Update metadata in `/Users/carancibia/Downloads/personal-web/lib/caseStudies.ts`.
+4. Run checks before merge.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Analytics (Optional)
+No analytics script loads unless `NEXT_PUBLIC_PLAUSIBLE_DOMAIN` is set.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Optional env vars:
+- `NEXT_PUBLIC_PLAUSIBLE_DOMAIN`
+- `NEXT_PUBLIC_PLAUSIBLE_SRC` (defaults to `https://plausible.io/js/script.js`)
+
+## Build and Deploy
+```bash
+npm run build
+firebase deploy --only hosting --project <your-project-id>
+```
+
+Build output is generated at `/Users/carancibia/Downloads/personal-web/out`.
+
+## CI
+Workflow: `/Users/carancibia/Downloads/personal-web/.github/workflows/ci-firebase.yml`
+
+Verify stage runs:
+1. lint
+2. typecheck
+3. unit/component tests
+4. e2e tests
+5. build
+
+## Required GitHub Secrets
+- `FIREBASE_SERVICE_ACCOUNT`
+- `FIREBASE_PROJECT_ID`

@@ -1,0 +1,111 @@
+{
+  "auditDate": "2026-02-22",
+  "role": "Principal Hireability UX Auditor",
+  "repository": "/Users/carancibia/Downloads/personal-web",
+  "model": {
+    "hireabilityConversion": 40,
+    "accessibilityWCAG22AA": 25,
+    "informationArchitectureScanability": 20,
+    "visualHierarchyTrustPolish": 15
+  },
+  "ratingsScale": {
+    "0": "Critical failure",
+    "1": "Poor",
+    "2": "Inconsistent",
+    "3": "Acceptable",
+    "4": "Strong",
+    "5": "Excellent"
+  },
+  "scores": {
+    "hireabilityConversion": {
+      "rating": 3.5,
+      "points": 28,
+      "notes": [
+        "Core narrative is clear and recruiter-oriented.",
+        "Primary proof links and media are placeholders, reducing trust at click-time."
+      ]
+    },
+    "accessibilityWCAG22AA": {
+      "rating": 4.2,
+      "points": 21,
+      "notes": [
+        "Strong baseline: skip link, focus styles, semantic headings, high Lighthouse accessibility scores.",
+        "Theme selector interaction semantics should be normalized for assistive technology predictability."
+      ]
+    },
+    "informationArchitectureScanability": {
+      "rating": 3.5,
+      "points": 14,
+      "notes": [
+        "Home structure is concise and recruiter-friendly.",
+        "A few key fit signals and proof emphasis can appear earlier and clearer."
+      ]
+    },
+    "visualHierarchyTrustPolish": {
+      "rating": 3.7,
+      "points": 11,
+      "notes": [
+        "Visual system is coherent and modern.",
+        "Section/card sameness and tiny metadata text reduce scan comfort and differentiation."
+      ]
+    }
+  },
+  "totalPoints": 74,
+  "riskLevel": "Moderate",
+  "blockingRisks": [
+    "Placeholder external links in contact/proof channels",
+    "Placeholder Digicorp proof image",
+    "Theme selector semantics require cleanup"
+  ],
+  "lighthouse": {
+    "runContext": "Static export served locally from out",
+    "routes": [
+      {
+        "route": "home",
+        "performance": 83,
+        "accessibility": 100,
+        "bestPractices": 96,
+        "seo": 100
+      },
+      {
+        "route": "about",
+        "performance": 86,
+        "accessibility": 100,
+        "bestPractices": 96,
+        "seo": 100
+      },
+      {
+        "route": "case-studies",
+        "performance": 86,
+        "accessibility": 100,
+        "bestPractices": 96,
+        "seo": 100
+      },
+      {
+        "route": "case-studies-digicorp",
+        "performance": 86,
+        "accessibility": 100,
+        "bestPractices": 96,
+        "seo": 100
+      },
+      {
+        "route": "contact",
+        "performance": 84,
+        "accessibility": 100,
+        "bestPractices": 96,
+        "seo": 100
+      },
+      {
+        "route": "resume",
+        "performance": 81,
+        "accessibility": 100,
+        "bestPractices": 96,
+        "seo": 100
+      }
+    ],
+    "knownArtifacts": [
+      "Local static-server route format can produce console 404 noise in Lighthouse best-practices.",
+      "Resume route bfcache failure due embedded PDF plugin (ContainsPlugins)."
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "target": "portfolio",
+    "public": "out",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "redirects": [
+      {
+        "source": "/case-studies/fep",
+        "destination": "/case-studies/matchdayos",
+        "type": 301
+      }
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false
+  }
+}

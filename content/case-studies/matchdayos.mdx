@@ -1,0 +1,38 @@
+## Context
+MatchdayOS is a web platform built to run soccer operations end-to-end: club and team administration, participant management, competitions, live matchday execution, public scoring, and official post-match reporting.
+
+It serves five operational audiences in one product model: clubs and academies, leagues, referees, parents or guardians, and players.
+
+## Problem
+Most soccer operations are fragmented across chat, spreadsheets, and disconnected tools. That breaks accountability, delays decision-making, and creates inconsistency between internal match records and public competition outcomes.
+
+## Constraints
+- Different user groups needed strict role boundaries with safe access rules.
+- Matchday actions had to stay reliable under real-time operational pressure.
+- Official reporting required a clear closure flow and traceable event timeline.
+- Public competition pages had to expose standings, schedules, and player stats without leaking private controls.
+- Existing authentication had to work with a custom table-based model, not Supabase Auth.
+
+## Approach
+I implemented MatchdayOS as a role-based product with centralized route guards across five modes: `org-admin`, `team-admin`, `referee`, `representative`, and `player`.
+
+The platform uses Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS, and Supabase (PostgreSQL + Storage) with a typed client layer.
+
+For matchday execution, I built state-driven workflows (`scheduled`, `in_progress`, `paused`, `finished`, and related transitions), roster verification, live event timeline handling, scoreboard updates, and official report closure.
+
+I also delivered a public competition layer with filters, standings, top scorers, top assists, schedules, and highlights.
+
+To improve product feedback loops, I added UX telemetry for `screen_view`, click, and validation events through `/api/ux-events` into `ux_events`.
+
+## Results
+- Role-based operations shipped across 5 workspace modes.
+- 70 route-level pages (`page.tsx`) implemented.
+- 37 business tables in the primary domain schema.
+- 13 automated test files (Vitest + Playwright) with realistic multi-role seed data.
+- End-to-end matchday flow delivered from setup to official closure and public reporting.
+
+## Learnings
+- In operational products, role boundaries are architecture, not UI polish.
+- Matchday reliability depends on explicit state transitions and clear ownership of each action.
+- Public trust improves when internal reporting and public competition views are driven by the same event model.
+- Typed data boundaries and multi-role E2E tests reduce regressions when workflow complexity grows.
