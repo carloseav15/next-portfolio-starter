@@ -9,7 +9,7 @@ import {
 } from "@/lib/caseStudies";
 import { DIGICORP_PROOF } from "@/lib/links";
 import { profileIdentity } from "@/lib/profile";
-import { createAbsoluteUrl } from "@/lib/site";
+import { buildPageMetadata, createAbsoluteUrl } from "@/lib/site";
 
 type CaseStudyPageProps = {
   params: Promise<{
@@ -40,28 +40,22 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
     };
   }
 
-  const canonicalUrl = createAbsoluteUrl(`/case-studies/${caseStudy.slug}`);
   const publishedTime = new Date(`${caseStudy.date}T00:00:00Z`).toISOString();
+  const baseMetadata = buildPageMetadata({
+    title: `${caseStudy.title} | Carlos Arancibia`,
+    description: caseStudy.summary,
+    pathname: `/case-studies/${caseStudy.slug}`,
+    ogAlt: `${caseStudy.title} preview`,
+    keywords: caseStudy.seoKeywords,
+    ogImagePath: DIGICORP_PROOF.imageSrc,
+  });
 
   return {
-    title: caseStudy.title,
-    description: caseStudy.summary,
-    alternates: {
-      canonical: canonicalUrl,
-    },
+    ...baseMetadata,
     openGraph: {
+      ...baseMetadata.openGraph,
       type: "article",
-      url: canonicalUrl,
-      title: caseStudy.title,
-      description: caseStudy.summary,
-      images: [{ url: defaultOgImageUrl, alt: `${caseStudy.title} preview` }],
       publishedTime,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: caseStudy.title,
-      description: caseStudy.summary,
-      images: [defaultOgImageUrl],
     },
   };
 }
@@ -102,8 +96,9 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     },
     mainEntityOfPage: canonicalUrl,
     url: canonicalUrl,
-    keywords: metadata.tags,
-    about: metadata.primaryOutcome,
+    articleSection: metadata.tags.slice(0, 3).join(", "),
+    keywords: metadata.seoKeywords,
+    about: metadata.whyItMatters,
     inLanguage: "en-US",
   };
   const breadcrumbJsonLd = {

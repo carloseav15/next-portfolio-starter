@@ -15,10 +15,10 @@ type CaseStudyArticleProps = {
 
 export function CaseStudyArticle({ metadata, children }: CaseStudyArticleProps) {
   const atGlance = [
-    { label: "Role", value: metadata.role },
-    { label: "Team context", value: metadata.teamContext },
+    { label: "Outcome", value: metadata.primaryOutcome },
+    { label: "Ownership", value: metadata.ownershipLabel },
     { label: "Timeline", value: metadata.timeline },
-    { label: "Primary outcome", value: metadata.primaryOutcome },
+    { label: "Stack", value: metadata.stack.join(" · ") },
   ];
 
   return (
@@ -65,7 +65,7 @@ export function CaseStudyArticle({ metadata, children }: CaseStudyArticleProps) 
 
         <div className="mt-8 grid gap-4 lg:grid-cols-2">
           <Card variant="flat" className="border-[var(--color-border)] bg-[var(--color-subtle-bg)] p-4 sm:p-5">
-            <h2 className="text-lg font-semibold text-[var(--color-text)]">Snapshot</h2>
+            <h2 className="text-lg font-semibold text-[var(--color-text)]">At a glance</h2>
             <dl className="mt-4 grid gap-3">
               {atGlance.map((item) => (
                 <div
@@ -90,8 +90,11 @@ export function CaseStudyArticle({ metadata, children }: CaseStudyArticleProps) 
             </Card>
 
             <Card variant="flat" className="border-[var(--color-border)] bg-[var(--color-subtle-bg)] p-4 sm:p-5">
-              <h2 className="text-lg font-semibold text-[var(--color-text)]">Stack context</h2>
-              <div className="mt-3 flex flex-wrap gap-2">
+              <h2 className="text-lg font-semibold text-[var(--color-text)]">Why this matters</h2>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--color-text-soft)] sm:text-base">
+                {metadata.whyItMatters}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-2">
                 {metadata.stack.map((item) => (
                   <Badge key={item} variant="muted">
                     {item}

@@ -5,16 +5,21 @@ import {
   activePlatformsInProduction,
   caseStudyHighlights,
   careerTimeline,
+  featuredWins,
+  heroProofPoints,
   profileIdentity,
   profileMetrics,
   recommendations,
+  recruiterQuickFacts,
 } from "@/lib/profile";
 import { DIGICORP_PROOF, externalLinks } from "@/lib/links";
+import { siteConfig } from "@/lib/site";
 
 describe("profile source of truth", () => {
-  it("keeps hiring positioning explicit", () => {
+  it("keeps hiring positioning explicit without sounding junior-targeted", () => {
     expect(profileIdentity.roleLabel).toContain("Full-Stack");
-    expect(profileIdentity.openTo).toContain("Software Engineer I/II");
+    expect(profileIdentity.openTo).toContain("software engineering roles");
+    expect(profileIdentity.openTo).not.toContain("I/II");
   });
 
   it("contains compact KPI strip metrics", () => {
@@ -23,6 +28,21 @@ describe("profile source of truth", () => {
     expect(profileMetrics.map((metric) => metric.value)).toContain("3,000/day");
     expect(profileMetrics.map((metric) => metric.value)).toContain("~1,000/day");
     expect(profileMetrics.map((metric) => metric.value)).not.toContain("3 active");
+  });
+
+  it("exports hero proof points, featured wins, and recruiter quick facts", () => {
+    expect(heroProofPoints).toEqual([
+      "10,000+ downloads",
+      "3,000 daily users",
+      "~1,000 daily operations",
+    ]);
+    expect(featuredWins.map((item) => item.id)).toEqual(["digicorp", "octopus", "us-ops"]);
+    expect(recruiterQuickFacts.map((item) => item.label)).toEqual([
+      "Based in",
+      "Open to",
+      "Languages",
+      "Response time",
+    ]);
   });
 
   it("locks timeline periods as specified", () => {
@@ -68,7 +88,7 @@ describe("profile source of truth", () => {
     );
   });
 
-  it("keeps highlights aligned with production credibility", () => {
+  it("keeps highlights aligned with shipping credibility", () => {
     expect(caseStudyHighlights.some((item) => item.slug === "octopus")).toBe(true);
     expect(caseStudyHighlights.every((item) => item.evidenceStatus === "verified")).toBe(true);
   });
@@ -114,17 +134,19 @@ describe("profile source of truth", () => {
     );
   });
 
-  it("uses Open Resume label without visible new-tab suffix", () => {
+  it("removes the development banner and keeps the new CTA labels", () => {
     const homeSource = readFileSync(path.join(process.cwd(), "app/page.tsx"), "utf8");
     const resumeSource = readFileSync(path.join(process.cwd(), "app/resume/page.tsx"), "utf8");
-    const aboutSource = readFileSync(path.join(process.cwd(), "app/about/page.tsx"), "utf8");
-
-    expect(homeSource).toContain("Open Resume");
-    expect(resumeSource).toContain("Open Resume");
-    expect(homeSource).not.toContain("Open Resume (new tab)");
-    expect(resumeSource).not.toContain("Open Resume (new tab)");
-    expect(aboutSource).not.toContain(
-      "My work spans public mobile distribution, payment collections, and operational systems used by",
+    const previewSource = readFileSync(
+      path.join(process.cwd(), "components/resume/ResumePreview.tsx"),
+      "utf8",
     );
+
+    expect(siteConfig.developmentBanner.enabled).toBe(false);
+    expect(homeSource).toContain("Open Resume");
+    expect(homeSource).toContain("View Case Studies");
+    expect(homeSource).not.toContain("Portfolio in active development");
+    expect(resumeSource).toContain("ResumePreview");
+    expect(previewSource).toContain("Open inline preview");
   });
 });

@@ -1,37 +1,29 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Download, FileText } from "lucide-react";
+import { ResumePreview } from "@/components/resume/ResumePreview";
 import { ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
-import { DIGICORP_PROOF } from "@/lib/links";
-import { createAbsoluteUrl } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/site";
 import { compactActionLinkClassName } from "@/lib/uiClasses";
 
 const resumePath = "/resume/carlos-arancibia-resume.pdf";
-const canonicalUrl = createAbsoluteUrl("/resume");
-const ogImageUrl = createAbsoluteUrl(DIGICORP_PROOF.imageSrc);
-const resumeSeoDescription = "Direct access to Carlos Arancibia's resume PDF for fast portfolio review.";
+const resumeSeoDescription =
+  "Resume PDF, inline preview, and background for Carlos Arancibia, a full-stack and mobile software engineer.";
 
-export const metadata: Metadata = {
-  title: "Resume",
+export const metadata: Metadata = buildPageMetadata({
+  title: "Resume | Carlos Arancibia",
   description: resumeSeoDescription,
-  alternates: {
-    canonical: canonicalUrl,
-  },
-  openGraph: {
-    title: "Resume",
-    description: resumeSeoDescription,
-    url: canonicalUrl,
-    images: [{ url: ogImageUrl, alt: "Resume access" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Resume",
-    description: resumeSeoDescription,
-    images: [ogImageUrl],
-  },
-};
+  pathname: "/resume",
+  ogAlt: "Resume access",
+  keywords: [
+    "Carlos Arancibia resume",
+    "full-stack software engineer resume",
+    "mobile engineer resume",
+    "resume PDF",
+  ],
+});
 
 export default function ResumePage() {
   return (
@@ -39,10 +31,15 @@ export default function ResumePage() {
       eyebrow="Resume"
       title="Resume"
       titleAs="h1"
-      description="Direct PDF access for fast portfolio review."
+      description="Resume, downloadable PDF, and optional inline preview."
       density="compact"
     >
-      <Card variant="elevated" className="space-y-4 motion-fade-in">
+      <Card variant="elevated" className="space-y-5 motion-fade-in">
+        <p className="max-w-[62ch] text-sm leading-relaxed text-[var(--color-text-soft)] sm:text-base">
+          Open the PDF if you want the fastest review path, or expand the inline preview if staying inside
+          the site is more convenient.
+        </p>
+
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <ButtonLink
             href={resumePath}
@@ -61,8 +58,9 @@ export default function ResumePage() {
             Download PDF
             <Download aria-hidden="true" className="h-4 w-4" />
           </Link>
-          <span className="sr-only"> and open in a new tab if needed.</span>
         </p>
+
+        <ResumePreview src={resumePath} />
       </Card>
     </Section>
   );

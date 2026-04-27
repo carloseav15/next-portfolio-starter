@@ -13,16 +13,19 @@ async function expectMinHitArea(locator: Locator, minHeight = 44) {
 
 test("recruiter flow across home, case study, resume, and contact", async ({ page }) => {
   await page.goto("/");
+  await expect(page).toHaveTitle("Carlos Arancibia | Full-Stack & Mobile Software Engineer");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    "https://www.carlos-arancibia.com",
+  );
 
   await expect(
     page.getByRole("heading", {
-      name: /ship production software/i,
+      name: /full-stack and mobile engineer shipping production products/i,
     }),
   ).toBeVisible();
 
-  await expect(page.getByRole("status")).toContainText(
-    "Portfolio in active development; content and UX are being refined.",
-  );
+  await expect(page.locator("body")).not.toContainText(/portfolio in active development/i);
 
   const letsTalkLink = page.locator('header a[data-cta="talk-primary"]:visible').first();
   const headerResumeLink = page.locator('header a[data-cta="resume-secondary"]').first();
@@ -31,55 +34,74 @@ test("recruiter flow across home, case study, resume, and contact", async ({ pag
   await expect(headerResumeLink).toBeVisible();
   await expect(headerResumeLink).toHaveAttribute("href", /\/resume\/carlos-arancibia-resume\.pdf/);
   await expect(headerResumeLink).toHaveAttribute("target", "_blank");
-  await expect(letsTalkLink).toHaveClass(/bg-\[linear-gradient/);
-  await expect(headerResumeLink).not.toHaveClass(/bg-\[linear-gradient/);
 
-  await expect(page.locator("main")).toContainText(/10,000\+/i);
-  await expect(page.locator("main")).toContainText(/3,000\/day/i);
-  await expect(page.locator("main")).toContainText(/active in production today/i);
-  await expect(page.getByRole("heading", { name: "Professional Recommendation" })).toBeVisible();
-  await expect(page.locator("main")).toContainText(/samuel soliz adaos/i);
+  await expect(page.locator("main")).toContainText(/10,000\+ downloads/i);
+  await expect(page.locator("main")).toContainText(/3,000 daily users/i);
+  await expect(page.getByRole("heading", { name: /three products that show how i build/i })).toBeVisible();
   await expect(
-    page.getByRole("link", { name: "LinkedIn recommendation" }).first(),
-  ).toHaveAttribute("href", /linkedin\.com\/in\/carancibiav\/details\/recommendations/);
+    page.getByRole("heading", { name: /what a former executive said about working with me/i }),
+  ).toBeVisible();
+  expect(await page.content()).toContain('"@type":"WebSite"');
+  await expect(page.locator("main")).toContainText(/samuel soliz adaos/i);
+  await expect(page.getByRole("link", { name: /view full recommendation/i })).toHaveAttribute(
+    "href",
+    /linkedin\.com\/in\/carancibiav\/details\/recommendations/,
+  );
 
+  await expect(page.getByRole("link", { name: /Read Digicorp DigiApp & Commerce case study/i })).toBeVisible();
   await expectMinHitArea(page.locator("main a").filter({ hasText: /case study/i }));
 
   await page.goto("/about");
+  await expect(page).toHaveTitle("About Carlos Arancibia | Full-Stack & Mobile Engineer");
+  await expect(page.getByRole("heading", { name: /i started in infrastructure/i })).toBeVisible();
   await expect(page.locator("main")).toContainText(/aug 2014 - dec 2014/i);
   await expect(page.locator("main")).toContainText(/dec 2019 - jun 2024/i);
-  await expect(page.locator("main")).not.toContainText(
-    /my work spans public mobile distribution, payment collections, and operational systems used by/i,
-  );
-  await expect(page.locator("main")).toContainText(/focus on production evidence, continuity/i);
+  await expect(page.locator("main")).toContainText(/some roles overlapped by design/i);
+  await expect(page.locator("main")).not.toContainText(/parallel context:/i);
 
   await page.goto("/case-studies");
   await expect(page).toHaveURL(/\/case-studies$/);
-  await expect(page.locator("main")).toContainText(/product context/i);
-  await expect(page.locator("main")).toContainText(/matchdayos/i);
-  await expect(page.locator("main")).toContainText(/dec 2019 - jun 2024/i);
-  await expect(page.locator("main")).toContainText(/jan 2017 - jun 2024/i);
-  await expectMinHitArea(page.locator("main a").filter({ hasText: /read case study/i }));
+  await expect(page).toHaveTitle("Case Studies | Apps, Payments & Internal Tools | Carlos Arancibia");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    "https://www.carlos-arancibia.com/case-studies",
+  );
+  await expect(page.locator("main")).toContainText(
+    /start here if you want concrete proof of ownership, outcomes, and shipped systems/i,
+  );
+  await expect(page.locator("main")).toContainText(/additional product work/i);
+  await expect(page.locator("main")).toContainText(/ownership/i);
+  expect(await page.content()).toContain('"@type":"CollectionPage"');
+  await expect(page.getByRole("link", { name: /Read Digicorp DigiApp & Commerce Ownership case study/i })).toBeVisible();
+  await expectMinHitArea(page.locator("main a").filter({ hasText: /case study/i }));
 
-  await page.getByRole("link", { name: "Read case study" }).first().click();
+  await page.getByRole("link", { name: /Read Digicorp DigiApp & Commerce Ownership case study/i }).click();
   await expect(page).toHaveURL(/\/case-studies\/.+/);
-  await expect(page.getByRole("heading", { name: "Snapshot" })).toBeVisible();
-  await expect(page.locator("main")).toContainText(/dec 2019 - jun 2024/i);
-  await expect(page.locator("main")).not.toContainText(/datec ecosystem/i);
+  await expect(page).toHaveTitle(/Digicorp DigiApp & Commerce Ownership \| Carlos Arancibia/);
+  await expect(page.getByRole("heading", { name: /at a glance/i })).toBeVisible();
+  await expect(page.locator("main")).toContainText(/why this matters/i);
+  await expect(page.locator("main")).toContainText(/outcome/i);
+  await expect(page.locator("main")).toContainText(/ownership/i);
+  expect(await page.content()).toContain('"@type":"TechArticle"');
 
   await page.goto("/resume");
+  await expect(page).toHaveTitle("Resume | Carlos Arancibia");
   await expect(page.getByRole("link", { name: /Open Resume/i })).toBeVisible();
   await expect(page.getByRole("link", { name: "Download PDF" })).toBeVisible();
   await expect(page.locator("main").locator("iframe")).toHaveCount(0);
+  await page.getByRole("button", { name: "Open inline preview" }).click();
+  await expect(page.locator("main").locator("iframe")).toHaveCount(1);
   await expectMinHitArea(page.getByRole("link", { name: "Download PDF" }));
 
   await page.goto("/contact");
-  await expect(page.getByRole("heading", { name: "Let's connect" })).toBeVisible();
-  await expect(page.locator("main").getByRole("link", { name: "Email" }).first()).toBeVisible();
-
-  await expect(page.locator("footer")).not.toContainText(
-    /recruiter-first portfolio focused on production evidence/i,
+  await expect(page).toHaveTitle("Contact Carlos Arancibia | Software Engineer");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    "href",
+    "https://www.carlos-arancibia.com/contact",
   );
+  await expect(page.getByRole("heading", { name: "Hiring Carlos?" })).toBeVisible();
+  await expect(page.locator("main")).toContainText(/based in/i);
+  await expect(page.locator("main").getByRole("link", { name: "Email Carlos" }).first()).toBeVisible();
 });
 
 test("mobile header prioritizes Let's Talk and exposes secondary actions in hamburger panel", async ({ page }) => {
@@ -93,24 +115,26 @@ test("mobile header prioritizes Let's Talk and exposes secondary actions in hamb
   await expect(desktopResumeLink).toBeHidden();
 
   const menuButton = page.getByRole("button", { name: "Open navigation menu" });
+  const mobileNav = page.locator('header nav[aria-label="Mobile primary"]');
+
   await expect(menuButton).toBeVisible();
-  await expect(page.getByRole("dialog", { name: "Mobile navigation" })).toHaveCount(0);
+  await expect(mobileNav).toHaveCount(0);
 
   await menuButton.click();
 
-  const mobilePanel = page.getByRole("dialog", { name: "Mobile navigation" });
-  await expect(mobilePanel).toBeVisible();
-  await expect(mobilePanel.getByRole("link", { name: "Home" })).toBeVisible();
-  await expect(mobilePanel.getByRole("link", { name: "About" })).toBeVisible();
-  await expect(mobilePanel.getByRole("link", { name: "Case Studies" })).toBeVisible();
+  await expect(mobileNav).toBeVisible();
+  await expect(mobileNav.getByRole("link", { name: "Home" })).toBeVisible();
+  await expect(mobileNav.getByRole("link", { name: "About" })).toBeVisible();
+  await expect(mobileNav.getByRole("link", { name: "Case Studies" })).toBeVisible();
 
-  const resumeMobileLink = mobilePanel.locator('a[data-cta="resume-mobile"]').first();
+  const resumeMobileLink = page.locator('header a[data-cta="resume-mobile"]').first();
   await expect(resumeMobileLink).toHaveAttribute("href", /\/resume\/carlos-arancibia-resume\.pdf/);
   await expect(resumeMobileLink).toHaveAttribute("target", "_blank");
-  await expect(mobilePanel.getByRole("button", { name: /theme preference/i })).toBeVisible();
+  await expect(page.locator('header button[aria-label^="Theme preference"]').last()).toBeVisible();
 
   await page.keyboard.press("Escape");
-  await expect(mobilePanel).toHaveCount(0);
+  await expect(mobileNav).toHaveCount(0);
+  await expect(menuButton).toBeFocused();
 });
 
 test("no horizontal overflow on key recruiter breakpoints", async ({ page }) => {
@@ -143,14 +167,15 @@ test("no horizontal overflow on key recruiter breakpoints", async ({ page }) => 
   }
 });
 
-test("theme selector works with keyboard interaction", async ({ page }) => {
+test("theme selector works with keyboard interaction and keeps radiogroup semantics", async ({ page }) => {
   await page.goto("/");
 
   const themeButton = page.getByRole("button", { name: /theme preference/i });
   await themeButton.focus();
   await page.keyboard.press("Enter");
 
-  await expect(page.getByRole("radio", { name: "System" })).toBeVisible();
+  await expect(page.getByRole("radiogroup", { name: "Theme mode" })).toBeVisible();
+  await expect(page.getByRole("dialog", { name: /theme preference/i })).toHaveCount(0);
 
   await page.keyboard.press("ArrowDown");
   await page.keyboard.press("ArrowDown");

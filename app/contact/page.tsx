@@ -3,35 +3,29 @@ import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
-import { DIGICORP_PROOF } from "@/lib/links";
-import { contactChannels, profileIdentity, recruiterResponseWindow } from "@/lib/profile";
-import { createAbsoluteUrl } from "@/lib/site";
+import {
+  contactChannels,
+  profileIdentity,
+  recruiterQuickFacts,
+  recruiterResponseWindow,
+} from "@/lib/profile";
+import { buildPageMetadata } from "@/lib/site";
 
-const canonicalUrl = createAbsoluteUrl("/contact");
-const ogImageUrl = createAbsoluteUrl(DIGICORP_PROOF.imageSrc);
+const contactDescription =
+  "Contact Carlos Arancibia, a software engineer in Naples, FL, open to remote, hybrid, or on-site roles across apps, internal tools, and business systems.";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Contact Carlos Arancibia for Software Engineer I/II opportunities. Open to remote and on-site roles from Naples, Florida.",
-  alternates: {
-    canonical: canonicalUrl,
-  },
-  openGraph: {
-    title: "Contact",
-    description:
-      "Contact Carlos Arancibia for Software Engineer I/II opportunities. Open to remote and on-site roles from Naples, Florida.",
-    url: canonicalUrl,
-    images: [{ url: ogImageUrl, alt: "Contact Carlos Arancibia" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Contact",
-    description:
-      "Contact Carlos Arancibia for Software Engineer I/II opportunities. Open to remote and on-site roles from Naples, Florida.",
-    images: [ogImageUrl],
-  },
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: "Contact Carlos Arancibia | Software Engineer",
+  description: contactDescription,
+  pathname: "/contact",
+  ogAlt: "Contact Carlos Arancibia",
+  keywords: [
+    "contact Carlos Arancibia",
+    "software engineer Naples FL",
+    "remote hybrid onsite engineer",
+    "full-stack mobile engineer contact",
+  ],
+});
 
 const channelIcons = {
   email: Mail,
@@ -43,17 +37,32 @@ export default function ContactPage() {
   return (
     <Section
       eyebrow="Contact"
-      title="Let&apos;s connect"
+      title="Hiring Carlos?"
       titleAs="h1"
-      description="Open to Software Engineer I/II opportunities where production reliability and collaboration quality matter."
+      description="Here are the fastest ways to reach me and the context recruiters usually ask for first."
       density="compact"
     >
       <Card variant="proof" className="space-y-5 motion-fade-in">
-        <p className="max-w-[65ch] text-[0.98rem] leading-relaxed text-[var(--color-text-soft)] sm:text-base">
-          Based in {profileIdentity.location}. Available for remote or on-site collaboration in the U.S.
+        <p className="max-w-[64ch] text-[0.98rem] leading-relaxed text-[var(--color-text-soft)] sm:text-base">
+          I am currently open to software engineering conversations around product, platform, mobile, and
+          business-system work. If you are hiring, email is still the best first step.
         </p>
 
-        <p className="text-sm text-[var(--color-text-muted)]">{recruiterResponseWindow}</p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {recruiterQuickFacts.map((fact) => (
+            <div
+              key={fact.label}
+              className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-1)] px-4 py-3"
+            >
+              <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
+                {fact.label}
+              </p>
+              <p className="mt-2 text-sm font-semibold leading-relaxed text-[var(--color-text)]">
+                {fact.value}
+              </p>
+            </div>
+          ))}
+        </div>
 
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           {contactChannels.map((channel) => {
@@ -70,7 +79,7 @@ export default function ContactPage() {
               >
                 <Icon aria-hidden="true" className="h-4 w-4" />
                 {channel.label}
-                {channel.type !== "email" && <span className="sr-only"> (opens in new tab)</span>}
+                {channel.type !== "email" ? <span className="sr-only"> (opens in new tab)</span> : null}
               </ButtonLink>
             );
           })}
@@ -78,7 +87,10 @@ export default function ContactPage() {
 
         <p className="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-muted)]">
           <MessageCircle aria-hidden="true" className="h-4 w-4" />
-          Outreach channel priority: email first.
+          Priority channel: email first. {recruiterResponseWindow}
+        </p>
+        <p className="text-sm text-[var(--color-text-muted)]">
+          Based in {profileIdentity.location}. I am happy to continue the conversation by email or LinkedIn.
         </p>
       </Card>
     </Section>

@@ -155,7 +155,6 @@ export function ThemeToggle({ showLabelOnMobile = false, buttonClassName }: Them
         type="button"
         onClick={() => setOpen((prev) => !prev)}
         aria-label={`Theme preference: ${preference}`}
-        aria-haspopup="dialog"
         aria-expanded={open}
         aria-controls={panelId}
         className={cn(
@@ -196,7 +195,6 @@ export function ThemeToggle({ showLabelOnMobile = false, buttonClassName }: Them
       {open && (
         <div
           id={panelId}
-          role="dialog"
           aria-label="Theme preference"
           className="absolute right-0 z-40 mt-2 w-60 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-3)] p-2 shadow-[0_20px_40px_-28px_var(--color-shadow)]"
         >

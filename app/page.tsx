@@ -1,55 +1,44 @@
-import { ArrowRight, ArrowUpRight, FileText, MessageCircle, Quote } from "lucide-react";
+import { ArrowRight, ArrowUpRight, FileText, Linkedin, Mail, Quote } from "lucide-react";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
-import { ProofPill } from "@/components/ui/ProofPill";
+import { Badge } from "@/components/ui/Badge";
 import { Section } from "@/components/ui/Section";
+import { caseStudies } from "@/lib/caseStudies";
+import { externalLinks } from "@/lib/links";
 import {
-  activePlatformsInProduction,
-  caseStudyHighlights,
+  featuredWins,
+  heroProofPoints,
+  personalStrengths,
   profileIdentity,
   profileMetrics,
   recommendations,
-  recruiterResponseWindow,
+  recruiterQuickFacts,
 } from "@/lib/profile";
-import { DIGICORP_PROOF, externalLinks } from "@/lib/links";
-import { createAbsoluteUrl } from "@/lib/site";
+import { buildPageMetadata, createAbsoluteUrl, siteConfig } from "@/lib/site";
 import { actionLinkClassName, textLinkClassName } from "@/lib/uiClasses";
 
 const canonicalUrl = createAbsoluteUrl("/");
-const ogImageUrl = createAbsoluteUrl(DIGICORP_PROOF.imageSrc);
 const homeSeoDescription =
-  "Portfolio of Carlos Arancibia, Full-Stack and Mobile Software Engineer with 7+ years in production systems and DigiApp ownership.";
+  "Portfolio of Carlos Arancibia, a full-stack and mobile software engineer building React and Next.js apps, internal tools, and payment workflows for teams across LATAM and the U.S.";
 
-export const metadata: Metadata = {
-  title: "Home",
+export const metadata: Metadata = buildPageMetadata({
+  title: siteConfig.defaultTitle,
   description: homeSeoDescription,
-  alternates: {
-    canonical: canonicalUrl,
-  },
-  openGraph: {
-    title: "Home",
-    description: homeSeoDescription,
-    url: canonicalUrl,
-    images: [{ url: ogImageUrl, alt: "Digicorp production proof" }],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Home",
-    description: homeSeoDescription,
-    images: [ogImageUrl],
-  },
-};
-
-const digicorpProofBullets = [
-  "Main programmer for public Android and iOS app release cycles.",
-  "Designed and maintained Digicorp's e-commerce web platform from zero with Vanilla JavaScript.",
-  "Integrated payment and operational workflows under live business constraints.",
-];
+  pathname: "/",
+  ogAlt: "Carlos Arancibia portfolio preview",
+  keywords: [
+    "Carlos Arancibia",
+    "full-stack and mobile software engineer",
+    "React Next.js portfolio",
+    "payment workflows",
+    "internal tools",
+  ],
+});
 
 const recommendation = recommendations[0];
+const caseStudyBySlug = Object.fromEntries(caseStudies.map((caseStudy) => [caseStudy.slug, caseStudy]));
 
 const personJsonLd = {
   "@context": "https://schema.org",
@@ -69,26 +58,50 @@ const personJsonLd = {
   sameAs: [externalLinks.linkedin.href, externalLinks.github.href, externalLinks.website.href].filter(Boolean),
 };
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.personName,
+  url: canonicalUrl,
+  description: homeSeoDescription,
+  inLanguage: "en-US",
+};
+
 export default function HomePage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
 
-      <Section as="div" density="hero" titleAs="h1" title={profileIdentity.headline} description={profileIdentity.summary}>
-        <div className="motion-fade-in">
-          <p className="editorial-kicker">{profileIdentity.roleLabel}</p>
-          <p className="mt-5 max-w-[70ch] text-base leading-relaxed text-[var(--color-text-soft)] sm:text-lg">
+      <Section
+        as="div"
+        density="hero"
+        eyebrow={profileIdentity.roleLabel}
+        titleAs="h1"
+        title={profileIdentity.headline}
+        description={profileIdentity.summary}
+      >
+        <div className="motion-fade-in space-y-6">
+          <div className="flex flex-wrap gap-2">
+            {heroProofPoints.map((item) => (
+              <Badge key={item} variant="accent" className="px-4 py-2 text-sm">
+                {item}
+              </Badge>
+            ))}
+          </div>
+
+          <p className="max-w-[70ch] text-sm leading-relaxed text-[var(--color-text-soft)] sm:text-base">
+            Recent work spans React and Next.js interfaces, mobile delivery, payment workflows, and internal
+            tools for operations teams.
+          </p>
+
+          <p className="max-w-[70ch] text-sm leading-relaxed text-[var(--color-text-soft)] sm:text-base">
             {profileIdentity.openTo} Based in {profileIdentity.location}.
           </p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <ButtonLink href="/case-studies" className="w-full gap-2 sm:w-auto">
-              Explore Case Studies
-              <ArrowRight aria-hidden="true" className="h-4 w-4" />
-            </ButtonLink>
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
             <ButtonLink
               href="/resume/carlos-arancibia-resume.pdf"
-              variant="secondary"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full gap-2 sm:w-auto"
@@ -97,6 +110,13 @@ export default function HomePage() {
               <FileText aria-hidden="true" className="h-4 w-4" />
               <span className="sr-only"> (opens in new tab)</span>
             </ButtonLink>
+            <ButtonLink href="/case-studies" variant="secondary" className="w-full gap-2 sm:w-auto">
+              View Case Studies
+              <ArrowRight aria-hidden="true" className="h-4 w-4" />
+            </ButtonLink>
+            <Link href="/contact" className={`${textLinkClassName} text-sm font-semibold`}>
+              Contact
+            </Link>
           </div>
         </div>
       </Section>
@@ -113,136 +133,104 @@ export default function HomePage() {
             </article>
           ))}
         </div>
-        <p className="mt-4 text-sm text-[var(--color-text-muted)]">
-          See full timeline in{" "}
-          <Link href="/about" className={textLinkClassName}>
-            About
-          </Link>{" "}
-          and delivery details in{" "}
-          <Link href="/case-studies" className={textLinkClassName}>
-            Case Studies
-          </Link>
-          .
-        </p>
       </Section>
 
       <Section
-        eyebrow="Active In Production Today"
-        title="Operational systems still running"
-        description="These platforms remain active in real-world use today, independent of employment timeline changes."
+        eyebrow="Selected Work"
+        title="Three products that show how I build"
+        description="These are the clearest examples of app delivery, payment workflows, and internal systems shaped around real team needs."
       >
-        <div className="flex flex-wrap gap-2 motion-fade-in motion-delay-1">
-          {activePlatformsInProduction.map((platform) => (
-            <span
-              key={platform.name}
-              className="inline-flex items-center rounded-full border border-[var(--color-proof-verified-border)] bg-[var(--color-proof-verified-bg)] px-3.5 py-2 text-sm font-semibold text-[var(--color-proof-verified-text)]"
-              title={platform.note}
+        <div className="grid gap-4 md:grid-cols-3">
+          {featuredWins.map((win, index) => {
+            const relatedCaseStudy = caseStudyBySlug[win.id];
+
+            if (!relatedCaseStudy) {
+              return null;
+            }
+
+            return (
+              <Card
+                key={win.id}
+                hoverable
+                variant={index === 0 ? "proof" : "elevated"}
+                className={`flex h-full flex-col space-y-4 motion-fade-in ${
+                  index === 1 ? "motion-delay-1" : index === 2 ? "motion-delay-2" : ""
+                }`}
+              >
+                <div className="space-y-3">
+                  <p className="editorial-kicker">Selected work</p>
+                  <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-text)]">{win.title}</h2>
+                  <p className="text-sm font-semibold leading-relaxed text-[var(--color-text)]">{win.outcome}</p>
+                </div>
+
+                <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-subtle-bg)] px-3.5 py-3">
+                  <p className="text-sm font-semibold text-[var(--color-text)]">What I owned</p>
+                  <p className="mt-1 text-sm leading-relaxed text-[var(--color-text-soft)]">{win.ownership}</p>
+                </div>
+
+                <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-[var(--color-text-soft)]">
+                  {relatedCaseStudy.cardHighlights.slice(0, 2).map((item) => (
+                    <li key={`${win.id}-${item}`}>{item}</li>
+                  ))}
+                </ul>
+
+                <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-2">
+                  <Link href={win.ctaHref} className={actionLinkClassName}>
+                    Read {win.title} case study
+                    <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                  </Link>
+                  {win.proofHref && win.proofLabel ? (
+                    <a
+                      href={win.proofHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${textLinkClassName} inline-flex items-center gap-1.5 text-sm font-semibold`}
+                    >
+                      {win.proofLabel}
+                      <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
+                      <span className="sr-only"> (opens in new tab)</span>
+                    </a>
+                  ) : null}
+                </div>
+              </Card>
+            );
+          })}
+        </div>
+      </Section>
+
+      <Section
+        eyebrow="How I Work"
+        title="I like work that connects product context and implementation detail"
+        description="The strongest projects I have worked on needed someone who could build, communicate clearly, and keep decisions grounded in real usage."
+        tone="contrast"
+      >
+        <div className="grid gap-4 md:grid-cols-3">
+          {personalStrengths.map((item, index) => (
+            <Card
+              key={item}
+              variant="flat"
+              className={`h-full space-y-3 motion-fade-in ${
+                index === 1 ? "motion-delay-1" : index === 2 ? "motion-delay-2" : ""
+              }`}
             >
-              {platform.name}
-            </span>
+              <p className="editorial-kicker">Strength {index + 1}</p>
+              <p className="text-base leading-relaxed text-[var(--color-text)] sm:text-lg">{item}</p>
+            </Card>
           ))}
         </div>
       </Section>
 
-      <Section
-        eyebrow="Proof Lane"
-        title="Digicorp DigiApp ownership"
-        description="Proof lane for production delivery, release continuity, and measurable distribution outcomes."
-        tone="contrast"
-      >
-        <div className="grid gap-5 lg:grid-cols-2 lg:items-stretch">
-          <Card variant="proof" className="space-y-4 motion-fade-in">
-            <ProofPill status={DIGICORP_PROOF.status} />
-            <p className="text-sm leading-relaxed text-[var(--color-text-soft)] sm:text-base">
-              Digicorp is one of Bolivia&apos;s largest technology distributors with 170+ professionals.
-              This work covered app shipping, e-commerce delivery, maintenance, and operational reliability
-              inside a live business environment.
-            </p>
-            <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-[var(--color-text-soft)] sm:text-base">
-              {digicorpProofBullets.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-
-            <div className="flex flex-wrap gap-2 pt-1">
-              {[externalLinks.googlePlay, externalLinks.appStore].map((link) => (
-                <ButtonLink
-                  key={link.id}
-                  href={link.href!}
-                  variant="secondary"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="gap-2"
-                >
-                  {link.label}
-                  <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
-                  <span className="sr-only"> (opens in new tab)</span>
-                </ButtonLink>
-              ))}
-            </div>
-
-            <p className="text-sm text-[var(--color-text-muted)]">{externalLinks.googlePlay.note}</p>
-            <p className="text-sm text-[var(--color-text-muted)]">{externalLinks.appStore.note}</p>
-            <p className="text-sm text-[var(--color-text-muted)]">
-              Digicorp websites:{" "}
-              <a
-                href={externalLinks.digicorpBolivia.href}
-                className={textLinkClassName}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                digicorp.com.bo
-              </a>{" "}
-              ·{" "}
-              <a
-                href={externalLinks.digicorpPeru.href}
-                className={textLinkClassName}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                digicorp.com.pe
-              </a>{" "}
-              ·{" "}
-              <a
-                href={externalLinks.digicorpChile.href}
-                className={textLinkClassName}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                digicorp.cl
-              </a>
-            </p>
-            <Link href="/case-studies/digicorp" className={actionLinkClassName}>
-              Read Digicorp case study
-              <ArrowRight aria-hidden="true" className="h-4 w-4" />
-            </Link>
-          </Card>
-
-          <Card variant="flat" className="overflow-hidden p-3 sm:p-4 motion-fade-in motion-delay-1">
-            <figure>
-              <Image
-                src={DIGICORP_PROOF.imageSrc}
-                alt={DIGICORP_PROOF.imageAlt}
-                width={1400}
-                height={900}
-                sizes="(max-width: 1024px) 100vw, 560px"
-                priority
-                className="h-auto w-full rounded-xl border border-[var(--color-border)]"
-              />
-              <figcaption className="mt-3 text-sm leading-relaxed text-[var(--color-text-muted)]">
-                {DIGICORP_PROOF.note}
-              </figcaption>
-            </figure>
-          </Card>
-        </div>
-      </Section>
-
-      {recommendation && (
-        <Section title="Professional Recommendation" density="compact" tone="contrast">
-          <Card variant="flat" className="space-y-3 motion-fade-in motion-delay-1">
+      {recommendation ? (
+        <Section
+          eyebrow="Recommendation"
+          title="What a former executive said about working with me"
+          description="A short external reference from my time at Digicorp."
+          density="compact"
+        >
+          <Card variant="flat" className="space-y-4 motion-fade-in">
             <p className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
               <Quote aria-hidden="true" className="h-4 w-4" />
-              LinkedIn signal
+              External reference
             </p>
             <blockquote className="text-lg font-semibold leading-relaxed text-[var(--color-text)] sm:text-xl">
               &ldquo;{recommendation.quote}&rdquo;
@@ -268,59 +256,64 @@ export default function HomePage() {
             </p>
           </Card>
         </Section>
-      )}
+      ) : null}
 
       <Section
-        eyebrow="Case Study Snapshot"
-        title="Outcome-first delivery stories"
-        description="Three practical delivery contexts: DigiApp and e-commerce ownership, high-volume payment collections, and operational reliability."
+        eyebrow="Hiring"
+        title="Hiring? Start here"
+        description="If you want the quick recruiter version, these are the details and channels I would start with."
         tone="muted"
       >
-        <div className="grid gap-4 md:grid-cols-3">
-          {caseStudyHighlights.map((item, index) => (
-            <Card
-              key={item.slug}
-              hoverable
-              variant="elevated"
-              className={`flex h-full flex-col space-y-4 motion-fade-in ${index === 1 ? "motion-delay-1" : index === 2 ? "motion-delay-2" : ""}`}
-            >
-              <h3 className="text-lg font-semibold text-[var(--color-text)]">{item.title}</h3>
-              <p className="text-sm font-semibold text-[var(--color-text)]">{item.outcome}</p>
-              <ul className="list-disc space-y-1.5 pl-5 text-sm text-[var(--color-text-soft)]">
-                {item.impactMetrics.map((metric) => (
-                  <li key={metric}>{metric}</li>
-                ))}
-              </ul>
-              <p className="text-sm leading-relaxed text-[var(--color-text-soft)]">{item.summary}</p>
-              <Link
-                href={`/case-studies/${item.slug}`}
-                className={`${actionLinkClassName} mt-auto`}
-              >
-                Open case study
-                <ArrowRight aria-hidden="true" className="h-4 w-4" />
-              </Link>
-            </Card>
-          ))}
-        </div>
-      </Section>
+        <div className="grid gap-4 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.9fr)] lg:items-start">
+          <Card variant="proof" className="space-y-4 motion-fade-in">
+            <div className="grid gap-3 sm:grid-cols-2">
+              {recruiterQuickFacts.map((fact) => (
+                <div
+                  key={fact.label}
+                  className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-1)] px-4 py-3"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
+                    {fact.label}
+                  </p>
+                  <p className="mt-2 text-sm font-semibold leading-relaxed text-[var(--color-text)]">
+                    {fact.value}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </Card>
 
-      <Section
-        eyebrow="Contact"
-        title="Available for Software Engineer I/II roles"
-        description="If this profile matches your team needs, use the contact page for direct channels and quick outreach."
-      >
-        <Card variant="proof" className="space-y-5 motion-fade-in">
-          <p className="text-sm text-[var(--color-text-soft)] sm:text-base">
-            Based in {profileIdentity.location}. Open to remote or on-site collaboration.
-          </p>
-          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <ButtonLink href="/contact" className="w-full gap-2 sm:w-auto">
-              Open Contact Page
-              <MessageCircle aria-hidden="true" className="h-4 w-4" />
-            </ButtonLink>
-          </div>
-          <p className="text-sm text-[var(--color-text-muted)]">{recruiterResponseWindow}</p>
-        </Card>
+          <Card variant="flat" className="space-y-4 motion-fade-in motion-delay-1">
+            <p className="text-sm leading-relaxed text-[var(--color-text-soft)]">
+              I am easiest to reach by email if you want to talk about product engineering, full-stack work,
+              mobile delivery, or teams that need someone comfortable across implementation and operations.
+            </p>
+            <div className="flex flex-col gap-3">
+              <ButtonLink href={externalLinks.email.href!} className="w-full gap-2">
+                Email Carlos
+                <Mail aria-hidden="true" className="h-4 w-4" />
+              </ButtonLink>
+              <ButtonLink
+                href={externalLinks.linkedin.href!}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="secondary"
+                className="w-full gap-2"
+              >
+                LinkedIn
+                <Linkedin aria-hidden="true" className="h-4 w-4" />
+                <span className="sr-only"> (opens in new tab)</span>
+              </ButtonLink>
+            </div>
+            <p className="text-sm text-[var(--color-text-muted)]">
+              Prefer all contact options in one place?{" "}
+              <Link href="/contact" className={textLinkClassName}>
+                Visit the contact page
+              </Link>
+              .
+            </p>
+          </Card>
+        </div>
       </Section>
     </>
   );

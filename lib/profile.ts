@@ -64,42 +64,125 @@ export type RecommendationItem = {
   sourceUrl?: string;
 };
 
+export type FeaturedWin = {
+  id: "digicorp" | "octopus" | "us-ops";
+  title: string;
+  outcome: string;
+  ownership: string;
+  proofLabel?: string;
+  proofHref?: string;
+  ctaHref: string;
+};
+
+export type RecruiterQuickFact = {
+  label: string;
+  value: string;
+};
+
+export type AboutIntro = {
+  headline: string;
+  body: string;
+};
+
 export const profileIdentity: ProfileIdentity = {
   fullName: "Carlos Arancibia",
-  roleLabel: "Software Engineer | Full-Stack & Mobile",
-  headline: "I ship production software that teams can trust under real operational pressure.",
+  roleLabel: "Full-Stack & Mobile Software Engineer",
+  headline: "Full-stack and mobile engineer shipping production products used by real teams across LATAM and the U.S.",
   location: "Naples, FL 34105",
   email: "carloseav15@gmail.com",
   website: "https://www.carlos-arancibia.com",
   summary:
-    "Software Engineer with 7+ years of experience building and maintaining production systems across mobile, web, payments, and operational platforms in LATAM and the United States.",
-  openTo: "Open to Software Engineer I/II roles (remote or on-site).",
+    "I build apps, internal tools, and payment workflows with clear ownership, steady delivery, and close collaboration across product and operations teams.",
+  openTo: "Open to software engineering roles across product, platform, and business systems.",
   languages: ["English (professional working)", "Spanish (native)"],
 };
+
+export const heroProofPoints = ["10,000+ downloads", "3,000 daily users", "~1,000 daily operations"];
+
+export const recruiterQuickFacts: RecruiterQuickFact[] = [
+  {
+    label: "Based in",
+    value: "Naples, FL",
+  },
+  {
+    label: "Open to",
+    value: "Remote, hybrid, or on-site roles",
+  },
+  {
+    label: "Languages",
+    value: "English and Spanish",
+  },
+  {
+    label: "Response time",
+    value: "Usually replies within 24-48 hours",
+  },
+];
+
+export const featuredWins: FeaturedWin[] = [
+  {
+    id: "digicorp",
+    title: "Digicorp DigiApp & Commerce",
+    outcome: "10,000+ Android downloads and a commerce platform still serving daily shoppers.",
+    ownership: "I owned mobile delivery, store releases, and the core web commerce platform built in Vanilla JavaScript.",
+    proofLabel: "Google Play listing",
+    proofHref:
+      "https://play.google.com/store/apps/details?id=digicorp.com.bo.main.digiecommerce&hl=es_419",
+    ctaHref: "/case-studies/digicorp",
+  },
+  {
+    id: "octopus",
+    title: "Octopus Payments Platform",
+    outcome: "About 1,000 daily service-collection operations in active cooperative environments.",
+    ownership: "I owned architecture, Android and Flutter flows, and the settlement logic behind daily collections.",
+    ctaHref: "/case-studies/octopus",
+  },
+  {
+    id: "us-ops",
+    title: "Community Operations Platform",
+    outcome: "Role-based workflows that kept recurring events and daily reporting usable for 100+ active users.",
+    ownership: "I built and maintained registration, reporting, maps, and event-support flows for non-technical teams.",
+    ctaHref: "/case-studies/us-ops",
+  },
+];
+
+export const aboutIntro: AboutIntro = {
+  headline: "I started in infrastructure, moved into Android, and grew into shipping full-stack products end to end.",
+  body:
+    "That path taught me to care about delivery after launch, not just the build. Across Bolivia, Peru, Chile, and the U.S., I have worked on public mobile apps, internal tools, payment workflows, and role-based platforms that teams rely on every day.\n\nI do my best work where business processes are messy, users need clear flows, and teams want someone who can collaborate across product, engineering, and operations without losing execution speed.",
+};
+
+export const personalStrengths = [
+  "I translate messy workflows into software that people can actually use day to day.",
+  "I am comfortable owning both the first release and the iteration work that follows after launch.",
+  "I communicate clearly with product, ops, and non-technical teammates when tradeoffs need to be made.",
+];
+
+export const parallelRolesNote =
+  "Some roles overlapped by design. V@COMM and Digicorp ran in parallel from Dec 2019 to Jun 2024 with separate products, clients, and ownership boundaries.";
 
 export const profileMetrics: ProfileMetric[] = [
   {
     label: "Android downloads",
     value: "10,000+",
-    context: "Digicorp DigiApp distribution",
+    context: "Digicorp DigiApp public distribution",
     status: "verified",
   },
   {
     label: "Production engineering",
     value: "7+ years",
-    context: "Systems delivered across LATAM and U.S.",
+    context: "Products shipped across LATAM and the U.S.",
     status: "verified",
   },
   {
-    label: "Daily users (Bolivia)",
+    label: "Daily users",
     value: "3,000/day",
-    context: "Digicorp commerce platform daily usage in Bolivia",
+    context: "Digicorp commerce usage in Bolivia",
     status: "verified",
   },
   {
-    label: "Service collections",
+    label: "Daily operations",
     value: "~1,000/day",
-    context: "Octopus service-collection operations in cooperative environments",
+    context: "Octopus payment collections",
     status: "verified",
   },
 ];
@@ -129,8 +212,8 @@ export const careerTimeline: ExperienceItem[] = [
     period: experienceDates.datec.label,
     location: "Bolivia",
     highlights: [
-      "Supported early-stage D-Cloud monitoring systems",
-      "Maintained secure infrastructure workflows and operational protocols",
+      "Supported early-stage D-Cloud monitoring systems.",
+      "Maintained secure infrastructure workflows and operational protocols.",
     ],
   },
   {
@@ -139,9 +222,9 @@ export const careerTimeline: ExperienceItem[] = [
     period: experienceDates.tismart.label,
     location: "Bolivia",
     highlights: [
-      "Integrated REST APIs for billing and inspection tracking",
-      "Contributed to financial app UI and production maintenance",
-      "Worked in Agile delivery cycles",
+      "Integrated REST APIs for billing and inspection tracking.",
+      "Contributed to financial app UI and production maintenance.",
+      "Worked in Agile delivery cycles.",
     ],
   },
   {
@@ -152,9 +235,9 @@ export const careerTimeline: ExperienceItem[] = [
     activeInProduction: true,
     statusNote: "Active in Production",
     highlights: [
-      "Built daily registration and reporting systems used by 100+ active users",
-      "Implemented geospatial branch coverage tools with geofencing",
-      "Delivered role-based websites and internal dashboards",
+      "Built daily registration and reporting systems used by 100+ active users.",
+      "Implemented geospatial branch coverage tools with geofencing.",
+      "Delivered role-based websites and internal dashboards.",
     ],
   },
   {
@@ -166,10 +249,10 @@ export const careerTimeline: ExperienceItem[] = [
     activeInProduction: true,
     statusNote: "Active in Production",
     highlights: [
-      "Built Octopus payments platform with Android app and printer integration",
-      "Shipped Flutter wallet with OTP, SMS workflows, and settlement automation",
-      "Enabled service collections for telecom and utility-style workflows with commission and settlement logic",
-      "Launched in two credit cooperatives and the platform remains in active operational use",
+      "Built Octopus payments platform with Android app and printer integration.",
+      "Shipped Flutter wallet with OTP, SMS workflows, and settlement automation.",
+      "Launched in two credit cooperatives and the platform remains in active operational use.",
+      "Enabled service collections with commission and settlement logic.",
     ],
   },
   {
@@ -181,12 +264,10 @@ export const careerTimeline: ExperienceItem[] = [
     activeInProduction: true,
     statusNote: "Active in Production",
     highlights: [
-      "Led DigiApp Android and iOS delivery and publishing",
-      "Reached 10,000+ Android downloads",
-      "Designed and maintained Digicorp e-commerce web platform from scratch using Vanilla JavaScript",
-      "Integrated payment gateways, ERP systems, and reporting modules",
-      "Built a web + mobile e-commerce MVP in about one month",
-      "Supported daily platform usage around 3,000 users in Bolivia",
+      "Led DigiApp Android and iOS delivery and publishing.",
+      "Designed and maintained Digicorp e-commerce web platform from scratch using Vanilla JavaScript.",
+      "Integrated payment gateways, ERP systems, and reporting modules.",
+      "Supported daily platform usage around 3,000 users in Bolivia.",
     ],
   },
   {
@@ -197,11 +278,10 @@ export const careerTimeline: ExperienceItem[] = [
     activeInProduction: true,
     statusNote: "Operational systems remain active",
     highlights: [
-      "Built a real-time dashboard for business insights and operational transparency",
-      "Developed a web/mobile system for technical team management, including task tracking and material and vehicle status",
-      "Created a service order management tool with pricing logic, memberships, PDF generation, and email communications",
-      "Redesigned the company website to improve engagement and showcase services using JavaScript, Tailwind CSS, Flutter, Firebase, and Supabase",
-      "Systems delivered in this period remain in operational use",
+      "Built a real-time dashboard for business insights and operational transparency.",
+      "Developed web and mobile systems for technical team management.",
+      "Created service order management with pricing logic, PDFs, and email communication.",
+      "Redesigned the company website to improve engagement and showcase services.",
     ],
   },
   {
@@ -210,33 +290,32 @@ export const careerTimeline: ExperienceItem[] = [
     period: experienceDates.matchdayos.label,
     location: "Remote",
     highlights: [
-      "Designed and implemented a role-based soccer operations platform with 5 workspaces and route-level access control",
-      "Built complete matchday workflows: fixture setup, referee assignment, roster validation, live console, and official report closure",
-      "Delivered public competition experiences with standings, player statistics, schedule visibility, and highlights",
-      "Integrated Supabase backend (PostgreSQL + Storage) with typed TypeScript boundaries and UX telemetry",
-      "Implemented multi-role automated testing with Vitest and Playwright using realistic seed scenarios",
+      "Designed and implemented a role-based soccer operations platform with 5 workspaces.",
+      "Built matchday workflows from setup and roster validation to official closure.",
+      "Integrated Supabase, typed TypeScript boundaries, and automated tests.",
+      "Delivered public competition views for standings, schedules, and player stats.",
     ],
   },
 ];
 
 export const careerPrinciples = [
-  "Clarity before complexity in system design.",
-  "Fast iteration with explicit ownership and accountability.",
-  "Accessibility and reliability are product requirements, not polish.",
-  "AI speeds implementation; engineering judgment owns outcomes.",
+  "I like turning ambiguous business workflows into clear product decisions and straightforward code paths.",
+  "I keep scope honest so teams can ship, learn, and improve without losing trust.",
+  "I collaborate comfortably with product, design, ops, and business stakeholders.",
+  "I treat accessibility and maintainability as part of the feature, not cleanup.",
 ];
 
 export const caseStudyHighlights: CaseStudyHighlight[] = [
   {
     slug: "digicorp",
-    title: "Digicorp DigiApp & E-Commerce Ownership",
+    title: "Digicorp DigiApp & Commerce Ownership",
     summary:
-      "DigiApp Android and iOS ownership plus e-commerce web platform designed and maintained from scratch with Vanilla JavaScript.",
-    outcome: "10,000+ downloads and multi-year production reliability with active platform continuity.",
+      "Public mobile delivery plus the web commerce platform designed and maintained from scratch with Vanilla JavaScript.",
+    outcome: "10,000+ Android downloads and multi-year platform continuity.",
     impactMetrics: [
       "10,000+ Android downloads",
       `${experienceDates.digicorp.label} ownership window`,
-      "Vanilla JavaScript web e-commerce from scratch",
+      "Vanilla JavaScript commerce platform",
     ],
     evidenceStatus: "verified",
   },
@@ -244,7 +323,7 @@ export const caseStudyHighlights: CaseStudyHighlight[] = [
     slug: "octopus",
     title: "Octopus Payments Platform",
     summary:
-      "Co-founded and engineered a payment collection platform with Android printing flows, cooperative settlement logic, and third-party integrations.",
+      "Payment collections product with Android printing flows, cooperative settlement logic, and daily operational volume.",
     outcome: "Platform remains active with about 1,000 daily service-collection operations.",
     impactMetrics: [
       "~1,000 service-collection operations/day",
@@ -258,8 +337,7 @@ export const caseStudyHighlights: CaseStudyHighlight[] = [
     title: "MatchdayOS - End-to-End Soccer Operations",
     summary:
       "Role-based platform for clubs, leagues, referees, guardians, and players with live matchday control and official reporting.",
-    outcome:
-      "Operational matchday lifecycle delivered from setup to official closure with public competition analytics.",
+    outcome: "End-to-end matchday operations and public competition visibility in one product.",
     impactMetrics: [
       "5 operational roles",
       "70 route-level pages",
@@ -273,7 +351,7 @@ export const caseStudyHighlights: CaseStudyHighlight[] = [
 export const contactChannels: ContactChannel[] = [
   {
     type: "email",
-    label: "Email",
+    label: "Email Carlos",
     href: `mailto:${profileIdentity.email}`,
     status: "verified",
     primary: true,
@@ -299,7 +377,7 @@ export const recommendations: RecommendationItem[] = [
     title: "CEO at Digicorp Ltda",
     dateLabel: "Jul 27, 2022",
     relationshipLabel: "senior to Carlos, not direct manager",
-    sourceLabel: "LinkedIn recommendation",
+    sourceLabel: "View full recommendation",
     sourceUrl: "https://www.linkedin.com/in/carancibiav/details/recommendations/",
   },
 ];

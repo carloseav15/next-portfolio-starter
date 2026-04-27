@@ -20,6 +20,7 @@ export function Nav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const panelId = useId();
   const headerRef = useRef<HTMLElement>(null);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     if (!mobileMenuOpen) {
@@ -37,6 +38,7 @@ export function Nav() {
     const onEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setMobileMenuOpen(false);
+        menuButtonRef.current?.focus();
       }
     };
 
@@ -120,9 +122,9 @@ export function Nav() {
             </ButtonLink>
 
             <button
+              ref={menuButtonRef}
               type="button"
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-              aria-haspopup="dialog"
               aria-expanded={mobileMenuOpen}
               aria-controls={panelId}
               onClick={() => setMobileMenuOpen((current) => !current)}
@@ -140,7 +142,6 @@ export function Nav() {
         {mobileMenuOpen && (
           <div
             id={panelId}
-            role="dialog"
             aria-label="Mobile navigation"
             className="mt-3 space-y-2 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-2)] p-3 shadow-[0_22px_40px_-28px_var(--color-shadow)] sm:hidden"
           >
