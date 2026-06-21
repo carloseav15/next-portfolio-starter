@@ -50,14 +50,12 @@ export function ResumePreview({ src }: ResumePreviewProps) {
       ) : (
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <p className="text-sm font-semibold text-[var(--color-text-soft)]">
-              Resume Preview
-            </p>
+            <p className="text-sm font-semibold text-[var(--color-text-soft)]">Resume Preview</p>
             <button
               type="button"
               onClick={handleClose}
               aria-label="Close inline preview"
-              className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full text-[var(--color-text-muted)] transition hover:bg-[var(--color-subtle-bg)] hover:text-[var(--color-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]"
+              className="focus-ring inline-flex min-h-11 min-w-11 items-center justify-center rounded-full text-[var(--color-text-muted)] transition hover:bg-[var(--color-subtle-bg)] hover:text-[var(--color-text)]"
             >
               <X aria-hidden="true" className="h-5 w-5" />
             </button>
@@ -77,9 +75,7 @@ export function ResumePreview({ src }: ResumePreviewProps) {
                 role="alert"
               >
                 <AlertCircle aria-hidden="true" className="h-8 w-8 text-[var(--color-text-muted)]" />
-                <p className="text-sm text-[var(--color-text-soft)]">
-                  Could not load the resume preview.
-                </p>
+                <p className="text-sm text-[var(--color-text-soft)]">Could not load the resume preview.</p>
                 <Button type="button" variant="secondary" onClick={handleRetry} className="mt-2">
                   Try again
                 </Button>

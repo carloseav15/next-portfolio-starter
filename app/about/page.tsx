@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
+import { BulletList, BulletListItem } from "@/components/ui/BulletList";
 import {
   aboutIntro,
   careerPrinciples,
@@ -34,16 +35,13 @@ const aboutParagraphs = aboutIntro.body.split("\n\n");
 export default function AboutPage() {
   return (
     <>
-      <Section
-        eyebrow="About Carlos"
-        title={aboutIntro.headline}
-        titleAs="h1"
-        description={profileIdentity.summary}
-        density="compact"
-      >
+      <Section eyebrow="About Carlos" title={aboutIntro.headline} titleAs="h1" density="compact">
         <Card variant="proof" className="space-y-4 motion-fade-in">
           {aboutParagraphs.map((paragraph) => (
-            <p key={paragraph} className="max-w-[72ch] text-[0.98rem] leading-relaxed text-[var(--color-text-soft)] sm:text-base">
+            <p
+              key={paragraph}
+              className="max-w-[72ch] text-[0.98rem] leading-relaxed text-[var(--color-text-soft)] sm:text-base"
+            >
               {paragraph}
             </p>
           ))}
@@ -87,8 +85,8 @@ export default function AboutPage() {
       >
         <Card variant="flat" className="motion-fade-in">
           <p className="text-sm leading-relaxed text-[var(--color-text-soft)]">
-            Bachelor&apos;s degree in Systems Engineering from Universidad Católica Boliviana,
-            completed between 2012 and 2017.
+            Bachelor&apos;s degree in Systems Engineering from Universidad Católica Boliviana, completed between 2012
+            and 2017.
           </p>
         </Card>
       </Section>
@@ -153,11 +151,11 @@ export default function AboutPage() {
                 </Badge>
               ) : null}
 
-              <ul className="list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-[var(--color-text-soft)] sm:text-base">
+              <BulletList className="space-y-1.5 sm:text-base">
                 {item.highlights.slice(0, 3).map((highlight) => (
-                  <li key={highlight}>{highlight}</li>
+                  <BulletListItem key={highlight}>{highlight}</BulletListItem>
                 ))}
-              </ul>
+              </BulletList>
             </Card>
           ))}
         </div>

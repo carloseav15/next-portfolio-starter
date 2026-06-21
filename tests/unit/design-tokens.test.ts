@@ -30,7 +30,12 @@ function parseVars(block: string) {
 function hexToRgb(hex: string) {
   const clean = hex.replace("#", "");
   const normalized =
-    clean.length === 3 ? clean.split("").map((char) => `${char}${char}`).join("") : clean;
+    clean.length === 3
+      ? clean
+          .split("")
+          .map((char) => `${char}${char}`)
+          .join("")
+      : clean;
 
   const value = Number.parseInt(normalized, 16);
 
@@ -50,10 +55,8 @@ function contrastRatio(foreground: string, background: string) {
   const fg = hexToRgb(foreground);
   const bg = hexToRgb(background);
 
-  const fgLuminance =
-    0.2126 * srgbToLinear(fg.r) + 0.7152 * srgbToLinear(fg.g) + 0.0722 * srgbToLinear(fg.b);
-  const bgLuminance =
-    0.2126 * srgbToLinear(bg.r) + 0.7152 * srgbToLinear(bg.g) + 0.0722 * srgbToLinear(bg.b);
+  const fgLuminance = 0.2126 * srgbToLinear(fg.r) + 0.7152 * srgbToLinear(fg.g) + 0.0722 * srgbToLinear(fg.b);
+  const bgLuminance = 0.2126 * srgbToLinear(bg.r) + 0.7152 * srgbToLinear(bg.g) + 0.0722 * srgbToLinear(bg.b);
 
   const lighter = Math.max(fgLuminance, bgLuminance);
   const darker = Math.min(fgLuminance, bgLuminance);
@@ -68,38 +71,30 @@ describe("design tokens", () => {
   const darkVars = parseVars(extractCssBlock(css, ".dark"));
 
   it("locks recruiter-focused accent token values", () => {
-    expect(lightVars["--color-accent"]).toBe("#0d7795");
-    expect(lightVars["--color-accent-strong"]).toBe("#0a647a");
-    expect(lightVars["--color-on-accent"]).toBe("#f3fcff");
+    expect(lightVars["--color-accent"]).toBe("#0f172a");
+    expect(lightVars["--color-accent-strong"]).toBe("#020617");
+    expect(lightVars["--color-on-accent"]).toBe("#ffffff");
 
-    expect(darkVars["--color-accent"]).toBe("#28bddf");
-    expect(darkVars["--color-accent-strong"]).toBe("#1ea4c3");
-    expect(darkVars["--color-on-accent"]).toBe("#03202a");
+    expect(darkVars["--color-accent"]).toBe("#f8fafc");
+    expect(darkVars["--color-accent-strong"]).toBe("#ffffff");
+    expect(darkVars["--color-on-accent"]).toBe("#020617");
   });
 
   it("keeps AA contrast ratios on critical button and body pairs", () => {
-    expect(
-      contrastRatio(lightVars["--color-on-accent"], lightVars["--color-accent"]),
-    ).toBeGreaterThanOrEqual(4.5);
-    expect(
-      contrastRatio(lightVars["--color-on-accent"], lightVars["--color-accent-strong"]),
-    ).toBeGreaterThanOrEqual(4.5);
+    expect(contrastRatio(lightVars["--color-on-accent"], lightVars["--color-accent"])).toBeGreaterThanOrEqual(4.5);
+    expect(contrastRatio(lightVars["--color-on-accent"], lightVars["--color-accent-strong"])).toBeGreaterThanOrEqual(
+      4.5,
+    );
     expect(contrastRatio(lightVars["--color-text"], lightVars["--color-bg"])).toBeGreaterThanOrEqual(4.5);
-    expect(contrastRatio(lightVars["--color-link-hover"], lightVars["--color-bg"])).toBeGreaterThanOrEqual(
-      4.5,
-    );
+    expect(contrastRatio(lightVars["--color-link-hover"], lightVars["--color-bg"])).toBeGreaterThanOrEqual(4.5);
 
-    expect(contrastRatio(darkVars["--color-on-accent"], darkVars["--color-accent"])).toBeGreaterThanOrEqual(
-      4.5,
-    );
-    expect(
-      contrastRatio(darkVars["--color-on-accent"], darkVars["--color-accent-strong"]),
-    ).toBeGreaterThanOrEqual(4.5);
+    expect(contrastRatio(darkVars["--color-on-accent"], darkVars["--color-accent"])).toBeGreaterThanOrEqual(4.5);
+    expect(contrastRatio(darkVars["--color-on-accent"], darkVars["--color-accent-strong"])).toBeGreaterThanOrEqual(4.5);
     expect(contrastRatio(darkVars["--color-text"], darkVars["--color-bg"])).toBeGreaterThanOrEqual(4.5);
   });
 
   it("avoids brightness-based hover on primary button to preserve AA contrast", () => {
     expect(buttonSource).not.toContain("hover:brightness-110");
-    expect(buttonSource).toContain("hover:shadow-[0_20px_34px_-20px_var(--color-accent-strong)]");
+    expect(buttonSource).toContain("hover:shadow-[0_4px_12px_var(--color-shadow)]");
   });
 });

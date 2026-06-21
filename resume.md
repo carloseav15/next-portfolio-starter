@@ -1,6 +1,6 @@
 # Carlos Arancibia
 **Full-Stack & Mobile Software Engineer**  
-Naples, FL 34105 | carloseav15@gmail.com | (239) 300-8888 *(Placeholder - replace with your phone)*  
+Naples, FL 34105 | carloseav15@gmail.com | (239) 300-8888  
 [linkedin.com/in/carancibiav](https://linkedin.com/in/carancibiav) | [github.com/carloseav15](https://github.com/carloseav15) | [carlos-arancibia.com](https://www.carlos-arancibia.com) | **U.S. Work Authorization: EAD (No sponsorship required)**
 
 ---

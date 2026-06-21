@@ -44,20 +44,13 @@ const caseStudyEntries: CaseStudyEntry[] = [
     slug: "digicorp",
     audienceTier: "primary",
     tags: ["DigiApp", "Vanilla JavaScript", "Mobile Delivery", "Commerce"],
-    seoKeywords: [
-      "DigiApp",
-      "mobile app delivery",
-      "Vanilla JavaScript ecommerce",
-      "Google Play",
-      "App Store",
-    ],
+    seoKeywords: ["DigiApp", "mobile app delivery", "Vanilla JavaScript ecommerce", "Google Play", "App Store"],
     date: experienceDates.digicorp.endIso ?? experienceDates.digicorp.startIso,
     summary:
-      "Public app delivery plus the Digicorp e-commerce platform designed and maintained from scratch inside a live B2B commerce environment.",
-    cardSummary:
-      "Public mobile delivery plus the commerce platform behind Digicorp's digital sales motion.",
+      "Public mobile app releases plus a custom B2B web commerce platform built and maintained inside a live commerce environment.",
+    cardSummary: "Public mobile app releases and custom B2B web commerce platform designed from scratch.",
     readingTime: "6 min",
-    role: "Main programmer for Digicorp's DigiApp mobile applications and core e-commerce web platform",
+    role: "Main programmer for Digicorp's DigiApp mobile applications and core B2B e-commerce web platform",
     teamContext: "Worked inside Digicorp with product and operations teams",
     timeline: experienceDates.digicorp.label,
     primaryOutcome: "10,000+ Android downloads and sustained production continuity",
@@ -66,13 +59,13 @@ const caseStudyEntries: CaseStudyEntry[] = [
       "E-commerce web from scratch in Vanilla JavaScript",
       "Platform remains active in production",
     ],
-    cardHighlights: ["10,000+ Android downloads", "Vanilla JavaScript commerce platform"],
-    ownershipLabel: "Owned mobile delivery, store releases, and the core web commerce platform.",
+    cardHighlights: ["Vanilla JavaScript commerce platform", "Multi-country B2B deployment"],
+    ownershipLabel: "Owned mobile app releases (Android/iOS) and engineered the core B2B commerce platform.",
     whyItMatters:
       "This case shows public app shipping, long-term maintenance, and ownership across web and mobile in one business-critical product area.",
     stack: ["Kotlin", "Java", "Vanilla JavaScript", "Firebase", "Play Console", "App Store Connect"],
     evidenceStatus: "verified",
-    featuredOrder: 2,
+    featuredOrder: 1,
     activeInProduction: true,
     featured: true,
     Content: DigicorpCaseStudy,
@@ -91,9 +84,9 @@ const caseStudyEntries: CaseStudyEntry[] = [
     ],
     date: experienceDates.vcomm.endIso ?? experienceDates.vcomm.startIso,
     summary:
-      "Built and launched a cooperative-focused payments product handling service collections, wallet flows, OTP verification, and settlement logic in active production.",
+      "Built and launched a payments platform handling utility collections, native printing integration, OTP verification, and automated settlement in credit union networks.",
     cardSummary:
-      "Payments product built for collection volume, settlement accuracy, and daily cooperative operations.",
+      "Payments product handling utility collections, native printing, and automated settlement for credit unions.",
     readingTime: "6 min",
     role: "Co-Founder & Technical Lead owning architecture and implementation",
     teamContext: "Three co-founders; I owned API, mobile, and operational workflow delivery end-to-end",
@@ -104,13 +97,14 @@ const caseStudyEntries: CaseStudyEntry[] = [
       "Launched in two credit cooperatives",
       "Commission and settlement logic automated in production",
     ],
-    cardHighlights: ["~1,000 daily service-collection operations", "Launched in two credit cooperatives"],
-    ownershipLabel: "Owned architecture, Android and Flutter flows, and the settlement logic behind daily collections.",
+    cardHighlights: ["Android thermal print integration", "Automated commission & settlement logic"],
+    ownershipLabel:
+      "Owned payment collection architecture, mobile client flows (Android/Flutter), and daily settlement logic.",
     whyItMatters:
       "This case shows payment workflow design, third-party integrations, and product trust under real daily transaction volume.",
     stack: ["Flutter", "Android", "Firebase", "REST APIs", "Twilio SMS", "OTP Verification"],
     evidenceStatus: "verified",
-    featuredOrder: 3,
+    featuredOrder: 2,
     activeInProduction: true,
     featured: true,
     Content: OctopusCaseStudy,
@@ -130,18 +124,13 @@ const caseStudyEntries: CaseStudyEntry[] = [
     date: experienceDates.tiempoCambio.endIso ?? experienceDates.tiempoCambio.startIso,
     summary:
       "Operational systems used daily by 100+ active users for registration, reporting, branch visibility, and recurring live events.",
-    cardSummary:
-      "Role-based workflows that made daily execution and recurring events easier for non-technical teams.",
+    cardSummary: "Role-based workflows that made daily execution and recurring events easier for non-technical teams.",
     readingTime: "6 min",
     role: "Engineer supporting digital platform initiatives",
     teamContext: "Collaborated with leadership and operational teams across recurring workflows",
     timeline: experienceDates.tiempoCambio.label,
     primaryOutcome: "Reliable daily operations for 100+ active users",
-    impactMetrics: [
-      "100+ active users",
-      "Live-event operational support",
-      "Platform remains active in production",
-    ],
+    impactMetrics: ["100+ active users", "Live-event operational support", "Platform remains active in production"],
     cardHighlights: ["100+ active users", "Role-based systems for recurring events"],
     ownershipLabel: "Built and maintained registration, reporting, maps, and event-support flows.",
     whyItMatters:
@@ -167,9 +156,9 @@ const caseStudyEntries: CaseStudyEntry[] = [
     ],
     date: experienceDates.playfit.startIso,
     summary:
-      "A modern, local-first game recommendation assistant solving choice fatigue with zero-login onboarding, affinity scoring, and atomic profile migrations.",
+      "A local-first video game recommendation engine resolving user sign-up barriers with local-first IndexedDB storage and serverless profile migrations.",
     cardSummary:
-      "Modern full-stack product engineering with local-first state, Deno edge migrations, and secure PL/pgSQL database logic.",
+      "Local-first recommendation engine resolving user sign-up barriers with IndexedDB state and serverless migrations.",
     readingTime: "7 min",
     role: "Full Stack Developer",
     teamContext: "Independent personal project demonstrating state-of-the-art web stack",
@@ -182,7 +171,7 @@ const caseStudyEntries: CaseStudyEntry[] = [
       "13+ automated test files (Vitest + Playwright)",
     ],
     cardHighlights: ["Zero-Login onboarding with IndexedDB", "Supabase Edge Functions atomic migration"],
-    ownershipLabel: "Architected Next.js 16/React 19 monorepo, IndexedDB store, and Supabase RLS database functions.",
+    ownershipLabel: "Architected local-first client state, Supabase database schemas, and edge API integrations.",
     whyItMatters:
       "This case showcases modern product engineering using local-first storage, Deno serverless edge APIs, strict database security, and solid automated testing.",
     stack: [
@@ -198,7 +187,7 @@ const caseStudyEntries: CaseStudyEntry[] = [
       "Biome",
     ],
     evidenceStatus: "verified",
-    featuredOrder: 1,
+    featuredOrder: 3,
     activeInProduction: true,
     featured: true,
     Content: PlayfitCaseStudy,

@@ -1,13 +1,12 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
-import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { ProofPill } from "@/components/ui/ProofPill";
 import { formatUtcDate } from "@/lib/dates";
 import type { CaseStudyMetadata } from "@/lib/caseStudies";
-import { actionLinkClassName, textLinkClassName } from "@/lib/uiClasses";
+import { TextLink, ActionLink } from "@/components/ui/Link";
 
 type CaseStudyArticleProps = {
   metadata: CaseStudyMetadata;
@@ -29,13 +28,17 @@ export function CaseStudyArticle({ metadata, children, prevCaseStudy, nextCaseSt
       <nav aria-label="Breadcrumb">
         <ol className="flex flex-wrap items-center gap-1 text-sm text-[var(--color-text-muted)]">
           <li>
-            <Link href="/" className={textLinkClassName}>Home</Link>
+            <TextLink href="/">Home</TextLink>
           </li>
-          <li aria-hidden="true" className="select-none">/</li>
+          <li aria-hidden="true" className="select-none">
+            /
+          </li>
           <li>
-            <Link href="/case-studies" className={textLinkClassName}>Case Studies</Link>
+            <TextLink href="/case-studies">Case Studies</TextLink>
           </li>
-          <li aria-hidden="true" className="select-none">/</li>
+          <li aria-hidden="true" className="select-none">
+            /
+          </li>
           <li className="font-semibold text-[var(--color-text-soft)]" aria-current="page">
             {metadata.title}
           </li>
@@ -122,24 +125,18 @@ export function CaseStudyArticle({ metadata, children, prevCaseStudy, nextCaseSt
         {(prevCaseStudy || nextCaseStudy) && (
           <nav aria-label="Adjacent case studies" className="mt-10 grid gap-3 sm:grid-cols-2">
             {prevCaseStudy ? (
-              <Link
-                href={`/case-studies/${prevCaseStudy.slug}`}
-                className={`${actionLinkClassName} justify-start gap-2`}
-              >
+              <ActionLink href={`/case-studies/${prevCaseStudy.slug}`} className="justify-start gap-2">
                 <ArrowLeft aria-hidden="true" className="h-4 w-4 shrink-0" />
                 <span className="truncate">{prevCaseStudy.title}</span>
-              </Link>
+              </ActionLink>
             ) : (
               <div />
             )}
             {nextCaseStudy ? (
-              <Link
-                href={`/case-studies/${nextCaseStudy.slug}`}
-                className={`${actionLinkClassName} justify-end gap-2 sm:text-right`}
-              >
+              <ActionLink href={`/case-studies/${nextCaseStudy.slug}`} className="justify-end gap-2 sm:text-right">
                 <span className="truncate">{nextCaseStudy.title}</span>
                 <ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0" />
-              </Link>
+              </ActionLink>
             ) : (
               <div />
             )}

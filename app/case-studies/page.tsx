@@ -1,13 +1,12 @@
 import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 import { caseStudies } from "@/lib/caseStudies";
 import { formatUtcDate } from "@/lib/dates";
 import { buildPageMetadata, createAbsoluteUrl } from "@/lib/site";
-import { actionLinkClassName } from "@/lib/uiClasses";
+import { ActionLink } from "@/components/ui/Link";
 
 const canonicalUrl = createAbsoluteUrl("/case-studies");
 const caseStudiesDescription =
@@ -62,14 +61,8 @@ export default function CaseStudiesPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
       <Section
         eyebrow="Case Studies"
         title="Ownership, outcomes, and shipped systems"
@@ -78,9 +71,8 @@ export default function CaseStudiesPage() {
         density="compact"
       >
         <p className="mb-6 max-w-[70ch] text-sm leading-relaxed text-[var(--color-text-muted)] sm:text-base">
-          The cases below cover shipped apps, payment workflows, and internal systems, ordered to help
-          recruiters and hiring managers move from strongest proof to supporting product depth without
-          reading more than they need.
+          The cases below cover shipped apps, payment workflows, and internal systems, ordered to help recruiters and
+          hiring managers move from strongest proof to supporting product depth without reading more than they need.
         </p>
 
         <div className="grid gap-4 sm:gap-5 lg:grid-cols-2">
@@ -103,27 +95,32 @@ export default function CaseStudiesPage() {
 
               <div className="space-y-3">
                 <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-text)]">{caseStudy.title}</h2>
-                <p className="text-sm leading-relaxed text-[var(--color-text)] sm:text-base">{caseStudy.whyItMatters}</p>
-              </div>
-
-              <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-[var(--color-text-soft)]">
-                {caseStudy.cardHighlights.slice(0, 2).map((highlight) => (
-                  <li key={`${caseStudy.slug}-${highlight}`}>{highlight}</li>
-                ))}
-              </ul>
-
-              <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-subtle-bg)] px-3.5 py-3">
-                <p className="text-sm font-semibold text-[var(--color-text)]">Ownership</p>
-                <p className="mt-1 text-sm leading-relaxed text-[var(--color-text-soft)]">
-                  {caseStudy.ownershipLabel}
+                <p className="text-sm leading-relaxed text-[var(--color-text)] sm:text-base">
+                  {caseStudy.whyItMatters}
                 </p>
               </div>
 
+              <div className="space-y-2 text-sm leading-relaxed text-[var(--color-text-soft)]">
+                {caseStudy.cardHighlights.slice(0, 2).map((highlight) => (
+                  <div key={`${caseStudy.slug}-${highlight}`} className="flex items-start gap-2">
+                    <span className="text-[var(--color-accent)] font-semibold select-none" aria-hidden="true">
+                      •
+                    </span>
+                    <span>{highlight}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-subtle-bg)] px-3.5 py-3">
+                <p className="text-sm font-semibold text-[var(--color-text)]">Ownership</p>
+                <p className="mt-1 text-sm leading-relaxed text-[var(--color-text-soft)]">{caseStudy.ownershipLabel}</p>
+              </div>
+
               <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-1">
-                <Link href={`/case-studies/${caseStudy.slug}`} className={actionLinkClassName}>
+                <ActionLink href={`/case-studies/${caseStudy.slug}`}>
                   Read {caseStudy.title} case study
                   <ArrowRight aria-hidden="true" className="h-4 w-4" />
-                </Link>
+                </ActionLink>
                 <span className="hidden text-sm font-semibold text-[var(--color-text-muted)] sm:inline">
                   {caseStudy.readingTime}
                 </span>
@@ -134,9 +131,7 @@ export default function CaseStudiesPage() {
 
         {secondaryCaseStudies.length > 0 ? (
           <div className="mt-10">
-            <h2 className="display-heading text-2xl text-[var(--color-text)] sm:text-3xl">
-              Additional Product Work
-            </h2>
+            <h2 className="display-heading text-2xl text-[var(--color-text)] sm:text-3xl">Additional Product Work</h2>
             <p className="mt-2 max-w-[70ch] text-sm text-[var(--color-text-muted)] sm:text-base">
               Supporting product work that helps round out how I think about modern product engineering.
             </p>
@@ -167,10 +162,10 @@ export default function CaseStudiesPage() {
                     <p className="text-sm leading-relaxed text-[var(--color-text)]">{caseStudy.whyItMatters}</p>
                   </div>
                   <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-1">
-                    <Link href={`/case-studies/${caseStudy.slug}`} className={actionLinkClassName}>
+                    <ActionLink href={`/case-studies/${caseStudy.slug}`}>
                       Read {caseStudy.title} case study
                       <ArrowRight aria-hidden="true" className="h-4 w-4" />
-                    </Link>
+                    </ActionLink>
                     <span className="hidden text-sm font-semibold text-[var(--color-text-muted)] sm:inline">
                       {caseStudy.readingTime}
                     </span>

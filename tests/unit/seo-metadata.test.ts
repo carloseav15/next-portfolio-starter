@@ -48,7 +48,7 @@ describe("SEO metadata and canonical surface", () => {
     expect(robotsConfig.host).toBe(expectedOrigin);
     expect(robotsConfig.sitemap).toBe(`${expectedOrigin}/sitemap.xml`);
     expect(sitemapSource).toContain("process.env.BUILD_DATE");
-    expect(sitemapSource).toContain("createAbsoluteUrl(route || \"/\")");
+    expect(sitemapSource).toContain('createAbsoluteUrl(route || "/")');
     expect(sitemapSource).toContain("createAbsoluteUrl(`/case-studies/${caseStudy.slug}`)");
   });
 
@@ -57,18 +57,15 @@ describe("SEO metadata and canonical surface", () => {
     const aboutSource = readSource("app/about/page.tsx");
     const caseStudiesSource = readSource("app/case-studies/page.tsx");
     const resumeSource = readSource("app/resume/page.tsx");
-    const contactSource = readSource("app/contact/page.tsx");
 
     expect(siteConfig.defaultTitle).toBe("Carlos Arancibia | Full-Stack & Mobile Software Engineer");
     expect(homeSource).not.toContain('title: "Home"');
     expect(aboutSource).not.toContain('title: "About"');
     expect(caseStudiesSource).not.toContain('title: "Case Studies"');
     expect(resumeSource).not.toContain('title: "Resume"');
-    expect(contactSource).not.toContain('title: "Contact"');
     expect(aboutSource).toContain("About Carlos Arancibia | Full-Stack & Mobile Engineer");
     expect(caseStudiesSource).toContain("Case Studies | Apps, Payments & Internal Tools | Carlos Arancibia");
     expect(resumeSource).toContain("Resume | Carlos Arancibia");
-    expect(contactSource).toContain("Contact Carlos Arancibia | Software Engineer");
   });
 
   it("defines complete SEO metadata and JSON-LD on case study detail pages", () => {

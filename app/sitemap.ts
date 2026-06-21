@@ -18,7 +18,7 @@ function getBuildDate() {
 const buildDate = getBuildDate();
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/about", "/case-studies", "/resume", "/contact"];
+  const staticRoutes = ["", "/about", "/case-studies", "/resume"];
 
   return [
     ...staticRoutes.map((route) => ({

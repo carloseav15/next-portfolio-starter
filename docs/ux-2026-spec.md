@@ -11,8 +11,8 @@ Optimize recruiter conversion in under two minutes while preserving technical cr
 
 ## Visual Direction
 - Editorial Bold with high-contrast section hierarchy.
-- Typography: Space Grotesk (UI/body), JetBrains Mono (technical metadata), Fraunces (display headings).
-- Color: cyan/teal accent with cold neutrals; no purple bias.
+- Typography: Inter (UI/body), JetBrains Mono (technical metadata), Outfit (display headings).
+- Color: slate/blue accent with cold neutrals; no purple bias.
 - Motion: intentional fade/stagger transitions, reduced-motion safe.
 
 ## Route Intent
@@ -20,8 +20,8 @@ Optimize recruiter conversion in under two minutes while preserving technical cr
 - `/about`: career arc timeline + working principles.
 - `/case-studies`: scannable cards with impact line.
 - `/case-studies/[slug]`: structured narrative and KPI context.
-- `/resume`: quick PDF access + optional inline preview.
-- `/contact`: low-friction direct channels.
+- `/resume`: print-ready web resume + optional inline preview.
+- `/#contact-section`: persistent hiring CTA block in home page footer.
 
 ## Accessibility Targets
 - Keyboard navigable theme selector with radiogroup semantics.

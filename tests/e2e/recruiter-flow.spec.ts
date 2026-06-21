@@ -14,14 +14,11 @@ async function expectMinHitArea(locator: Locator, minHeight = 44) {
 test("recruiter flow across home, case study, resume, and contact", async ({ page }) => {
   await page.goto("/");
   await expect(page).toHaveTitle("Carlos Arancibia | Full-Stack & Mobile Software Engineer");
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
-    "href",
-    "https://www.carlos-arancibia.com",
-  );
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", "https://www.carlos-arancibia.com");
 
   await expect(
     page.getByRole("heading", {
-      name: /full-stack and mobile engineer shipping production products/i,
+      name: /product and software engineer shipping production applications/i,
     }),
   ).toBeVisible();
 
@@ -32,7 +29,7 @@ test("recruiter flow across home, case study, resume, and contact", async ({ pag
 
   await expect(letsTalkLink).toBeVisible();
   await expect(headerResumeLink).toBeVisible();
-  await expect(headerResumeLink).toHaveAttribute("href", /\/resume\/carlos-arancibia-resume\.pdf/);
+  await expect(headerResumeLink).toHaveAttribute("href", "/resume/print");
   await expect(headerResumeLink).toHaveAttribute("target", "_blank");
 
   await expect(page.locator("main")).toContainText(/10,000\+ downloads/i);
@@ -72,7 +69,9 @@ test("recruiter flow across home, case study, resume, and contact", async ({ pag
   await expect(page.locator("main")).toContainText(/additional product work/i);
   await expect(page.locator("main")).toContainText(/ownership/i);
   expect(await page.content()).toContain('"@type":"CollectionPage"');
-  await expect(page.getByRole("link", { name: /Read Digicorp DigiApp & Commerce Ownership case study/i })).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: /Read Digicorp DigiApp & Commerce Ownership case study/i }),
+  ).toBeVisible();
   await expectMinHitArea(page.locator("main a").filter({ hasText: /case study/i }));
 
   await page.getByRole("link", { name: /Read Digicorp DigiApp & Commerce Ownership case study/i }).click();
@@ -86,20 +85,13 @@ test("recruiter flow across home, case study, resume, and contact", async ({ pag
 
   await page.goto("/resume");
   await expect(page).toHaveTitle("Resume | Carlos Arancibia");
-  await expect(page.getByRole("link", { name: /Open Resume/i })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Download PDF" })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Open Print-Ready Resume" })).toBeVisible();
   await expect(page.locator("main").locator("iframe")).toHaveCount(0);
   await page.getByRole("button", { name: "Open inline preview" }).click();
   await expect(page.locator("main").locator("iframe")).toHaveCount(1);
-  await expectMinHitArea(page.getByRole("link", { name: "Download PDF" }));
 
-  await page.goto("/contact");
-  await expect(page).toHaveTitle("Contact Carlos Arancibia | Software Engineer");
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
-    "href",
-    "https://www.carlos-arancibia.com/contact",
-  );
-  await expect(page.getByRole("heading", { name: "Hiring Carlos?" })).toBeVisible();
+  await page.goto("/#contact-section");
+  await expect(page.getByRole("heading", { name: "Hiring? Start here" })).toBeVisible();
   await expect(page.locator("main")).toContainText(/based in/i);
   await expect(page.locator("main").getByRole("link", { name: "Email Carlos" }).first()).toBeVisible();
 });
@@ -128,7 +120,7 @@ test("mobile header prioritizes Let's Talk and exposes secondary actions in hamb
   await expect(mobileNav.getByRole("link", { name: "Case Studies" })).toBeVisible();
 
   const resumeMobileLink = page.locator('header a[data-cta="resume-mobile"]').first();
-  await expect(resumeMobileLink).toHaveAttribute("href", /\/resume\/carlos-arancibia-resume\.pdf/);
+  await expect(resumeMobileLink).toHaveAttribute("href", "/resume/print");
   await expect(resumeMobileLink).toHaveAttribute("target", "_blank");
   await expect(page.locator('header button[aria-label^="Theme preference"]').last()).toBeVisible();
 
@@ -150,7 +142,7 @@ test("no horizontal overflow on key recruiter breakpoints", async ({ page }) => 
     { width: 1440, height: 900 },
   ];
 
-  const routes = ["/", "/about", "/case-studies", "/resume", "/contact"];
+  const routes = ["/", "/about", "/case-studies", "/resume"];
 
   for (const viewport of viewports) {
     await page.setViewportSize(viewport);

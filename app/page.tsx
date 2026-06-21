@@ -18,7 +18,7 @@ import {
   strengthLabels,
 } from "@/lib/profile";
 import { buildPageMetadata, createAbsoluteUrl, siteConfig } from "@/lib/site";
-import { actionLinkClassName, textLinkClassName } from "@/lib/uiClasses";
+import { actionLinkClasses, textLinkClasses } from "@/components/ui/Link";
 
 const canonicalUrl = createAbsoluteUrl("/");
 const homeSeoDescription =
@@ -97,12 +97,12 @@ export default function HomePage() {
 
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
             <ButtonLink
-              href="/resume/carlos-arancibia-resume.pdf"
+              href="/resume/print"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full gap-2 sm:w-auto"
             >
-              Open Resume
+              View Resume
               <FileText aria-hidden="true" className="h-4 w-4" />
               <span className="sr-only"> (opens in new tab)</span>
             </ButtonLink>
@@ -110,14 +110,14 @@ export default function HomePage() {
               View Case Studies
               <ArrowRight aria-hidden="true" className="h-4 w-4" />
             </ButtonLink>
-            <Link href="/contact" className={`${textLinkClassName} text-sm font-semibold`}>
+            <Link href="/#contact-section" className={`${textLinkClasses} text-sm font-semibold`}>
               Contact
             </Link>
           </div>
         </div>
       </Section>
 
-      <Section density="flush" tone="muted">
+      <Section density="compact" tone="muted">
         <div className="kpi-strip motion-fade-in motion-delay-1">
           {profileMetrics.map((metric) => (
             <div key={metric.label} className="kpi-item">
@@ -159,7 +159,7 @@ export default function HomePage() {
                   <p className="text-sm font-semibold leading-relaxed text-[var(--color-text)]">{win.outcome}</p>
                 </div>
 
-                <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-subtle-bg)] px-3.5 py-3">
+                <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-subtle-bg)] px-3.5 py-3">
                   <p className="text-sm font-semibold text-[var(--color-text)]">What I owned</p>
                   <p className="mt-1 text-sm leading-relaxed text-[var(--color-text-soft)]">{win.ownership}</p>
                 </div>
@@ -171,7 +171,7 @@ export default function HomePage() {
                 </ul>
 
                 <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-2">
-                  <Link href={win.ctaHref} className={actionLinkClassName}>
+                  <Link href={win.ctaHref} className={actionLinkClasses}>
                     Read {win.title} case study
                     <ArrowRight aria-hidden="true" className="h-4 w-4" />
                   </Link>
@@ -180,7 +180,7 @@ export default function HomePage() {
                       href={win.proofHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`${textLinkClassName} inline-flex items-center gap-1.5 text-sm font-semibold`}
+                      className={`${textLinkClasses} inline-flex items-center gap-1.5 text-sm font-semibold`}
                     >
                       {win.proofLabel}
                       <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
@@ -238,7 +238,7 @@ export default function HomePage() {
                   href={recommendation.sourceUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={textLinkClassName}
+                  className={textLinkClasses}
                 >
                   {recommendation.sourceLabel}
                 </a>
@@ -247,14 +247,13 @@ export default function HomePage() {
               )}{" "}
               · {recommendation.dateLabel}
             </p>
-            <p className="text-sm text-[var(--color-text-muted)]">
-              Relationship: {recommendation.relationshipLabel}.
-            </p>
+            <p className="text-sm text-[var(--color-text-muted)]">Relationship: {recommendation.relationshipLabel}.</p>
           </Card>
         </Section>
       ) : null}
 
       <Section
+        id="contact-section"
         eyebrow="Hiring"
         title="Hiring? Start here"
         description="If you want the quick recruiter version, these are the details and channels I would start with."
@@ -266,14 +265,12 @@ export default function HomePage() {
               {recruiterQuickFacts.map((fact) => (
                 <div
                   key={fact.label}
-                  className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-1)] px-4 py-3"
+                  className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-1)] px-4 py-3"
                 >
                   <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
                     {fact.label}
                   </p>
-                  <p className="mt-2 text-sm font-semibold leading-relaxed text-[var(--color-text)]">
-                    {fact.value}
-                  </p>
+                  <p className="mt-2 text-sm font-semibold leading-relaxed text-[var(--color-text)]">{fact.value}</p>
                 </div>
               ))}
             </div>
@@ -281,8 +278,8 @@ export default function HomePage() {
 
           <Card variant="flat" className="space-y-4 motion-fade-in motion-delay-1">
             <p className="text-sm leading-relaxed text-[var(--color-text-soft)]">
-              I am easiest to reach by email if you want to talk about product engineering, full-stack work,
-              mobile delivery, or teams that need someone comfortable across implementation and operations.
+              I am easiest to reach by email if you want to talk about product engineering, full-stack work, mobile
+              delivery, or teams that need someone comfortable across implementation and operations.
             </p>
             <div className="flex flex-col gap-3">
               <ButtonLink href={externalLinks.email.href!} className="w-full gap-2">
@@ -303,8 +300,8 @@ export default function HomePage() {
             </div>
             <p className="text-sm text-[var(--color-text-muted)]">
               Prefer all contact options in one place?{" "}
-              <Link href="/contact" className={textLinkClassName}>
-                Visit the contact page
+              <Link href="/#contact-section" className={textLinkClasses}>
+                Visit the contact section
               </Link>
               .
             </p>

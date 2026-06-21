@@ -6,7 +6,6 @@ import {
   caseStudyHighlights,
   careerTimeline,
   featuredWins,
-  heroProofPoints,
   profileIdentity,
   profileMetrics,
   recommendations,
@@ -30,19 +29,9 @@ describe("profile source of truth", () => {
     expect(profileMetrics.map((metric) => metric.value)).not.toContain("3 active");
   });
 
-  it("exports hero proof points, featured wins, and recruiter quick facts", () => {
-    expect(heroProofPoints).toEqual([
-      "10,000+ downloads",
-      "3,000 daily users",
-      "~1,000 daily operations",
-    ]);
-    expect(featuredWins.map((item) => item.id)).toEqual(["playfit", "digicorp", "octopus"]);
-    expect(recruiterQuickFacts.map((item) => item.label)).toEqual([
-      "Based in",
-      "Work Auth",
-      "Languages",
-      "Response time",
-    ]);
+  it("exports featured wins and recruiter quick facts", () => {
+    expect(featuredWins.map((item) => item.id)).toEqual(["digicorp", "octopus", "playfit"]);
+    expect(recruiterQuickFacts.map((item) => item.label)).toEqual(["Availability", "Experience", "Preferred Roles"]);
   });
 
   it("locks timeline periods as specified", () => {
@@ -69,9 +58,7 @@ describe("profile source of truth", () => {
   it("includes Vanilla JavaScript ecommerce proof", () => {
     const digicorp = careerTimeline.find((item) => item.company === "DIGICORP LTDA");
 
-    expect(
-      digicorp?.highlights.some((highlight) => highlight.toLowerCase().includes("vanilla javascript")),
-    ).toBe(true);
+    expect(digicorp?.highlights.some((highlight) => highlight.toLowerCase().includes("vanilla javascript"))).toBe(true);
 
     const digicorpHighlight = caseStudyHighlights.find((item) => item.slug === "digicorp");
     expect(digicorpHighlight?.summary.toLowerCase()).toContain("vanilla javascript");
@@ -112,38 +99,27 @@ describe("profile source of truth", () => {
     const digicorp = careerTimeline.find((item) => item.company === "DIGICORP LTDA");
 
     expect(vcomm?.period).toBe("Jan 2017 - Jun 2024");
-    expect(vcomm?.highlights.some((item) => item.toLowerCase().includes("octopus"))).toBe(
-      true,
-    );
+    expect(vcomm?.highlights.some((item) => item.toLowerCase().includes("octopus"))).toBe(true);
     expect(vcomm?.parallelContext).toContain("Dec 2019");
     expect(digicorp?.parallelContext).toContain("Dec 2019");
   });
 
   it("keeps recommendation neutral and recruiter-facing", () => {
-    const samuelRecommendation = recommendations.find(
-      (item) => item.author === "Samuel Soliz Adaos",
-    );
+    const samuelRecommendation = recommendations.find((item) => item.author === "Samuel Soliz Adaos");
 
     expect(samuelRecommendation).toBeDefined();
-    expect(samuelRecommendation?.quote).toBe(
-      "Excellent professional and person: responsible, loyal, and committed.",
-    );
+    expect(samuelRecommendation?.quote).toBe("Excellent professional and person: responsible, loyal, and committed.");
     expect(samuelRecommendation?.quote.toLowerCase()).not.toContain("dios");
-    expect(samuelRecommendation?.sourceUrl).toBe(
-      "https://www.linkedin.com/in/carancibiav/details/recommendations/",
-    );
+    expect(samuelRecommendation?.sourceUrl).toBe("https://www.linkedin.com/in/carancibiav/details/recommendations/");
   });
 
   it("removes the development banner and keeps the new CTA labels", () => {
     const homeSource = readFileSync(path.join(process.cwd(), "app/page.tsx"), "utf8");
     const resumeSource = readFileSync(path.join(process.cwd(), "app/resume/page.tsx"), "utf8");
-    const previewSource = readFileSync(
-      path.join(process.cwd(), "components/resume/ResumePreview.tsx"),
-      "utf8",
-    );
+    const previewSource = readFileSync(path.join(process.cwd(), "components/resume/ResumePreview.tsx"), "utf8");
 
     expect(siteConfig.developmentBanner.enabled).toBe(false);
-    expect(homeSource).toContain("Open Resume");
+    expect(homeSource).toContain("View Resume");
     expect(homeSource).toContain("View Case Studies");
     expect(homeSource).not.toContain("Portfolio in active development");
     expect(resumeSource).toContain("ResumePreview");

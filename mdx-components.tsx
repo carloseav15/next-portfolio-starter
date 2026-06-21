@@ -1,6 +1,6 @@
 import type { MDXComponents } from "mdx/types";
 import Link from "next/link";
-import { textLinkClassName } from "@/lib/uiClasses";
+import { textLinkClasses } from "@/components/ui/Link";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -33,7 +33,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       <strong className={`font-semibold text-[var(--color-text)] ${className ?? ""}`} {...props} />
     ),
     a: ({ href = "#", className, ...props }) => (
-      <Link href={href} className={`${textLinkClassName} ${className ?? ""}`} {...props} />
+      <Link href={href} className={`${textLinkClasses} ${className ?? ""}`} {...props} />
     ),
     blockquote: ({ className, ...props }) => (
       <blockquote

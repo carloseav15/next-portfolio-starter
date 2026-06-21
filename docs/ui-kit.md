@@ -11,47 +11,47 @@ Design system reference for the personal portfolio site. This document catalogs 
 All colors are defined as CSS custom properties on `:root` (light) and overridden in `.dark` (dark). Components reference these variables to support theme switching.
 
 | Group | Token | Light Value | Dark Value |
-|---|---|---|---|
-| **Background** | `--color-bg` | `#ecf2f8` | `#0f141c` |
-| | `--color-bg-texture` | `rgba(15,28,52,0.022)` | `rgba(255,255,255,0.022)` |
-| | `--color-surface-1` | `rgba(255,255,255,0.86)` | `rgba(30,38,50,0.88)` |
-| | `--color-surface-2` | `rgba(255,255,255,0.94)` | `rgba(38,47,60,0.93)` |
-| | `--color-surface-3` | `#ffffff` | `#242e3a` |
-| | `--color-subtle-bg` | `rgba(15,28,52,0.048)` | `rgba(255,255,255,0.045)` |
-| **Text** | `--color-text` | `#07152b` | `#e5ecf2` |
-| | `--color-text-soft` | `#233854` | `#b1c1d1` |
-| | `--color-text-muted` | `#48637f` | `#7b95b0` |
-| **Border** | `--color-border` | `rgba(12,32,59,0.13)` | `rgba(255,255,255,0.1)` |
-| | `--color-border-strong` | `rgba(12,32,59,0.24)` | `rgba(255,255,255,0.2)` |
-| **Accent** | `--color-accent` | `#0d7795` | `#28bddf` |
-| | `--color-accent-strong` | `#0a647a` | `#1ea4c3` |
-| | `--color-on-accent` | `#f3fcff` | `#03202a` |
-| **Link** | `--color-link` | `#075985` | `#22c5e8` |
-| | `--color-link-hover` | `#0a7698` | `#50d4f0` |
-| **Focus** | `--color-focus` | `#0ea5c9` | `#22c5e8` |
-| **Proof Pending** | `--color-proof-pending-bg` | `rgba(249,115,22,0.13)` | `rgba(249,115,22,0.18)` |
-| | `--color-proof-pending-border` | `rgba(217,119,6,0.4)` | `rgba(251,146,60,0.5)` |
-| | `--color-proof-pending-text` | `#8f3d0f` | `#fb923c` |
-| **Proof Verified** | `--color-proof-verified-bg` | `rgba(14,116,144,0.13)` | `rgba(14,116,144,0.2)` |
-| | `--color-proof-verified-border` | `rgba(14,116,144,0.36)` | `rgba(34,197,232,0.4)` |
-| | `--color-proof-verified-text` | `#065f72` | `#22cde8` |
-| **Utility** | `--color-header-bg` | `rgba(236,242,248,0.9)` | `rgba(15,20,28,0.9)` |
-| | `--color-shadow` | `rgba(8,21,40,0.24)` | `rgba(0,0,0,0.48)` |
+|---|---|---|---|---|
+| **Background** | `--color-bg` | `#fafafa` | `#020913` |
+| | `--color-bg-texture` | `rgba(15,23,42,0.003)` | `rgba(218,236,255,0.024)` |
+| | `--color-surface-1` | `rgba(255,255,255,0.92)` | `rgba(8,18,32,0.84)` |
+| | `--color-surface-2` | `rgba(255,255,255,0.97)` | `rgba(10,22,38,0.92)` |
+| | `--color-surface-3` | `#ffffff` | `rgba(13,27,45,0.97)` |
+| | `--color-subtle-bg` | `rgba(15,23,42,0.03)` | `rgba(218,236,255,0.052)` |
+| **Text** | `--color-text` | `#0f172a` | `#eff7ff` |
+| | `--color-text-soft` | `#334155` | `#c2d4e6` |
+| | `--color-text-muted` | `#64748b` | `#9eb4cb` |
+| **Border** | `--color-border` | `rgba(15,23,42,0.08)` | `rgba(157,188,220,0.2)` |
+| | `--color-border-strong` | `rgba(15,23,42,0.16)` | `rgba(186,209,236,0.34)` |
+| **Accent** | `--color-accent` | `#0f172a` | `#f8fafc` |
+| | `--color-accent-strong` | `#020617` | `#ffffff` |
+| | `--color-on-accent` | `#ffffff` | `#0f172a` |
+| **Link** | `--color-link` | `#0284c7` | `#8dddf5` |
+| | `--color-link-hover` | `#0369a1` | `#beebfa` |
+| **Focus** | `--color-focus` | `#38bdf8` | `#85daef` |
+| **Proof Pending** | `--color-proof-pending-bg` | `rgba(249,115,22,0.11)` | `rgba(249,115,22,0.22)` |
+| | `--color-proof-pending-border` | `rgba(217,119,6,0.3)` | `rgba(251,146,60,0.34)` |
+| | `--color-proof-pending-text` | `#8f3d0f` | `#ffc08a` |
+| **Proof Verified** | `--color-proof-verified-bg` | `rgba(15,118,110,0.08)` | `rgba(45,212,191,0.16)` |
+| | `--color-proof-verified-border` | `rgba(15,118,110,0.2)` | `rgba(94,234,212,0.32)` |
+| | `--color-proof-verified-text` | `#0d9488` | `#82f1de` |
+| **Header** | `--color-header-bg` | `rgba(250,250,250,0.85)` | `rgba(2,9,19,0.9)` |
+| **Shadow** | `--color-shadow` | `rgba(0,0,0,0.04)` | `rgba(0,0,0,0.62)` |
 
 ### Typography
 
 | Family | Variable | Usage |
 |---|---|---|
-| Chakra Petch | `--font-chakra-petch` | `--font-sans`, `--font-display`. All body and display text. Weights: 400 (regular), 600 (semibold), 700 (bold), 800 (extrabold for `.display-heading`). |
+| Outfit | `--font-outfit` | `--font-sans`, `--font-display`. All body and display text. Weights: 400 (regular), 500 (medium), 600 (semibold), 700 (bold), 800 (extrabold for `.display-heading`). |
 | JetBrains Mono | `--font-jetbrains-mono` | `--font-mono`. Code samples, technical metadata. |
 
 **Key type classes:**
 
 | Class | Font | Weight | Size | Letter-spacing | Line-height |
-|---|---|---|---|---|---|
-| `.display-heading` | Chakra Petch | 800 | var | -0.01em | 0.98 |
-| `.editorial-kicker` | Chakra Petch | 700 | 0.8rem | 0.08em | normal |
-| `body` (default) | Chakra Petch | 400 | 1rem | normal | normal |
+|---|---|---|---|---|---|---|
+| `.display-heading` | Outfit | 800 | var | -0.01em | 1.15 |
+| `.editorial-kicker` | Inter/Outfit | 700 | 0.8rem | 0.08em | normal |
+| `body` (default) | Inter | 400 | 1rem | normal | normal |
 
 ### Spacing & Sizing
 
@@ -252,13 +252,13 @@ import { Section } from '@/components/ui/Section'
 
 ### Text Link Classes
 
-Reusable `className` strings from `lib/uiClasses.ts` for link styling outside components:
+Reusable `className` strings from `components/ui/Link.tsx` for link styling outside components:
 
 | Export | Use case | Style |
 |---|---|---|
-| `textLinkClassName` | Inline text links | Underline, `--color-link`, hover color |
-| `actionLinkClassName` | Standalone action links | Button-like (rounded, padding, bg on hover) |
-| `compactActionLinkClassName` | Compact inline actions | Underline with hover color |
+| `textLinkClasses` | Inline text links | Underline, `--color-link`, hover color |
+| `actionLinkClasses` | Standalone action links | Button-like (rounded, padding, bg on hover) |
+| `compactActionLinkClasses` | Compact inline actions | Underline with hover color |
 
 All include `focus-visible` ring styling for accessibility.
 

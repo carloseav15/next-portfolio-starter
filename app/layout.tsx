@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Chakra_Petch, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Outfit } from "next/font/google";
 import { AnalyticsScript } from "@/components/analytics/AnalyticsScript";
 import { DevelopmentBanner } from "@/components/layout/DevelopmentBanner";
 import { Footer } from "@/components/layout/Footer";
@@ -8,10 +8,16 @@ import { createAbsoluteUrl, siteConfig } from "@/lib/site";
 import { LEGACY_THEME_STORAGE_KEY, THEME_PREFERENCE_STORAGE_KEY } from "@/lib/theme";
 import "./globals.css";
 
-const chakraPetch = Chakra_Petch({
-  variable: "--font-chakra-petch",
+const inter = Inter({
+  variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const outfit = Outfit({
+  variable: "--font-outfit",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -97,9 +103,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body
-        className={`${chakraPetch.variable} ${jetBrainsMono.variable} min-h-full antialiased`}
-      >
+      <body className={`${inter.variable} ${outfit.variable} ${jetBrainsMono.variable} min-h-full antialiased`}>
         <a href="#content" className="skip-link">
           Skip to content
         </a>
