@@ -36,10 +36,10 @@ describe("profile source of truth", () => {
       "3,000 daily users",
       "~1,000 daily operations",
     ]);
-    expect(featuredWins.map((item) => item.id)).toEqual(["digicorp", "octopus", "us-ops"]);
+    expect(featuredWins.map((item) => item.id)).toEqual(["playfit", "digicorp", "octopus"]);
     expect(recruiterQuickFacts.map((item) => item.label)).toEqual([
       "Based in",
-      "Open to",
+      "Work Auth",
       "Languages",
       "Response time",
     ]);
@@ -48,7 +48,7 @@ describe("profile source of truth", () => {
   it("locks timeline periods as specified", () => {
     const datec = careerTimeline.find((item) => item.company === "DATEC LATAM");
     const tismart = careerTimeline.find((item) => item.company === "TISMART (DATEC Division)");
-    const iglesia = careerTimeline.find((item) => item.company === "Iglesia Tiempo de Cambio");
+    const iglesia = careerTimeline.find((item) => item.company === "Tiempo de Cambio Operations Platform");
     const vcomm = careerTimeline.find((item) => item.company === "V@COMM");
     const digicorp = careerTimeline.find((item) => item.company === "DIGICORP LTDA");
     const diaz = careerTimeline.find((item) => item.company === "Diaz Brothers Company LLC");
@@ -59,8 +59,8 @@ describe("profile source of truth", () => {
     expect(iglesia?.period).toBe("Jun 2016 - Dec 2019");
     expect(vcomm?.period).toBe("Jan 2017 - Jun 2024");
     expect(digicorp?.period).toBe("Dec 2019 - Jun 2024");
-    expect(diaz?.period).toBe("Jul 2024 - Dec 2025");
-    expect(matchdayos?.period).toBe("Jan 2026 - Present");
+    expect(diaz?.period).toBe("Jul 2024 - Sep 2025");
+    expect(matchdayos?.period).toBe("Oct 2025 - Present");
     expect(careerTimeline.some((item) => item.company.includes("FEP"))).toBe(false);
     expect(careerTimeline.map((item) => item.period)).not.toContain("January 2019 - July 2024");
     expect(diaz?.activeInProduction).toBe(true);
@@ -112,7 +112,7 @@ describe("profile source of truth", () => {
     const digicorp = careerTimeline.find((item) => item.company === "DIGICORP LTDA");
 
     expect(vcomm?.period).toBe("Jan 2017 - Jun 2024");
-    expect(vcomm?.highlights.some((item) => item.toLowerCase().includes("active operational use"))).toBe(
+    expect(vcomm?.highlights.some((item) => item.toLowerCase().includes("octopus"))).toBe(
       true,
     );
     expect(vcomm?.parallelContext).toContain("Dec 2019");

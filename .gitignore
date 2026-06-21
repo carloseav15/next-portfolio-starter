@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /.npm-cache
+/.npm-cache-lh/
 /.pnp
 .pnp.*
 .yarn/*
@@ -42,3 +43,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# ide
+.idea/
+
+# audit artifacts
+.audit-shots/
+
+# firebase cache
+.firebase/

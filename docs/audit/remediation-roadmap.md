@@ -13,10 +13,10 @@ Goal: interview conversion uplift with recruiter-first trust completion and WCAG
 ### P0-1 Replace all placeholder proof/contact links
 Findings: F-01  
 Files:
-1. `/Users/carancibia/Downloads/personal-web/lib/links.ts`
-2. `/Users/carancibia/Downloads/personal-web/app/page.tsx`
-3. `/Users/carancibia/Downloads/personal-web/app/contact/page.tsx`
-4. `/Users/carancibia/Downloads/personal-web/components/layout/Footer.tsx`
+1. `./lib/links.ts`
+2. `./app/page.tsx`
+3. `./app/contact/page.tsx`
+4. `./components/layout/Footer.tsx`
 
 Actions:
 1. Replace placeholder email, LinkedIn, GitHub, Google Play, and App Store URLs.
@@ -29,9 +29,9 @@ Done criteria:
 ### P0-2 Replace Digicorp illustrative media with real proof
 Findings: F-02  
 Files:
-1. `/Users/carancibia/Downloads/personal-web/public/images/digicorp-app-proof.webp`
-2. `/Users/carancibia/Downloads/personal-web/lib/links.ts`
-3. `/Users/carancibia/Downloads/personal-web/app/page.tsx`
+1. `./public/images/digicorp-app-proof.webp`
+2. `./lib/links.ts`
+3. `./app/page.tsx`
 
 Actions:
 1. Use a real production screenshot (store listing, analytics, release panel, or app UI evidence).
@@ -44,7 +44,7 @@ Done criteria:
 ### P0-3 Normalize theme selector accessibility pattern
 Findings: F-03  
 Files:
-1. `/Users/carancibia/Downloads/personal-web/components/theme/ThemeToggle.tsx`
+1. `./components/theme/ThemeToggle.tsx`
 
 Actions:
 1. Pick one pattern and implement fully:
@@ -60,10 +60,10 @@ Done criteria:
 
 ## P1 (3-5 Days) — Hierarchy, Scanability, and Trust Polish
 
-### P1-1 Surface junior/mid-level openness above fold
+### P1-1 Surface openness above fold
 Findings: F-04  
 Files:
-1. `/Users/carancibia/Downloads/personal-web/app/page.tsx`
+1. `./app/page.tsx`
 
 Actions:
 1. Add one concise line in hero or quick snapshot.
@@ -75,7 +75,7 @@ Done criteria:
 ### P1-2 Improve resume route performance tradeoff
 Findings: F-05  
 Files:
-1. `/Users/carancibia/Downloads/personal-web/app/resume/page.tsx`
+1. `./app/resume/page.tsx`
 
 Actions:
 1. Consider replacing always-on iframe with explicit `Open preview` action.
@@ -88,9 +88,9 @@ Done criteria:
 ### P1-3 Increase metadata readability and reduce tiny uppercase noise
 Findings: F-06  
 Files:
-1. `/Users/carancibia/Downloads/personal-web/components/ui/Section.tsx`
-2. `/Users/carancibia/Downloads/personal-web/app/case-studies/page.tsx`
-3. `/Users/carancibia/Downloads/personal-web/components/case-studies/CaseStudyArticle.tsx`
+1. `./components/ui/Section.tsx`
+2. `./app/case-studies/page.tsx`
+3. `./components/case-studies/CaseStudyArticle.tsx`
 
 Actions:
 1. Raise size/contrast of metadata text.
@@ -102,9 +102,9 @@ Done criteria:
 ### P1-4 Break section flatness without adding visual noise
 Findings: F-07  
 Files:
-1. `/Users/carancibia/Downloads/personal-web/app/page.tsx`
-2. `/Users/carancibia/Downloads/personal-web/components/ui/Card.tsx`
-3. `/Users/carancibia/Downloads/personal-web/app/globals.css`
+1. `./app/page.tsx`
+2. `./components/ui/Card.tsx`
+3. `./app/globals.css`
 
 Actions:
 1. Use subtle alternation in section surfaces.
@@ -117,8 +117,8 @@ Done criteria:
 ### P1-5 Add LinkedIn to footer trust lane
 Findings: F-08  
 Files:
-1. `/Users/carancibia/Downloads/personal-web/components/layout/Footer.tsx`
-2. `/Users/carancibia/Downloads/personal-web/lib/links.ts`
+1. `./components/layout/Footer.tsx`
+2. `./lib/links.ts`
 
 Done criteria:
 1. Footer exposes Email, LinkedIn, GitHub consistently.
@@ -126,7 +126,7 @@ Done criteria:
 ### P1-6 Emphasize proof line on case-study cards
 Findings: F-09  
 Files:
-1. `/Users/carancibia/Downloads/personal-web/app/case-studies/page.tsx`
+1. `./app/case-studies/page.tsx`
 
 Done criteria:
 1. `Role · Timeline · Primary outcome` is visible in one quick glance.
@@ -136,8 +136,8 @@ Done criteria:
 ### P2-1 Add persistent low-friction contact cue
 Findings: F-10  
 Files:
-1. `/Users/carancibia/Downloads/personal-web/components/layout/Nav.tsx`
-2. `/Users/carancibia/Downloads/personal-web/app/page.tsx`
+1. `./components/layout/Nav.tsx`
+2. `./app/page.tsx`
 
 Done criteria:
 1. User can reach contact action from top-level context with one decision.
@@ -153,7 +153,7 @@ Done criteria:
 ### P2-3 Strengthen theme-menu close behavior on focus transitions
 Findings: F-12  
 Files:
-1. `/Users/carancibia/Downloads/personal-web/components/theme/ThemeToggle.tsx`
+1. `./components/theme/ThemeToggle.tsx`
 
 Done criteria:
 1. Menu closes on blur/tab-out and focus returns predictably.

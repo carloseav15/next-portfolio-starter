@@ -155,6 +155,7 @@ export function ThemeToggle({ showLabelOnMobile = false, buttonClassName }: Them
         type="button"
         onClick={() => setOpen((prev) => !prev)}
         aria-label={`Theme preference: ${preference}`}
+        aria-haspopup="true"
         aria-expanded={open}
         aria-controls={panelId}
         className={cn(

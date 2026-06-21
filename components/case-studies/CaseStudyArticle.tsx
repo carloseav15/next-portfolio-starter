@@ -1,3 +1,4 @@
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
@@ -6,14 +7,16 @@ import { Card } from "@/components/ui/Card";
 import { ProofPill } from "@/components/ui/ProofPill";
 import { formatUtcDate } from "@/lib/dates";
 import type { CaseStudyMetadata } from "@/lib/caseStudies";
-import { textLinkClassName } from "@/lib/uiClasses";
+import { actionLinkClassName, textLinkClassName } from "@/lib/uiClasses";
 
 type CaseStudyArticleProps = {
   metadata: CaseStudyMetadata;
   children: ReactNode;
+  prevCaseStudy?: CaseStudyMetadata | null;
+  nextCaseStudy?: CaseStudyMetadata | null;
 };
 
-export function CaseStudyArticle({ metadata, children }: CaseStudyArticleProps) {
+export function CaseStudyArticle({ metadata, children, prevCaseStudy, nextCaseStudy }: CaseStudyArticleProps) {
   const atGlance = [
     { label: "Outcome", value: metadata.primaryOutcome },
     { label: "Ownership", value: metadata.ownershipLabel },
@@ -23,12 +26,21 @@ export function CaseStudyArticle({ metadata, children }: CaseStudyArticleProps) 
 
   return (
     <Container className="py-12 sm:py-16">
-      <Link
-        href="/case-studies"
-        className={`${textLinkClassName} inline-flex items-center text-sm font-semibold no-underline`}
-      >
-        Back to case studies
-      </Link>
+      <nav aria-label="Breadcrumb">
+        <ol className="flex flex-wrap items-center gap-1 text-sm text-[var(--color-text-muted)]">
+          <li>
+            <Link href="/" className={textLinkClassName}>Home</Link>
+          </li>
+          <li aria-hidden="true" className="select-none">/</li>
+          <li>
+            <Link href="/case-studies" className={textLinkClassName}>Case Studies</Link>
+          </li>
+          <li aria-hidden="true" className="select-none">/</li>
+          <li className="font-semibold text-[var(--color-text-soft)]" aria-current="page">
+            {metadata.title}
+          </li>
+        </ol>
+      </nav>
 
       <article className="mt-8 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-2)] p-6 shadow-[0_22px_44px_-30px_var(--color-shadow)] sm:p-10">
         <header className="border-b border-[var(--color-border)] pb-8">
@@ -73,7 +85,7 @@ export function CaseStudyArticle({ metadata, children }: CaseStudyArticleProps) 
                   className="rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-1)] p-3"
                 >
                   <dt className="text-sm font-semibold text-[var(--color-text-soft)]">{item.label}</dt>
-                  <dd className="mt-1 text-sm leading-relaxed text-[var(--color-text)]">{item.value}</dd>
+                  <dd className="mt-1 break-words text-sm leading-relaxed text-[var(--color-text)]">{item.value}</dd>
                 </div>
               ))}
             </dl>
@@ -106,6 +118,33 @@ export function CaseStudyArticle({ metadata, children }: CaseStudyArticleProps) 
         </div>
 
         <div className="prose-case mt-8">{children}</div>
+
+        {(prevCaseStudy || nextCaseStudy) && (
+          <nav aria-label="Adjacent case studies" className="mt-10 grid gap-3 sm:grid-cols-2">
+            {prevCaseStudy ? (
+              <Link
+                href={`/case-studies/${prevCaseStudy.slug}`}
+                className={`${actionLinkClassName} justify-start gap-2`}
+              >
+                <ArrowLeft aria-hidden="true" className="h-4 w-4 shrink-0" />
+                <span className="truncate">{prevCaseStudy.title}</span>
+              </Link>
+            ) : (
+              <div />
+            )}
+            {nextCaseStudy ? (
+              <Link
+                href={`/case-studies/${nextCaseStudy.slug}`}
+                className={`${actionLinkClassName} justify-end gap-2 sm:text-right`}
+              >
+                <span className="truncate">{nextCaseStudy.title}</span>
+                <ArrowRight aria-hidden="true" className="h-4 w-4 shrink-0" />
+              </Link>
+            ) : (
+              <div />
+            )}
+          </nav>
+        )}
       </article>
     </Container>
   );

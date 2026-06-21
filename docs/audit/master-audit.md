@@ -3,7 +3,7 @@
 ## Principal Hireability UX Auditor (Conversion + Accessibility + Product Narrative)
 
 Date: 2026-02-22  
-Repository: `/Users/carancibia/Downloads/personal-web`
+Repository: `./`
 
 ## Executive Summary
 This portfolio is already technically stable and deployable, but hireability conversion is limited by missing proof quality in critical trust moments. The strongest claim (Digicorp public app ownership) is still supported by placeholder assets and placeholder links, which creates immediate recruiter doubt even when the copy is solid.
@@ -75,7 +75,7 @@ Pass:
 Friction:
 1. Proof links are placeholders, so trust collapses on click.
 2. Digicorp visual proof is explicitly marked placeholder.
-3. Junior/mid-level openness is not explicit in first viewport.
+3. Openness is not explicit in first viewport.
 
 ### 2-minute recruiter journey (Home -> Digicorp -> Resume -> Contact)
 Pass:
@@ -109,7 +109,7 @@ Interpretation: strong baseline, moderate conversion risk, immediate upside if p
 1. F-01: External proof/contact links are placeholders.
 2. F-02: Digicorp proof media is placeholder, not verifiable evidence.
 3. F-03: Theme control uses menu semantics with radio behavior; accessibility semantics should be normalized.
-4. F-04: Home above-fold does not explicitly state junior/mid-level openness.
+4. F-04: Home above-fold does not explicitly state openness.
 5. F-05: Resume embed reduces performance and fails bfcache.
 6. F-06: Metadata microtext (`text-xs`) is readable but borderline for comfort in long scans.
 7. F-07: Card rhythm is consistent but visually flat in repeated sections.

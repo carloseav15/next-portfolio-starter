@@ -103,7 +103,7 @@ export default function RootLayout({
         <a href="#content" className="skip-link">
           Skip to content
         </a>
-        <div className="relative flex min-h-screen flex-col">
+        <div id="site-top" className="relative flex min-h-screen flex-col">
           <Nav />
           <DevelopmentBanner />
           <main id="content" className="grow">

@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { ElementType, ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
 type CardVariant = "flat" | "elevated" | "proof";
@@ -8,6 +8,7 @@ type CardProps = {
   className?: string;
   hoverable?: boolean;
   variant?: CardVariant;
+  as?: ElementType;
 };
 
 const variantClasses: Record<CardVariant, string> = {
@@ -18,9 +19,15 @@ const variantClasses: Record<CardVariant, string> = {
     "bg-[linear-gradient(135deg,var(--color-surface-2),var(--color-subtle-bg))] border-[var(--color-border-strong)] shadow-[0_28px_52px_-34px_var(--color-shadow)]",
 };
 
-export function Card({ children, className, hoverable = false, variant = "elevated" }: CardProps) {
+export function Card({
+  children,
+  className,
+  hoverable = false,
+  variant = "elevated",
+  as: Component = "div",
+}: CardProps) {
   return (
-    <article
+    <Component
       className={cn(
         "rounded-2xl border p-5 transition duration-200 ease-out sm:p-6",
         variantClasses[variant],
@@ -30,6 +37,6 @@ export function Card({ children, className, hoverable = false, variant = "elevat
       )}
     >
       {children}
-    </article>
+    </Component>
   );
 }

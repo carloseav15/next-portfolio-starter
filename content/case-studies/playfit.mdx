@@ -1,0 +1,32 @@
+## Context
+Playfit is a modern, full-stack video game recommendation assistant built to help players manage backlog fatigue and choose their next game. The product delivers an interactive onboarding flow and personalized suggestions instantly, without requiring user registration.
+
+## Problem
+Most game discovery tools force users to go through complex setup, sign-up barriers, and manual catalog creation before giving value. This initial friction leads to high bounce rates. Additionally, recommendation engines often suffer from cold-start problems and fail to calculate friction risk (e.g., suggesting a frustrating Souls-like game to a casual player).
+
+## Constraints
+- Onboarding must remain "Zero-Login" (no credentials required) while retaining offline progress.
+- Initial recommendations must load in sub-second times.
+- Relational data logic and security must be enforced on the database layer (RLS) without exposing administrative bypass keys.
+- Profile migrations must be atomic: if a guest user decides to sign up, their local data must merge cleanly with the cloud database.
+- Linter and tests must run in milliseconds inside local environments and CI pipelines to support fast iterations.
+
+## Approach
+I designed Playfit using a monorepo structure with decoupled workspaces: `apps/web` (Next.js 16 UI and API endpoints) and `packages/core` (reusable domain logic, IndexedDB store integrations, and Supabase database clients).
+
+To enable instant usage, I built an onboarding flow using IndexedDB for local-first persistence, linked to a browser-generated UUID v4. For recommendation scoring, I engineered an affinity engine that calculates compatibility scores based on genre and tag pairings while applying penalty scores for user-defined friction flags.
+
+For cloud security, I disabled administrative service keys in runtime execution, delegating authorization to PostgreSQL Row-Level Security (RLS) policies and `SECURITY DEFINER` stored procedures. Finally, I built an atomic merge script in Supabase Edge Functions (Deno) to securely reconcile guest data with Supabase Auth accounts.
+
+## Results
+- Separated business engine (`@playfit/core`) and routing (`apps/web`) to ensure codebase maintainability.
+- Fast onboarding and immediate recommendations served directly from IndexedDB state.
+- Sub-second recommendation rendering using database-backed caching tables (`api_cache`) to store raw API outputs.
+- Robust security architecture using strict RLS rules, database rate limiters, and RPCs for CRUD operations.
+- Full automated testing suite including 13+ unit/integration test files (Vitest) and End-to-End user flow tests (Playwright).
+
+## Learnings
+- Local-first strategies dramatically improve user acquisition and initial engagement.
+- Shifting security checks directly to the database via RLS and PostgreSQL functions simplifies the serverless API footprint.
+- De-duplicating game IDs via recursive database redirect tables is critical to catalog integrity.
+- Biome linter and Vitest speed up local loops, ensuring high quality before code reaches the GitHub Actions pipeline.

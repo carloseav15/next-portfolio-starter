@@ -15,13 +15,14 @@ import {
   profileMetrics,
   recommendations,
   recruiterQuickFacts,
+  strengthLabels,
 } from "@/lib/profile";
 import { buildPageMetadata, createAbsoluteUrl, siteConfig } from "@/lib/site";
 import { actionLinkClassName, textLinkClassName } from "@/lib/uiClasses";
 
 const canonicalUrl = createAbsoluteUrl("/");
 const homeSeoDescription =
-  "Portfolio of Carlos Arancibia, a full-stack and mobile software engineer building React and Next.js apps, internal tools, and payment workflows for teams across LATAM and the U.S.";
+  "Portfolio of Carlos Arancibia, a full-stack and mobile software engineer with 7+ years shipping production apps, payment platforms, and internal tools across LATAM and the U.S. Based in Naples, FL.";
 
 export const metadata: Metadata = buildPageMetadata({
   title: siteConfig.defaultTitle,
@@ -52,7 +53,7 @@ const personJsonLd = {
     "@type": "PostalAddress",
     addressLocality: "Naples",
     addressRegion: "FL",
-    postalCode: "34105",
+    postalCode: profileIdentity.location.split(" ").at(-1) ?? "34105",
     addressCountry: "US",
   },
   sameAs: [externalLinks.linkedin.href, externalLinks.github.href, externalLinks.website.href].filter(Boolean),
@@ -91,12 +92,7 @@ export default function HomePage() {
           </div>
 
           <p className="max-w-[70ch] text-sm leading-relaxed text-[var(--color-text-soft)] sm:text-base">
-            Recent work spans React and Next.js interfaces, mobile delivery, payment workflows, and internal
-            tools for operations teams.
-          </p>
-
-          <p className="max-w-[70ch] text-sm leading-relaxed text-[var(--color-text-soft)] sm:text-base">
-            {profileIdentity.openTo} Based in {profileIdentity.location}.
+            {profileIdentity.openTo}
           </p>
 
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
@@ -124,13 +120,13 @@ export default function HomePage() {
       <Section density="flush" tone="muted">
         <div className="kpi-strip motion-fade-in motion-delay-1">
           {profileMetrics.map((metric) => (
-            <article key={metric.label} className="kpi-item">
+            <div key={metric.label} className="kpi-item">
               <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
                 {metric.label}
               </p>
               <p className="mt-1 text-2xl font-semibold text-[var(--color-text)]">{metric.value}</p>
               <p className="mt-1 text-sm text-[var(--color-text-soft)]">{metric.context}</p>
-            </article>
+            </div>
           ))}
         </div>
       </Section>
@@ -158,8 +154,8 @@ export default function HomePage() {
                 }`}
               >
                 <div className="space-y-3">
-                  <p className="editorial-kicker">Selected work</p>
-                  <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-text)]">{win.title}</h2>
+                  <p className="editorial-kicker">Featured project</p>
+                  <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-text)]">{win.title}</h3>
                   <p className="text-sm font-semibold leading-relaxed text-[var(--color-text)]">{win.outcome}</p>
                 </div>
 
@@ -213,7 +209,7 @@ export default function HomePage() {
                 index === 1 ? "motion-delay-1" : index === 2 ? "motion-delay-2" : ""
               }`}
             >
-              <p className="editorial-kicker">Strength {index + 1}</p>
+              <p className="editorial-kicker">{strengthLabels[index]}</p>
               <p className="text-base leading-relaxed text-[var(--color-text)] sm:text-lg">{item}</p>
             </Card>
           ))}

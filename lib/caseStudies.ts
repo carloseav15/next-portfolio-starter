@@ -1,12 +1,13 @@
 import type { ComponentType } from "react";
 import DigicorpCaseStudy from "@/content/case-studies/digicorp.mdx";
-import MatchdayOsCaseStudy from "@/content/case-studies/matchdayos.mdx";
 import OctopusCaseStudy from "@/content/case-studies/octopus.mdx";
+import PlayfitCaseStudy from "@/content/case-studies/playfit.mdx";
 import UsOpsCaseStudy from "@/content/case-studies/us-ops.mdx";
+import MatchdayOsCaseStudy from "@/content/case-studies/matchdayos.mdx";
 import { experienceDates } from "@/lib/experienceDates";
 import type { ProofStatus } from "@/lib/proof";
 
-export type CaseStudySlug = "matchdayos" | "digicorp" | "octopus" | "us-ops";
+export type CaseStudySlug = "digicorp" | "octopus" | "us-ops" | "playfit" | "matchdayos";
 
 export type CaseStudyMetadata = {
   title: string;
@@ -71,7 +72,7 @@ const caseStudyEntries: CaseStudyEntry[] = [
       "This case shows public app shipping, long-term maintenance, and ownership across web and mobile in one business-critical product area.",
     stack: ["Kotlin", "Java", "Vanilla JavaScript", "Firebase", "Play Console", "App Store Connect"],
     evidenceStatus: "verified",
-    featuredOrder: 1,
+    featuredOrder: 2,
     activeInProduction: true,
     featured: true,
     Content: DigicorpCaseStudy,
@@ -109,7 +110,7 @@ const caseStudyEntries: CaseStudyEntry[] = [
       "This case shows payment workflow design, third-party integrations, and product trust under real daily transaction volume.",
     stack: ["Flutter", "Android", "Firebase", "REST APIs", "Twilio SMS", "OTP Verification"],
     evidenceStatus: "verified",
-    featuredOrder: 2,
+    featuredOrder: 3,
     activeInProduction: true,
     featured: true,
     Content: OctopusCaseStudy,
@@ -117,7 +118,7 @@ const caseStudyEntries: CaseStudyEntry[] = [
   {
     title: "Community Operations Platform - Iglesia Tiempo de Cambio",
     slug: "us-ops",
-    audienceTier: "primary",
+    audienceTier: "secondary",
     tags: ["Community Ops", "Role-based Systems", "Live Events", "Reporting"],
     seoKeywords: [
       "internal systems",
@@ -147,56 +148,96 @@ const caseStudyEntries: CaseStudyEntry[] = [
       "This case shows I can simplify messy organization workflows and build software that non-technical teams can keep using.",
     stack: ["JavaScript", "Google Maps APIs", "SQL", "Role-based dashboards"],
     evidenceStatus: "verified",
-    featuredOrder: 3,
+    featuredOrder: 5,
     activeInProduction: true,
-    featured: true,
+    featured: false,
     Content: UsOpsCaseStudy,
   },
   {
-    title: "MatchdayOS - End-to-End Soccer Operations",
+    title: "Playfit Game Assistant",
+    slug: "playfit",
+    audienceTier: "primary",
+    tags: ["Playfit", "Next.js 16", "React 19", "Supabase", "Local-First"],
+    seoKeywords: [
+      "Playfit",
+      "Next.js 16 App Router",
+      "React 19 canary",
+      "IndexedDB local-first",
+      "Supabase Edge Functions",
+    ],
+    date: experienceDates.playfit.startIso,
+    summary:
+      "A modern, local-first game recommendation assistant solving choice fatigue with zero-login onboarding, affinity scoring, and atomic profile migrations.",
+    cardSummary:
+      "Modern full-stack product engineering with local-first state, Deno edge migrations, and secure PL/pgSQL database logic.",
+    readingTime: "7 min",
+    role: "Full Stack Developer",
+    teamContext: "Independent personal project demonstrating state-of-the-art web stack",
+    timeline: experienceDates.playfit.label,
+    primaryOutcome: "Decoupled monorepo architecture, secure database layers, and automated quality checks",
+    impactMetrics: [
+      "Next.js 16 & React 19 canary monorepo",
+      "Zero-Login onboarding with IndexedDB store",
+      "Supabase Edge Functions (Deno) atomic migrations",
+      "13+ automated test files (Vitest + Playwright)",
+    ],
+    cardHighlights: ["Zero-Login onboarding with IndexedDB", "Supabase Edge Functions atomic migration"],
+    ownershipLabel: "Architected Next.js 16/React 19 monorepo, IndexedDB store, and Supabase RLS database functions.",
+    whyItMatters:
+      "This case showcases modern product engineering using local-first storage, Deno serverless edge APIs, strict database security, and solid automated testing.",
+    stack: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "Supabase",
+      "Deno Edge Functions",
+      "IndexedDB",
+      "Vitest",
+      "Playwright",
+      "Biome",
+    ],
+    evidenceStatus: "verified",
+    featuredOrder: 1,
+    activeInProduction: true,
+    featured: true,
+    Content: PlayfitCaseStudy,
+  },
+  {
+    title: "MatchdayOS - Soccer Operations Platform",
     slug: "matchdayos",
     audienceTier: "secondary",
-    tags: ["MatchdayOS", "RBAC", "Supabase", "Product Engineering", "Public Stats"],
+    tags: ["Soccer Ops", "Role-based Systems", "Next.js", "Supabase"],
     seoKeywords: [
-      "MatchdayOS",
-      "RBAC product engineering",
-      "Supabase Next.js app",
       "soccer operations platform",
-      "public competition stats",
+      "role-based access control",
+      "Next.js App Router",
+      "Supabase database schema",
     ],
     date: experienceDates.matchdayos.startIso,
     summary:
-      "Role-based soccer operations platform for clubs, leagues, referees, parents, and players with live matchday workflows, official reporting, and public competition analytics.",
+      "A comprehensive web platform built to manage soccer operations end-to-end across five operational roles, from club administration to live matchday tracking.",
     cardSummary:
-      "Modern product engineering for a role-based sports platform with public views and automated quality checks.",
-    readingTime: "8 min",
-    role: "Product Engineer owning architecture and implementation",
-    teamContext: "Built for multi-role soccer operations with role-specific workspaces and governance boundaries",
+      "Role-based workflows, 70 pages, and 37 database tables managing soccer club, referee, and player operations.",
+    readingTime: "6 min",
+    role: "Full Stack Developer",
+    teamContext: "Independent personal project demonstrating role-based workflow complexity",
     timeline: experienceDates.matchdayos.label,
-    primaryOutcome: "End-to-end matchday operations and official closure workflows with public competition visibility",
+    primaryOutcome: "Role-based platform with 70 pages, 37 schema tables, and multi-role testing.",
     impactMetrics: [
-      "5 operational roles",
-      "70 route-level pages",
-      "37 business tables",
-      "13 automated test files",
+      "70 route-level pages implemented",
+      "37 business tables in primary schema",
+      "13 automated test files (Vitest + Playwright)",
     ],
-    cardHighlights: ["5 operational roles", "70 route-level pages"],
-    ownershipLabel: "Owned architecture and implementation for a role-based soccer operations product.",
+    cardHighlights: ["70 route-level pages", "37 business tables in PostgreSQL schema"],
+    ownershipLabel: "Owned product definition, route-guard architecture, database design, and testing.",
     whyItMatters:
-      "This case shows modern product engineering across RBAC, typed data, public experiences, and automated tests.",
-    stack: [
-      "Next.js 15",
-      "React 19",
-      "TypeScript",
-      "Tailwind CSS",
-      "Supabase",
-      "PostgreSQL",
-      "Storage",
-      "Vitest",
-      "Playwright",
-    ],
+      "This case demonstrates my ability to design complex role-based access control, manage extensive database schemas, and build state-driven workflows.",
+    stack: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Supabase", "Vitest", "Playwright"],
     evidenceStatus: "verified",
     featuredOrder: 4,
+    activeInProduction: true,
+    featured: false,
     Content: MatchdayOsCaseStudy,
   },
 ];
@@ -224,8 +265,8 @@ const toMetadata = (entry: CaseStudyEntry): CaseStudyMetadata => ({
   stack: entry.stack,
   evidenceStatus: entry.evidenceStatus,
   featuredOrder: entry.featuredOrder,
-  activeInProduction: entry.activeInProduction,
-  featured: entry.featured,
+  ...(entry.activeInProduction !== undefined && { activeInProduction: entry.activeInProduction }),
+  ...(entry.featured !== undefined && { featured: entry.featured }),
 });
 
 export const caseStudies = sortedCaseStudyEntries.map(toMetadata);

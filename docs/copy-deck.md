@@ -136,7 +136,7 @@ Buttons:
 Metadata title: About
 
 Metadata description:
-Software engineer with 7+ years of production experience across Digicorp, DATEC ecosystem work, and operational systems. Based in Naples, FL (34105), open to junior or mid-level roles.
+Software engineer with 7+ years of production experience across Digicorp, DATEC ecosystem work, and operational systems. Based in Naples, FL (34105), open to software engineering roles.
 
 Title:
 Building software with ownership and humility
@@ -193,7 +193,7 @@ If the preview does not load, use this direct link: Open resume PDF
 Metadata title: Contact
 
 Metadata description:
-Contact Carlos Arancibia in Naples, FL (34105). Open to junior or mid-level opportunities, remote or on-site.
+Contact Carlos Arancibia in Naples, FL (34105). Open to software engineering opportunities, remote or on-site.
 
 Title:
 Open to contributing and growing within a strong team
@@ -201,7 +201,7 @@ Open to contributing and growing within a strong team
 Body:
 If you're building a product or improving internal systems and want a dependable engineer who communicates clearly and takes ownership, I'd love to connect.
 
-I'm especially interested in junior or mid-level roles where I can contribute meaningfully, keep learning, and grow over time.
+I'm looking for opportunities where I can contribute meaningfully, keep learning, and grow over time.
 
 Based in Naples, FL (34105). Open to remote or on-site opportunities.
 

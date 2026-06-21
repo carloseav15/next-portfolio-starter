@@ -6,8 +6,10 @@ import {
   aboutIntro,
   careerPrinciples,
   careerTimeline,
+  education,
   parallelRolesNote,
   profileIdentity,
+  technicalSkills,
 } from "@/lib/profile";
 import { buildPageMetadata } from "@/lib/site";
 
@@ -78,6 +80,42 @@ export default function AboutPage() {
       </Section>
 
       <Section
+        eyebrow="Education"
+        title={education.degree}
+        description={`${education.institution} · ${education.period}`}
+        density="compact"
+      >
+        <Card variant="flat" className="motion-fade-in">
+          <p className="text-sm leading-relaxed text-[var(--color-text-soft)]">
+            Bachelor&apos;s degree in Systems Engineering from Universidad Católica Boliviana,
+            completed between 2012 and 2017.
+          </p>
+        </Card>
+      </Section>
+
+      <Section
+        eyebrow="Technical Skills"
+        title="Languages, frameworks, and tools I use"
+        description="Full list of technologies across my professional experience."
+        density="compact"
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {technicalSkills.map((group) => (
+            <Card key={group.category} variant="flat" className="space-y-3 motion-fade-in">
+              <p className="editorial-kicker">{group.category}</p>
+              <div className="flex flex-wrap gap-2">
+                {group.skills.map((skill) => (
+                  <Badge key={skill} variant="muted">
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      <Section
         eyebrow="Career Timeline"
         title="A path built through support, Android, and product delivery"
         description="The timeline below keeps the full arc, from infrastructure support through product engineering."
@@ -96,7 +134,7 @@ export default function AboutPage() {
             >
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
-                  <h2 className="text-xl font-semibold text-[var(--color-text)]">{item.role}</h2>
+                  <h3 className="text-xl font-semibold text-[var(--color-text)]">{item.role}</h3>
                   <p className="text-sm font-semibold text-[var(--color-text-soft)]">{item.company}</p>
                 </div>
                 <div className="text-left text-sm text-[var(--color-text-muted)] sm:text-right">
@@ -105,7 +143,11 @@ export default function AboutPage() {
                 </div>
               </div>
 
-              {item.activeInProduction ? (
+              {item.type === "personal" ? (
+                <Badge variant="default" className="w-fit">
+                  Personal Project
+                </Badge>
+              ) : item.activeInProduction ? (
                 <Badge variant="accent" className="w-fit">
                   {item.statusNote ?? "Active in Production"}
                 </Badge>

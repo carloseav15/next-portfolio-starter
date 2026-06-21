@@ -1,6 +1,11 @@
+import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
+
+export const metadata: Metadata = {
+  title: "404: Page Not Found | Carlos Arancibia",
+};
 
 export default function NotFound() {
   return (

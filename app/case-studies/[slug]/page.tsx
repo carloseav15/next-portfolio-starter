@@ -7,9 +7,8 @@ import {
   getCaseStudyBySlug,
   isCaseStudySlug,
 } from "@/lib/caseStudies";
-import { DIGICORP_PROOF } from "@/lib/links";
 import { profileIdentity } from "@/lib/profile";
-import { buildPageMetadata, createAbsoluteUrl } from "@/lib/site";
+import { buildPageMetadata, createAbsoluteUrl, siteConfig } from "@/lib/site";
 
 type CaseStudyPageProps = {
   params: Promise<{
@@ -18,7 +17,7 @@ type CaseStudyPageProps = {
 };
 
 export const dynamicParams = false;
-const defaultOgImageUrl = createAbsoluteUrl(DIGICORP_PROOF.imageSrc);
+const defaultOgImageUrl = createAbsoluteUrl(siteConfig.defaultOgImagePath);
 const caseStudiesUrl = createAbsoluteUrl("/case-studies");
 
 export function generateStaticParams() {
@@ -47,7 +46,6 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
     pathname: `/case-studies/${caseStudy.slug}`,
     ogAlt: `${caseStudy.title} preview`,
     keywords: caseStudy.seoKeywords,
-    ogImagePath: DIGICORP_PROOF.imageSrc,
   });
 
   return {
@@ -76,6 +74,10 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   const Content = caseStudyContentBySlug[slug];
   const canonicalUrl = createAbsoluteUrl(`/case-studies/${slug}`);
   const publishedTime = new Date(`${metadata.date}T00:00:00Z`).toISOString();
+
+  const currentIndex = caseStudies.findIndex((cs) => cs.slug === slug);
+  const prevCaseStudy = currentIndex > 0 ? caseStudies[currentIndex - 1] : null;
+  const nextCaseStudy = currentIndex < caseStudies.length - 1 ? caseStudies[currentIndex + 1] : null;
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "TechArticle",
@@ -136,7 +138,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <CaseStudyArticle metadata={metadata}>
+      <CaseStudyArticle metadata={metadata} prevCaseStudy={prevCaseStudy} nextCaseStudy={nextCaseStudy}>
         <Content />
       </CaseStudyArticle>
     </>

@@ -42,13 +42,24 @@ export default function ResumePage() {
 
         <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
           <ButtonLink
-            href={resumePath}
+            href="/resume/print"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full gap-2 sm:w-auto"
           >
-            Open Resume
+            Print or Save as PDF
             <FileText aria-hidden="true" className="h-4 w-4" />
+            <span className="sr-only"> (opens in new tab)</span>
+          </ButtonLink>
+          <ButtonLink
+            href={resumePath}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="secondary"
+            className="w-full gap-2 sm:w-auto"
+          >
+            Download Legacy PDF
+            <Download aria-hidden="true" className="h-4 w-4" />
             <span className="sr-only"> (opens in new tab)</span>
           </ButtonLink>
         </div>

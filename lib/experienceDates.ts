@@ -3,6 +3,7 @@ export type ExperienceDateRange = {
   startIso: string;
   endIso: string | null;
   isOngoing: boolean;
+  type?: "employment" | "personal";
 };
 
 export const experienceDates = {
@@ -37,15 +38,23 @@ export const experienceDates = {
     isOngoing: false,
   },
   diaz: {
-    label: "Jul 2024 - Dec 2025",
+    label: "Jul 2024 - Sep 2025",
     startIso: "2024-07-01",
-    endIso: "2025-12-01",
+    endIso: "2025-09-01",
     isOngoing: false,
   },
   matchdayos: {
-    label: "Jan 2026 - Present",
-    startIso: "2026-01-01",
+    label: "Oct 2025 - Present",
+    startIso: "2025-10-01",
     endIso: null,
     isOngoing: true,
+    type: "personal",
+  },
+  playfit: {
+    label: "Latest Project",
+    startIso: "2025-11-01",
+    endIso: null,
+    isOngoing: true,
+    type: "personal",
   },
 } as const satisfies Record<string, ExperienceDateRange>;
