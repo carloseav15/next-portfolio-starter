@@ -79,20 +79,20 @@ export function ThemeToggle({ showLabelOnMobile = false, buttonClassName }: Them
         <span className="relative inline-flex h-4 w-4 items-center justify-center" aria-hidden="true">
           <Sun
             className={cn(
-              "absolute h-4 w-4 transition-all duration-200",
-              preference === "light" ? "scale-100 opacity-100" : "scale-75 opacity-0",
+              "absolute h-4 w-4 transition-all duration-300",
+              preference === "light" ? "scale-100 rotate-0 opacity-100" : "scale-75 -rotate-90 opacity-0",
             )}
           />
           <Moon
             className={cn(
-              "absolute h-4 w-4 transition-all duration-200",
-              preference === "dark" ? "scale-100 opacity-100" : "scale-75 opacity-0",
+              "absolute h-4 w-4 transition-all duration-300",
+              preference === "dark" ? "scale-100 rotate-0 opacity-100" : "scale-75 rotate-90 opacity-0",
             )}
           />
           <Laptop
             className={cn(
-              "absolute h-4 w-4 transition-all duration-200",
-              preference === "system" ? "scale-100 opacity-100" : "scale-75 opacity-0",
+              "absolute h-4 w-4 transition-all duration-300",
+              preference === "system" ? "scale-100 rotate-0 opacity-100" : "scale-75 -rotate-90 opacity-0",
             )}
           />
         </span>

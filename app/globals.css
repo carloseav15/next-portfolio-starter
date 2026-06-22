@@ -11,7 +11,7 @@
   --color-border-strong: rgba(15, 23, 42, 0.16);
   --color-text: #0f172a;
   --color-text-soft: #334155;
-  --color-text-muted: #475569;
+  --color-text-muted: #3b4252;
   --color-link: #0284c7;
   --color-link-hover: #0369a1;
   --color-focus: #38bdf8;
@@ -430,6 +430,50 @@ a {
   [class*="bg-\[var"] {
     background: var(--color-bg);
   }
+}
+
+/* Card hover spotlight effect */
+.card-spotlight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: radial-gradient(
+    300px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+    rgba(14, 165, 201, 0.08),
+    transparent 80%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.card-spotlight:hover::before {
+  opacity: 1;
+}
+
+.dark .card-spotlight::before {
+  background: radial-gradient(
+    300px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+    rgba(56, 189, 248, 0.18),
+    transparent 80%
+  );
+}
+
+/* Scrollbar utility to hide visual scrollbars in horizontal carousels */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Print styles for Resume */

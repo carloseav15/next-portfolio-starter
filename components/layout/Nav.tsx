@@ -143,11 +143,6 @@ export function Nav() {
           </div>
 
           <div className="ml-auto flex items-center gap-2 sm:hidden">
-            <ButtonLink href="/#contact-section" variant="primary" size="sm" data-cta="talk-primary">
-              Let&apos;s Talk
-              <MessageCircle aria-hidden="true" size={16} className="h-4 w-4" />
-            </ButtonLink>
-
             <button
               ref={menuButtonRef}
               type="button"

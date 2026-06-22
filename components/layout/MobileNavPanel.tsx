@@ -1,6 +1,6 @@
 "use client";
 
-import { FileText } from "lucide-react";
+import { FileText, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
@@ -61,6 +61,18 @@ export function MobileNavPanel({ panelId, onLinkClick }: MobileNavPanelProps) {
         Resume
         <FileText aria-hidden="true" size={16} className="h-4 w-4" />
         <span className="sr-only"> (opens in new tab)</span>
+      </ButtonLink>
+
+      <ButtonLink
+        href="/#contact-section"
+        variant="primary"
+        size="sm"
+        data-cta="talk-mobile"
+        onClick={onLinkClick}
+        className="w-full justify-between"
+      >
+        Let&apos;s Talk
+        <MessageCircle aria-hidden="true" size={16} className="h-4 w-4" />
       </ButtonLink>
 
       <ThemeToggle showLabelOnMobile buttonClassName="w-full justify-between" />

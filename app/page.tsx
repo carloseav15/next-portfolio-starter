@@ -1,21 +1,23 @@
-import { ArrowRight, ArrowUpRight, FileText, Linkedin, Mail, Quote } from "lucide-react";
+import { ArrowRight, ArrowUpRight, FileText, Quote } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Section } from "@/components/ui/Section";
+import { KPIStrip, KPIItem } from "@/components/ui/KPIStrip";
+import { ContactForm } from "@/components/ui/ContactForm";
 import { caseStudies } from "@/lib/caseStudies";
 import { externalLinks } from "@/lib/links";
 import {
   featuredWins,
-  heroProofPoints,
   personalStrengths,
   profileIdentity,
   profileMetrics,
   recommendations,
   recruiterQuickFacts,
   strengthLabels,
+  technicalSkills,
 } from "@/lib/profile";
 import { buildPageMetadata, createAbsoluteUrl, siteConfig } from "@/lib/site";
 import { actionLinkClasses, textLinkClasses } from "@/components/ui/Link";
@@ -84,7 +86,7 @@ export default function HomePage() {
       >
         <div className="motion-fade-in space-y-6">
           <div className="flex flex-wrap gap-2">
-            {heroProofPoints.map((item) => (
+            {profileIdentity.coreStack.map((item) => (
               <Badge key={item} variant="accent" className="px-4 py-2 text-sm">
                 {item}
               </Badge>
@@ -118,17 +120,11 @@ export default function HomePage() {
       </Section>
 
       <Section density="compact" tone="muted">
-        <div className="kpi-strip motion-fade-in motion-delay-1">
+        <KPIStrip className="motion-fade-in motion-delay-1">
           {profileMetrics.map((metric) => (
-            <div key={metric.label} className="kpi-item">
-              <p className="text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-text-muted)]">
-                {metric.label}
-              </p>
-              <p className="mt-1 text-2xl font-semibold text-[var(--color-text)]">{metric.value}</p>
-              <p className="mt-1 text-sm text-[var(--color-text-soft)]">{metric.context}</p>
-            </div>
+            <KPIItem key={metric.label} label={metric.label} value={metric.value} context={metric.context} />
           ))}
-        </div>
+        </KPIStrip>
       </Section>
 
       <Section
@@ -136,7 +132,7 @@ export default function HomePage() {
         title="Three products that show how I build"
         description="These are the clearest examples of app delivery, payment workflows, and internal systems shaped around real team needs."
       >
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 md:grid md:grid-cols-3 md:gap-4 md:overflow-x-visible md:pb-0 scrollbar-none">
           {featuredWins.map((win, index) => {
             const relatedCaseStudy = caseStudyBySlug[win.id];
 
@@ -149,10 +145,33 @@ export default function HomePage() {
                 key={win.id}
                 hoverable
                 variant={index === 0 ? "proof" : "elevated"}
-                className={`flex h-full flex-col space-y-4 motion-fade-in ${
+                className={`w-[85vw] shrink-0 snap-start md:w-auto flex h-full flex-col space-y-4 motion-fade-in ${
                   index === 1 ? "motion-delay-1" : index === 2 ? "motion-delay-2" : ""
                 }`}
               >
+                {/* Image Placeholder */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-dashed border-[var(--color-border-strong)] bg-[var(--color-subtle-bg)] flex flex-col items-center justify-center text-[var(--color-text-soft)] transition duration-200">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-surface-1)] border border-[var(--color-border)] shadow-sm">
+                    <svg
+                      className="h-5 w-5 text-[var(--color-text-muted)]"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </div>
+                  <span className="mt-2 text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-muted)]">
+                    [Placeholder: {win.title}]
+                  </span>
+                </div>
+
                 <div className="space-y-3">
                   <p className="editorial-kicker">Featured project</p>
                   <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-text)]">{win.title}</h3>
@@ -191,6 +210,32 @@ export default function HomePage() {
               </Card>
             );
           })}
+        </div>
+      </Section>
+
+      <Section
+        eyebrow="Core Skills"
+        title="Technical Stack & Expertise"
+        description="The tools, languages, and frameworks I use to build and support production applications."
+        density="compact"
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {technicalSkills.map((group, index) => (
+            <Card
+              key={group.category}
+              variant="flat"
+              className={`space-y-3 motion-fade-in ${index % 2 === 0 ? "" : "motion-delay-1"}`}
+            >
+              <p className="editorial-kicker">{group.category}</p>
+              <div className="flex flex-wrap gap-1.5">
+                {group.skills.map((skill) => (
+                  <Badge key={skill} variant="muted" className="text-xs">
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+            </Card>
+          ))}
         </div>
       </Section>
 
@@ -278,33 +323,31 @@ export default function HomePage() {
 
           <Card variant="flat" className="space-y-4 motion-fade-in motion-delay-1">
             <p className="text-sm leading-relaxed text-[var(--color-text-soft)]">
-              I am easiest to reach by email if you want to talk about product engineering, full-stack work, mobile
-              delivery, or teams that need someone comfortable across implementation and operations.
+              Send a direct message or reach out via my standard channels below. I usually reply within 24-48 hours.
             </p>
-            <div className="flex flex-col gap-3">
-              <ButtonLink href={externalLinks.email.href!} className="w-full gap-2">
-                Email Carlos
-                <Mail aria-hidden="true" className="h-4 w-4" />
-              </ButtonLink>
-              <ButtonLink
-                href={externalLinks.linkedin.href!}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="secondary"
-                className="w-full gap-2"
-              >
-                LinkedIn
-                <Linkedin aria-hidden="true" className="h-4 w-4" />
-                <span className="sr-only"> (opens in new tab)</span>
-              </ButtonLink>
+
+            <ContactForm />
+
+            <div className="pt-3 border-t border-[var(--color-border)] flex flex-wrap items-center justify-between gap-2 text-xs">
+              <span className="text-[var(--color-text-muted)]">Alternative channels:</span>
+              <div className="flex gap-3">
+                <a
+                  href={externalLinks.email.href!}
+                  className="font-semibold text-[var(--color-text-soft)] hover:text-[var(--color-link)] transition"
+                >
+                  Email
+                </a>
+                <span className="text-[var(--color-border-strong)]">•</span>
+                <a
+                  href={externalLinks.linkedin.href!}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-[var(--color-text-soft)] hover:text-[var(--color-link)] transition"
+                >
+                  LinkedIn
+                </a>
+              </div>
             </div>
-            <p className="text-sm text-[var(--color-text-muted)]">
-              Prefer all contact options in one place?{" "}
-              <Link href="/#contact-section" className={textLinkClasses}>
-                Visit the contact section
-              </Link>
-              .
-            </p>
           </Card>
         </div>
       </Section>

@@ -1,5 +1,10 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
+
+const gitHubRepos: Record<string, string> = {
+  playfit: "https://github.com/carloseav15/games-library",
+  matchdayos: "https://github.com/carloseav15/games-library",
+};
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 import { caseStudies } from "@/lib/caseStudies";
@@ -94,7 +99,7 @@ export default function CaseStudiesPage() {
           recruiters and hiring managers quickly evaluate technical ownership, system outcomes, and production depth.
         </p>
 
-        <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-x-visible sm:pb-0 scrollbar-none">
           {primaryCaseStudies.map((caseStudy, index) => {
             const details = caseStudyExtraDetails[caseStudy.slug] || {
               category: "Software Development",
@@ -106,7 +111,7 @@ export default function CaseStudiesPage() {
                 key={caseStudy.slug}
                 hoverable
                 variant={index === 0 ? "proof" : "elevated"}
-                className={`relative overflow-hidden flex h-full flex-col space-y-4 pt-6 p-4 sm:p-5 motion-fade-in ${
+                className={`w-[85vw] shrink-0 snap-start sm:w-auto relative overflow-hidden flex h-full flex-col space-y-4 pt-6 p-4 sm:p-5 motion-fade-in ${
                   index % 2 === 0 ? "" : "motion-delay-1"
                 }`}
               >
@@ -134,6 +139,29 @@ export default function CaseStudiesPage() {
                   </div>
                 </div>
 
+                {/* Image Placeholder */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-dashed border-[var(--color-border-strong)] bg-[var(--color-subtle-bg)] flex flex-col items-center justify-center text-[var(--color-text-muted)] transition duration-200">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-surface-1)] border border-[var(--color-border)] shadow-sm">
+                    <svg
+                      className="h-5 w-5 text-[var(--color-text-muted)]"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </div>
+                  <span className="mt-2 text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-muted)]">
+                    [Placeholder: {caseStudy.title}]
+                  </span>
+                </div>
+
                 <div className="space-y-2">
                   <h2 className="text-xl font-bold tracking-tight text-[var(--color-text)] sm:text-2xl hover:text-[var(--color-link)] transition duration-150">
                     {caseStudy.title}
@@ -153,11 +181,24 @@ export default function CaseStudiesPage() {
                   ))}
                 </div>
 
-                <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-2">
-                  <ActionLink href={`/case-studies/${caseStudy.slug}`}>
-                    Read {caseStudy.title} case study
-                    <ArrowRight aria-hidden="true" className="h-4 w-4" />
-                  </ActionLink>
+                <div className="mt-auto flex flex-wrap items-center justify-between gap-4 pt-2 w-full">
+                  <div className="flex flex-wrap items-center gap-4">
+                    <ActionLink href={`/case-studies/${caseStudy.slug}`}>
+                      Read Case Study
+                      <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                    </ActionLink>
+                    {gitHubRepos[caseStudy.slug] && (
+                      <a
+                        href={gitHubRepos[caseStudy.slug]}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-text-soft)] hover:text-[var(--color-link)] transition duration-150"
+                      >
+                        GitHub Code
+                        <ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" />
+                      </a>
+                    )}
+                  </div>
                   <span className="hidden text-sm font-semibold text-[var(--color-text-muted)] sm:inline">
                     {caseStudy.readingTime}
                   </span>
@@ -173,7 +214,7 @@ export default function CaseStudiesPage() {
             <p className="mt-2 max-w-[70ch] text-sm text-[var(--color-text-muted)] sm:text-base">
               Supporting product work that helps round out how I think about modern product engineering.
             </p>
-            <div className="mt-6 grid gap-6 sm:gap-8 lg:grid-cols-2">
+            <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-x-visible sm:pb-0 scrollbar-none">
               {secondaryCaseStudies.map((caseStudy) => {
                 const details = caseStudyExtraDetails[caseStudy.slug] || {
                   category: "Supporting Work",
@@ -185,7 +226,7 @@ export default function CaseStudiesPage() {
                     key={caseStudy.slug}
                     hoverable
                     variant="flat"
-                    className="relative overflow-hidden flex h-full flex-col space-y-4 pt-6 p-4 sm:p-5 motion-fade-in motion-delay-1"
+                    className="w-[85vw] shrink-0 snap-start sm:w-auto relative overflow-hidden flex h-full flex-col space-y-4 pt-6 p-4 sm:p-5 motion-fade-in motion-delay-1"
                   >
                     {/* Accent border gradient for secondary */}
                     <div
@@ -211,6 +252,29 @@ export default function CaseStudiesPage() {
                       </div>
                     </div>
 
+                    {/* Image Placeholder */}
+                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-dashed border-[var(--color-border-strong)] bg-[var(--color-subtle-bg)] flex flex-col items-center justify-center text-[var(--color-text-muted)] transition duration-200">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-surface-1)] border border-[var(--color-border)] shadow-sm">
+                        <svg
+                          className="h-5 w-5 text-[var(--color-text-muted)]"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                          />
+                        </svg>
+                      </div>
+                      <span className="mt-2 text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-muted)]">
+                        [Placeholder: {caseStudy.title}]
+                      </span>
+                    </div>
+
                     <div className="space-y-2">
                       <h3 className="text-xl font-bold tracking-tight text-[var(--color-text)] sm:text-2xl hover:text-[var(--color-link)] transition duration-150">
                         {caseStudy.title}
@@ -232,11 +296,24 @@ export default function CaseStudiesPage() {
                       ))}
                     </div>
 
-                    <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-2">
-                      <ActionLink href={`/case-studies/${caseStudy.slug}`}>
-                        Read {caseStudy.title} case study
-                        <ArrowRight aria-hidden="true" className="h-4 w-4" />
-                      </ActionLink>
+                    <div className="mt-auto flex flex-wrap items-center justify-between gap-4 pt-2 w-full">
+                      <div className="flex flex-wrap items-center gap-4">
+                        <ActionLink href={`/case-studies/${caseStudy.slug}`}>
+                          Read Case Study
+                          <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                        </ActionLink>
+                        {gitHubRepos[caseStudy.slug] && (
+                          <a
+                            href={gitHubRepos[caseStudy.slug]}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-sm font-semibold text-[var(--color-text-soft)] hover:text-[var(--color-link)] transition duration-150"
+                          >
+                            GitHub Code
+                            <ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" />
+                          </a>
+                        )}
+                      </div>
                       <span className="hidden text-sm font-semibold text-[var(--color-text-muted)] sm:inline">
                         {caseStudy.readingTime}
                       </span>
