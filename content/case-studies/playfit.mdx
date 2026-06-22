@@ -1,5 +1,7 @@
 ## Context
-Playfit is a modern, full-stack video game recommendation assistant built to help players manage backlog fatigue and choose their next game. The product delivers an interactive onboarding flow and personalized suggestions instantly, without requiring user registration.
+![Playfit Game Assistant UI Mockup](/images/playfit-preview.png)
+
+Playfit is a modern, full-stack video game recommendation assistant built to help players manage backlog fatigue and choose their next game. The product delivers an interactive onboarding flow and personalized suggestions instantly, without requiring user registration. The entire codebase is open source ([github.com/carloseav15/games-library](https://github.com/carloseav15/games-library)), serving as the foundation for an upcoming multi-platform rollout including native Android, iOS, and Flutter clients planned for 2026.
 
 ## Problem
 Most game discovery tools force users to go through complex setup, sign-up barriers, and manual catalog creation before giving value. This initial friction leads to high bounce rates. Additionally, recommendation engines often suffer from cold-start problems and fail to calculate friction risk (e.g., suggesting a frustrating Souls-like game to a casual player).
@@ -20,10 +22,12 @@ For cloud security, I disabled administrative service keys in runtime execution,
 
 ## Results
 - Separated business engine (`@playfit/core`) and routing (`apps/web`) to ensure codebase maintainability.
+- Open-source codebase published on GitHub ([github.com/carloseav15/games-library](https://github.com/carloseav15/games-library)) to show architecture transparency.
 - Fast onboarding and immediate recommendations served directly from IndexedDB state.
 - Sub-second recommendation rendering using database-backed caching tables (`api_cache`) to store raw API outputs.
 - Robust security architecture using strict RLS rules, database rate limiters, and RPCs for CRUD operations.
 - Full automated testing suite including 13+ unit/integration test files (Vitest) and End-to-End user flow tests (Playwright).
+- Roadmap established for native iOS, Android, and Flutter clients utilizing shared core engines.
 
 ## Learnings
 - Local-first strategies dramatically improve user acquisition and initial engagement.

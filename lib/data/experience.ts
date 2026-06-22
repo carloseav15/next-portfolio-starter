@@ -24,25 +24,25 @@ export const parallelRolesNote =
 export const careerTimeline: ExperienceItem[] = [
   {
     company: "Playfit",
-    role: "Full Stack Developer",
+    role: "Senior Product Engineer",
     period: experienceDates.playfit.label,
     location: "Remote",
     type: "personal",
     highlights: [
       "Architected a Next.js 16 (App Router) and React 19 monorepo application separating apps/web and @playfit/core.",
+      "Open-sourced the codebase (github.com/carloseav15/games-library) and structured the roadmap for native Android, iOS, and Flutter variants.",
       "Engineered a real-time recommendation scoring engine for user game affinity and friction risk.",
       "Implemented Supabase Row-Level Security (RLS) and PL/pgSQL database-level functions, eliminating exposed keys.",
-      "Designed an atomic IndexedDB profile migration pipeline to merge offline data into authenticated accounts.",
     ],
   },
   {
     company: "MatchdayOS",
-    role: "Product Developer (Side Project)",
+    role: "Product Engineer (Side Project)",
     period: experienceDates.matchdayos.label,
     location: "Remote",
     type: "personal",
     highlights: [
-      "Designed and built an end-to-end soccer operations platform with 70 route-level pages.",
+      "Designed and built an end-to-end soccer operations platform with 70 route-level pages (active in development).",
       "Implemented strict role boundaries across 5 user access modes: org-admin, team-admin, referee, representative, and player.",
       "Engineered state-driven workflows for live matchday events (roster verification, timeline, scoreboard) and post-match reporting.",
       "Integrated UX telemetry logging client actions into Supabase database analytics.",
@@ -50,15 +50,15 @@ export const careerTimeline: ExperienceItem[] = [
   },
   {
     company: "Diaz Brothers Company LLC",
-    role: "Full Stack Developer",
+    role: "Senior Product Engineer",
     period: experienceDates.diaz.label,
     location: "Bonita Springs & Naples, FL",
     activeInProduction: true,
     statusNote: "Operational systems remain active",
     highlights: [
-      "Built a real-time dashboard for business insights and operational transparency.",
-      "Developed web and mobile systems for technical team management.",
-      "Created service order management with pricing logic, PDFs, and email communication.",
+      "Designed and built a real-time operational dashboard for logistical transparency and technician/vehicle dispatch tracking.",
+      "Created an internal service order logistics system with custom pricing logic, PDF invoice generation, and automated workflows.",
+      "Eliminated manual phone coordination between field teams and administration by establishing real-time scheduling tracking.",
       "Redesigned the company website to improve engagement and showcase services.",
     ],
   },
@@ -68,7 +68,7 @@ export const careerTimeline: ExperienceItem[] = [
     period: experienceDates.digicorp.label,
     location: "Bolivia / Peru / Chile",
     parallelContext:
-      "Parallel engagement with V@COMM from Dec 2019 to 2020 with clear product and maintenance ownership.",
+      "Parallel advisory engagement with V@COMM from Dec 2019 to 2020 with clear product boundaries and zero scheduling conflicts.",
     activeInProduction: true,
     statusNote: "Active in Production",
     highlights: [
@@ -78,19 +78,20 @@ export const careerTimeline: ExperienceItem[] = [
       "Developed Flutter mobile prototypes in fast-paced 1-month loops, heavily contributing to UI/UX design.",
       "Integrated payment gateways and ERP systems, improving internal customer service purchase workflows by 75%.",
       "Managed DigitalOcean (Linux) and Windows Server instances, and integrated Firebase services.",
+      "Supported a platform serving 3,000+ daily active B2B clients in Bolivia, Chile, and Peru.",
     ],
   },
   {
     company: "V@COMM",
-    role: "Co-Founder & Software Engineer (Secondary engagement)",
+    role: "Co-Founder & Technical Advisor (Parallel Advisory Engagement)",
     period: experienceDates.vcomm.label,
     location: "Bolivia",
     parallelContext:
-      "Co-founded startup run in parallel starting Dec 2019 as a secondary technical engagement with separate ownership boundaries.",
+      "Co-founded startup run in parallel starting Dec 2019 as a secondary technical advisor with separate ownership boundaries and zero scheduling conflicts.",
     activeInProduction: true,
     statusNote: "Active in Production",
     highlights: [
-      "Developed 'Octopus' online payment and collection system deployed in two credit cooperatives.",
+      "Developed 'Octopus' online payment and collection architecture, Android printing integration, and settlement logic as a secondary advisory role.",
       "Designed Android point-of-sale flows with thermal printer integrations and automated settlement logic.",
       "Built a Flutter digital wallet app with OTP verification, SMS gateways, and Firebase integrations.",
       "Automated commission and daily settlement calculations, eliminating manual reconciliation.",
@@ -127,7 +128,8 @@ export const careerTimeline: ExperienceItem[] = [
     location: "Bolivia",
     highlights: [
       "Supported early-stage D-Cloud monitoring systems.",
-      "Maintained secure infrastructure workflows and operational protocols.",
+      "Maintained secure infrastructure workflows, monitoring tools, and followed operational protocols.",
+      "Built a foundational discipline in reliability, incident management, and production operations.",
     ],
   },
 ];

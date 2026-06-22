@@ -20,7 +20,7 @@ All colors are defined as CSS custom properties on `:root` (light) and overridde
 | | `--color-subtle-bg` | `rgba(15,23,42,0.03)` | `rgba(218,236,255,0.052)` |
 | **Text** | `--color-text` | `#0f172a` | `#eff7ff` |
 | | `--color-text-soft` | `#334155` | `#c2d4e6` |
-| | `--color-text-muted` | `#64748b` | `#9eb4cb` |
+| | `--color-text-muted` | `#475569` | `#9eb4cb` |
 | **Border** | `--color-border` | `rgba(15,23,42,0.08)` | `rgba(157,188,220,0.2)` |
 | | `--color-border-strong` | `rgba(15,23,42,0.16)` | `rgba(186,209,236,0.34)` |
 | **Accent** | `--color-accent` | `#0f172a` | `#f8fafc` |

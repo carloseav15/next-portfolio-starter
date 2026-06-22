@@ -27,15 +27,15 @@ export type RecruiterQuickFact = {
 
 export const profileIdentity: ProfileIdentity = {
   fullName: "Carlos Arancibia",
-  roleLabel: "Full-Stack & Mobile Software Engineer",
-  headline: "Product engineer shipping reliable web and mobile platforms.",
+  roleLabel: "Senior Product Engineer",
+  headline: "Product engineer shipping high-integrity web and mobile applications.",
   location: "Naples, FL 34105",
   email: "carloseav15@gmail.com",
   website: "https://www.carlos-arancibia.com",
   summary:
-    "I build production-grade applications with a focus on system reliability, secure database design, and end-to-end ownership. Authorized to work in the U.S. (EAD).",
+    "I build secure transactional systems, B2B platforms, and real-time operational dashboards. U.S. work authorization: EAD (no sponsorship required).",
   openTo:
-    "Open to remote, hybrid, or on-site software engineering roles across product, platform, and business systems.",
+    "Open to remote, hybrid, or on-site software engineering roles across product, platform, and transactional systems.",
   languages: ["English (professional working)", "Spanish (native)"],
   coreStack: ["React", "Next.js", "TypeScript", "Kotlin", "Android", "SQL"],
 };
@@ -44,8 +44,8 @@ export const heroProofPoints = ["10,000+ downloads", "3,000 daily users", "~1,00
 
 export const recruiterQuickFacts: RecruiterQuickFact[] = [
   { label: "Availability", value: "Immediate / Full-time" },
-  { label: "Experience", value: "7+ Years (LATAM & U.S.)" },
-  { label: "Preferred Roles", value: "Full-Stack, Mobile, Platform" },
+  { label: "Experience", value: "8+ Years (LATAM & U.S.)" },
+  { label: "Preferred Roles", value: "Product, Full-Stack, Mobile" },
 ];
 
 export const profileMetrics: ProfileMetric[] = [
@@ -57,7 +57,7 @@ export const profileMetrics: ProfileMetric[] = [
   },
   {
     label: "Production engineering",
-    value: "7+ years",
+    value: "8+ years",
     context: "Products shipped across LATAM and the U.S.",
     status: "verified",
   },

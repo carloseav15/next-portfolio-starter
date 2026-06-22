@@ -63,7 +63,7 @@ const caseStudyEntries: CaseStudyEntry[] = [
     ownershipLabel: "Owned mobile app releases (Android/iOS) and engineered the core B2B commerce platform.",
     whyItMatters:
       "This case shows public app shipping, long-term maintenance, and ownership across web and mobile in one business-critical product area.",
-    stack: ["Kotlin", "Java", "Vanilla JavaScript", "Firebase", "Play Console", "App Store Connect"],
+    stack: ["Kotlin", "Java", "Vanilla JavaScript", "Flutter", "Firebase", "Play Console", "App Store Connect"],
     evidenceStatus: "verified",
     featuredOrder: 1,
     activeInProduction: true,
@@ -102,7 +102,7 @@ const caseStudyEntries: CaseStudyEntry[] = [
       "Owned payment collection architecture, mobile client flows (Android/Flutter), and daily settlement logic.",
     whyItMatters:
       "This case shows payment workflow design, third-party integrations, and product trust under real daily transaction volume.",
-    stack: ["Flutter", "Android", "Firebase", "REST APIs", "Twilio SMS", "OTP Verification"],
+    stack: ["Flutter", "Android", "Firebase", "PHP", "MySQL", "REST APIs", "Twilio SMS", "OTP Verification"],
     evidenceStatus: "verified",
     featuredOrder: 2,
     activeInProduction: true,
@@ -135,7 +135,7 @@ const caseStudyEntries: CaseStudyEntry[] = [
     ownershipLabel: "Built and maintained registration, reporting, maps, and event-support flows.",
     whyItMatters:
       "This case shows I can simplify messy organization workflows and build software that non-technical teams can keep using.",
-    stack: ["JavaScript", "Google Maps APIs", "SQL", "Role-based dashboards"],
+    stack: ["JavaScript", "Google Maps APIs", "SQL", "PHP", "MySQL", "Android", "iOS", "Flutter"],
     evidenceStatus: "verified",
     featuredOrder: 5,
     activeInProduction: true,
@@ -156,21 +156,21 @@ const caseStudyEntries: CaseStudyEntry[] = [
     ],
     date: experienceDates.playfit.startIso,
     summary:
-      "A local-first video game recommendation engine resolving user sign-up barriers with local-first IndexedDB storage and serverless profile migrations.",
+      "A local-first video game recommendation engine resolving user sign-up barriers with local-first IndexedDB storage and serverless profile migrations. Open source codebase.",
     cardSummary:
-      "Local-first recommendation engine resolving user sign-up barriers with IndexedDB state and serverless migrations.",
+      "Local-first recommendation engine resolving user sign-up barriers with IndexedDB state and serverless migrations. Open source codebase.",
     readingTime: "7 min",
-    role: "Full Stack Developer",
-    teamContext: "Independent personal project demonstrating state-of-the-art web stack",
+    role: "Senior Product Engineer",
+    teamContext: "Independent open-source project demonstrating production-grade web stack",
     timeline: experienceDates.playfit.label,
-    primaryOutcome: "Decoupled monorepo architecture, secure database layers, and automated quality checks",
+    primaryOutcome: "Decoupled monorepo architecture, public codebase, and automated quality checks",
     impactMetrics: [
-      "Next.js 16 & React 19 canary monorepo",
+      "Open-source Next.js 16 monorepo (games-library)",
       "Zero-Login onboarding with IndexedDB store",
       "Supabase Edge Functions (Deno) atomic migrations",
       "13+ automated test files (Vitest + Playwright)",
     ],
-    cardHighlights: ["Zero-Login onboarding with IndexedDB", "Supabase Edge Functions atomic migration"],
+    cardHighlights: ["Zero-Login onboarding with IndexedDB", "Open source games-library codebase"],
     ownershipLabel: "Architected local-first client state, Supabase database schemas, and edge API integrations.",
     whyItMatters:
       "This case showcases modern product engineering using local-first storage, Deno serverless edge APIs, strict database security, and solid automated testing.",
@@ -205,12 +205,12 @@ const caseStudyEntries: CaseStudyEntry[] = [
     ],
     date: experienceDates.matchdayos.startIso,
     summary:
-      "A comprehensive web platform built to manage soccer operations end-to-end across five operational roles, from club administration to live matchday tracking.",
+      "A comprehensive web platform built to manage soccer operations end-to-end across five operational roles, from club administration to live matchday tracking. Open source codebase.",
     cardSummary:
-      "Role-based workflows, 70 pages, and 37 database tables managing soccer club, referee, and player operations.",
+      "Role-based workflows, 70 pages, and 37 database tables managing soccer club operations. Open source codebase.",
     readingTime: "6 min",
-    role: "Full Stack Developer",
-    teamContext: "Independent personal project demonstrating role-based workflow complexity",
+    role: "Product Engineer",
+    teamContext: "Independent open-source project demonstrating role-based workflow complexity",
     timeline: experienceDates.matchdayos.label,
     primaryOutcome: "Role-based platform with 70 pages, 37 schema tables, and multi-role testing.",
     impactMetrics: [
@@ -218,7 +218,7 @@ const caseStudyEntries: CaseStudyEntry[] = [
       "37 business tables in primary schema",
       "13 automated test files (Vitest + Playwright)",
     ],
-    cardHighlights: ["70 route-level pages", "37 business tables in PostgreSQL schema"],
+    cardHighlights: ["70 route-level pages", "Open source code structure"],
     ownershipLabel: "Owned product definition, route-guard architecture, database design, and testing.",
     whyItMatters:
       "This case demonstrates my ability to design complex role-based access control, manage extensive database schemas, and build state-driven workflows.",

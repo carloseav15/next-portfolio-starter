@@ -114,7 +114,7 @@ function KPISection() {
           <KPIItem label="Downloads" value="10,000+" context="Google Play Store" />
           <KPIItem label="Throughput" value="3,000/day" context="Active transactions" />
           <KPIItem label="Daily Users" value="~1,000/day" context="Across platforms" />
-          <KPIItem label="Experience" value="7+ Years" context="Full-Stack & Mobile" />
+          <KPIItem label="Experience" value="8+ Years" context="Product Engineering" />
         </KPIStrip>
       </div>
     </section>

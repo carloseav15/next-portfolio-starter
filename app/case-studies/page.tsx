@@ -1,6 +1,5 @@
 import { ArrowRight } from "lucide-react";
 import type { Metadata } from "next";
-import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
 import { caseStudies } from "@/lib/caseStudies";
@@ -25,14 +24,6 @@ export const metadata: Metadata = buildPageMetadata({
   ],
 });
 
-function renderResponsiveTags(tags: string[]) {
-  return tags.slice(0, 3).map((tag, index) => (
-    <Badge key={tag} className={index === 2 ? "hidden md:inline-flex" : ""}>
-      {tag}
-    </Badge>
-  ));
-}
-
 const collectionPageJsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
@@ -55,6 +46,34 @@ const itemListJsonLd = {
   })),
 };
 
+const caseStudyExtraDetails: Record<string, { category: string; kpi: string; tech: string[] }> = {
+  digicorp: {
+    category: "Mobile & B2B Commerce",
+    kpi: "10,000+ Downloads",
+    tech: ["Kotlin", "Vanilla JS", "Firebase"],
+  },
+  octopus: {
+    category: "Transactional Payments",
+    kpi: "~1,000 txs/day",
+    tech: ["Flutter", "Android", "REST APIs"],
+  },
+  playfit: {
+    category: "Local-First Web App",
+    kpi: "Open Source / Next.js 16",
+    tech: ["Next.js 16", "Supabase", "IndexedDB"],
+  },
+  matchdayos: {
+    category: "Multi-Role B2B SaaS",
+    kpi: "70 Pages / 37 Tables",
+    tech: ["Next.js 15", "Supabase", "TypeScript"],
+  },
+  "us-ops": {
+    category: "Internal Community Ops",
+    kpi: "100+ Active Users",
+    tech: ["Google Maps API", "SQL", "Role Workflows"],
+  },
+};
+
 export default function CaseStudiesPage() {
   const primaryCaseStudies = caseStudies.filter((caseStudy) => caseStudy.audienceTier === "primary");
   const secondaryCaseStudies = caseStudies.filter((caseStudy) => caseStudy.audienceTier === "secondary");
@@ -65,113 +84,166 @@ export default function CaseStudiesPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
       <Section
         eyebrow="Case Studies"
-        title="Ownership, outcomes, and shipped systems"
+        title="Engineered for Impact: Shipped Systems & Case Studies"
         titleAs="h1"
-        description="Start here if you want concrete proof of ownership, outcomes, and shipped systems."
+        description="Concrete proof of technical ownership, transactional reliability, and modern full-stack architectures."
         density="compact"
       >
-        <p className="mb-6 max-w-[70ch] text-sm leading-relaxed text-[var(--color-text-muted)] sm:text-base">
-          The cases below cover shipped apps, payment workflows, and internal systems, ordered to help recruiters and
-          hiring managers move from strongest proof to supporting product depth without reading more than they need.
+        <p className="mb-8 max-w-[72ch] text-sm leading-relaxed text-[var(--color-text-muted)] sm:text-base">
+          An organized selection of shipped apps, payment systems, and internal tools. Structured to help engineering
+          recruiters and hiring managers quickly evaluate technical ownership, system outcomes, and production depth.
         </p>
 
-        <div className="grid gap-4 sm:gap-5 lg:grid-cols-2">
-          {primaryCaseStudies.map((caseStudy, index) => (
-            <Card
-              key={caseStudy.slug}
-              hoverable
-              variant={index === 0 ? "proof" : "elevated"}
-              className={`flex h-full flex-col space-y-4 p-4 sm:p-5 motion-fade-in ${index % 2 === 0 ? "" : "motion-delay-1"}`}
-            >
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <p className="text-sm font-semibold text-[var(--color-text-soft)]">
-                  {formatUtcDate(caseStudy.date, {
-                    year: "numeric",
-                    month: "long",
-                  })}
-                </p>
-                <div className="flex flex-wrap gap-2">{renderResponsiveTags(caseStudy.tags)}</div>
-              </div>
+        <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
+          {primaryCaseStudies.map((caseStudy, index) => {
+            const details = caseStudyExtraDetails[caseStudy.slug] || {
+              category: "Software Development",
+              kpi: "Active Project",
+              tech: caseStudy.tags.slice(0, 3),
+            };
+            return (
+              <Card
+                key={caseStudy.slug}
+                hoverable
+                variant={index === 0 ? "proof" : "elevated"}
+                className={`relative overflow-hidden flex h-full flex-col space-y-4 pt-6 p-4 sm:p-5 motion-fade-in ${
+                  index % 2 === 0 ? "" : "motion-delay-1"
+                }`}
+              >
+                {/* Accent border gradient */}
+                <div
+                  className="absolute top-0 left-0 h-[3px] w-full bg-gradient-to-r from-teal-400 to-emerald-400"
+                  aria-hidden="true"
+                />
 
-              <div className="space-y-3">
-                <h2 className="text-2xl font-semibold tracking-tight text-[var(--color-text)]">{caseStudy.title}</h2>
-                <p className="text-sm leading-relaxed text-[var(--color-text)] sm:text-base">
-                  {caseStudy.whyItMatters}
-                </p>
-              </div>
-
-              <div className="space-y-2 text-sm leading-relaxed text-[var(--color-text-soft)]">
-                {caseStudy.cardHighlights.slice(0, 2).map((highlight) => (
-                  <div key={`${caseStudy.slug}-${highlight}`} className="flex items-start gap-2">
-                    <span className="text-[var(--color-accent)] font-semibold select-none" aria-hidden="true">
-                      •
+                <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-badge-accent-text)] bg-[var(--color-badge-accent-bg)] border border-[var(--color-badge-accent-border)] px-2 py-0.5 rounded-full">
+                      {details.category}
                     </span>
-                    <span>{highlight}</span>
+                    <span className="text-xs font-semibold text-[var(--color-text-muted)]">
+                      {formatUtcDate(caseStudy.date, {
+                        year: "numeric",
+                        month: "short",
+                      })}
+                    </span>
                   </div>
-                ))}
-              </div>
+                  <div className="inline-flex items-center gap-1.5 bg-[var(--color-subtle-bg)] border border-[var(--color-border)] px-2.5 py-0.5 rounded-full text-xs font-bold text-[var(--color-text)] shadow-sm">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    {details.kpi}
+                  </div>
+                </div>
 
-              <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-subtle-bg)] px-3.5 py-3">
-                <p className="text-sm font-semibold text-[var(--color-text)]">Ownership</p>
-                <p className="mt-1 text-sm leading-relaxed text-[var(--color-text-soft)]">{caseStudy.ownershipLabel}</p>
-              </div>
+                <div className="space-y-2">
+                  <h2 className="text-xl font-bold tracking-tight text-[var(--color-text)] sm:text-2xl hover:text-[var(--color-link)] transition duration-150">
+                    {caseStudy.title}
+                  </h2>
+                  <p className="text-sm leading-relaxed text-[var(--color-text-soft)]">{caseStudy.primaryOutcome}</p>
+                </div>
 
-              <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-1">
-                <ActionLink href={`/case-studies/${caseStudy.slug}`}>
-                  Read {caseStudy.title} case study
-                  <ArrowRight aria-hidden="true" className="h-4 w-4" />
-                </ActionLink>
-                <span className="hidden text-sm font-semibold text-[var(--color-text-muted)] sm:inline">
-                  {caseStudy.readingTime}
-                </span>
-              </div>
-            </Card>
-          ))}
+                {/* Key technologies list */}
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {details.tech.map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-[10px] font-mono font-medium text-[var(--color-text-muted)] bg-[var(--color-subtle-bg)]/40 px-2 py-0.5 rounded border border-[var(--color-border)]/40"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-2">
+                  <ActionLink href={`/case-studies/${caseStudy.slug}`}>
+                    Read {caseStudy.title} case study
+                    <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                  </ActionLink>
+                  <span className="hidden text-sm font-semibold text-[var(--color-text-muted)] sm:inline">
+                    {caseStudy.readingTime}
+                  </span>
+                </div>
+              </Card>
+            );
+          })}
         </div>
 
         {secondaryCaseStudies.length > 0 ? (
-          <div className="mt-10">
+          <div className="mt-14">
             <h2 className="display-heading text-2xl text-[var(--color-text)] sm:text-3xl">Additional Product Work</h2>
             <p className="mt-2 max-w-[70ch] text-sm text-[var(--color-text-muted)] sm:text-base">
               Supporting product work that helps round out how I think about modern product engineering.
             </p>
-            <div className="mt-5 grid gap-4 sm:gap-5 lg:grid-cols-2">
-              {secondaryCaseStudies.map((caseStudy) => (
-                <Card
-                  key={caseStudy.slug}
-                  hoverable
-                  variant="flat"
-                  className="flex h-full flex-col space-y-4 p-4 sm:p-5 motion-fade-in motion-delay-1"
-                >
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <p className="text-sm font-semibold text-[var(--color-text-soft)]">
-                      {formatUtcDate(caseStudy.date, {
-                        year: "numeric",
-                        month: "long",
-                      })}
-                    </p>
-                    <div className="flex flex-wrap gap-2">{renderResponsiveTags(caseStudy.tags)}</div>
-                  </div>
-                  <div className="space-y-3">
-                    <h3 className="text-2xl font-semibold tracking-tight text-[var(--color-text)]">
-                      {caseStudy.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-[var(--color-text-soft)] sm:text-base">
-                      {caseStudy.cardSummary}
-                    </p>
-                    <p className="text-sm leading-relaxed text-[var(--color-text)]">{caseStudy.whyItMatters}</p>
-                  </div>
-                  <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-1">
-                    <ActionLink href={`/case-studies/${caseStudy.slug}`}>
-                      Read {caseStudy.title} case study
-                      <ArrowRight aria-hidden="true" className="h-4 w-4" />
-                    </ActionLink>
-                    <span className="hidden text-sm font-semibold text-[var(--color-text-muted)] sm:inline">
-                      {caseStudy.readingTime}
-                    </span>
-                  </div>
-                </Card>
-              ))}
+            <div className="mt-6 grid gap-6 sm:gap-8 lg:grid-cols-2">
+              {secondaryCaseStudies.map((caseStudy) => {
+                const details = caseStudyExtraDetails[caseStudy.slug] || {
+                  category: "Supporting Work",
+                  kpi: "Completed",
+                  tech: caseStudy.tags.slice(0, 3),
+                };
+                return (
+                  <Card
+                    key={caseStudy.slug}
+                    hoverable
+                    variant="flat"
+                    className="relative overflow-hidden flex h-full flex-col space-y-4 pt-6 p-4 sm:p-5 motion-fade-in motion-delay-1"
+                  >
+                    {/* Accent border gradient for secondary */}
+                    <div
+                      className="absolute top-0 left-0 h-[3px] w-full bg-gradient-to-r from-sky-400/50 to-blue-400/50"
+                      aria-hidden="true"
+                    />
+
+                    <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--color-badge-accent-text)] bg-[var(--color-badge-accent-bg)] border border-[var(--color-badge-accent-border)] px-2 py-0.5 rounded-full">
+                          {details.category}
+                        </span>
+                        <span className="text-xs font-semibold text-[var(--color-text-muted)]">
+                          {formatUtcDate(caseStudy.date, {
+                            year: "numeric",
+                            month: "short",
+                          })}
+                        </span>
+                      </div>
+                      <div className="inline-flex items-center gap-1.5 bg-[var(--color-subtle-bg)] border border-[var(--color-border)] px-2.5 py-0.5 rounded-full text-xs font-semibold text-[var(--color-text-soft)] shadow-sm">
+                        <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
+                        {details.kpi}
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-bold tracking-tight text-[var(--color-text)] sm:text-2xl hover:text-[var(--color-link)] transition duration-150">
+                        {caseStudy.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-[var(--color-text-soft)]">
+                        {caseStudy.primaryOutcome}
+                      </p>
+                    </div>
+
+                    {/* Key technologies list */}
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {details.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="text-[10px] font-mono font-medium text-[var(--color-text-muted)] bg-[var(--color-subtle-bg)]/40 px-2 py-0.5 rounded border border-[var(--color-border)]/40"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-2">
+                      <ActionLink href={`/case-studies/${caseStudy.slug}`}>
+                        Read {caseStudy.title} case study
+                        <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                      </ActionLink>
+                      <span className="hidden text-sm font-semibold text-[var(--color-text-muted)] sm:inline">
+                        {caseStudy.readingTime}
+                      </span>
+                    </div>
+                  </Card>
+                );
+              })}
             </div>
           </div>
         ) : null}

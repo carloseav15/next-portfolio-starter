@@ -30,7 +30,8 @@ export type Education = {
 };
 
 export const aboutIntro: AboutIntro = {
-  headline: "I started in infrastructure, moved into Android, and grew into shipping full-stack products end to end.",
+  headline:
+    "I started in infrastructure, moved into Android, and grew into designing and engineering high-integrity products.",
   body: "That path taught me to care about delivery after launch, not just the build. Across Bolivia, Peru, Chile, and the U.S., I have worked on public mobile apps, internal tools, payment workflows, and role-based platforms that teams rely on every day.\n\nI do my best work where business processes are messy, users need clear flows, and teams want someone who can collaborate across product, engineering, and operations without losing execution speed.",
 };
 

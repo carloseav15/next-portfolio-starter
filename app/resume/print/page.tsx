@@ -13,7 +13,7 @@ export default function PrintResumePage() {
           {profileIdentity.fullName}
         </h1>
         <p className="mt-1.5 text-base font-semibold tracking-wide text-[var(--color-text-soft)] print:text-gray-700">
-          Senior Full-Stack & Mobile Software Engineer
+          Senior Product Engineer
         </p>
         <div className="mt-3 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs text-[var(--color-text-muted)] print:text-gray-600">
           <span>{profileIdentity.location}</span>
@@ -53,12 +53,12 @@ export default function PrintResumePage() {
           Professional Summary
         </h2>
         <p className="mt-2 text-xs leading-relaxed text-[var(--color-text-soft)] print:text-gray-800">
-          Pragmatic Senior Software Engineer with 7+ years of experience designing, shipping, and maintaining
+          Pragmatic Senior Product Engineer with 8+ years of experience designing, shipping, and maintaining
           production-grade web and mobile applications across the U.S. and Latin America. Evolved from data center
-          infrastructure operations to mobile development and full-stack architecture, building a strong foundation in
-          system reliability, security-first database design, and end-to-end product delivery. Proven record of
-          translating complex business processes into clean, scalable software. Currently based in the U.S. and seeking
-          a software engineering role to contribute to high-impact teams.
+          infrastructure operations to mobile development and full-stack engineering, building a strong foundation in
+          transactional payment systems, real-time dashboards, and end-to-end product delivery. Proven record of
+          translating complex business processes into clean, scalable software. Currently based in the U.S. (EAD holder,
+          no sponsorship required) and seeking a product engineering role to contribute to high-impact teams.
         </p>
       </section>
 

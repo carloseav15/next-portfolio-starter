@@ -58,12 +58,12 @@ describe("SEO metadata and canonical surface", () => {
     const caseStudiesSource = readSource("app/case-studies/page.tsx");
     const resumeSource = readSource("app/resume/page.tsx");
 
-    expect(siteConfig.defaultTitle).toBe("Carlos Arancibia | Full-Stack & Mobile Software Engineer");
+    expect(siteConfig.defaultTitle).toBe("Carlos Arancibia | Senior Product Engineer");
     expect(homeSource).not.toContain('title: "Home"');
     expect(aboutSource).not.toContain('title: "About"');
     expect(caseStudiesSource).not.toContain('title: "Case Studies"');
     expect(resumeSource).not.toContain('title: "Resume"');
-    expect(aboutSource).toContain("About Carlos Arancibia | Full-Stack & Mobile Engineer");
+    expect(aboutSource).toContain("About Carlos Arancibia | Senior Product Engineer");
     expect(caseStudiesSource).toContain("Case Studies | Apps, Payments & Internal Tools | Carlos Arancibia");
     expect(resumeSource).toContain("Resume | Carlos Arancibia");
   });

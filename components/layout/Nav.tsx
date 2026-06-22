@@ -93,9 +93,12 @@ export function Nav() {
           <Link
             href="/"
             onClick={() => setMobileMenuOpen(false)}
-            className="focus-ring max-w-[8.8rem] truncate rounded-md text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-text)] sm:max-w-none sm:text-sm"
+            className="focus-ring flex items-center gap-2.5 max-w-[14rem] truncate rounded-md text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-text)] sm:max-w-none sm:text-sm"
           >
-            Carlos Arancibia
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--color-accent)] font-outfit text-sm font-bold text-[var(--color-on-accent)] print:hidden">
+              CA
+            </span>
+            <span>Carlos Arancibia</span>
           </Link>
 
           <div className="ml-auto hidden items-center justify-end gap-1.5 sm:flex sm:gap-2">

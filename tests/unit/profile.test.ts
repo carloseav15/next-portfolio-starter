@@ -16,7 +16,7 @@ import { siteConfig } from "@/lib/site";
 
 describe("profile source of truth", () => {
   it("keeps hiring positioning explicit without sounding junior-targeted", () => {
-    expect(profileIdentity.roleLabel).toContain("Full-Stack");
+    expect(profileIdentity.roleLabel).toContain("Senior Product Engineer");
     expect(profileIdentity.openTo).toContain("software engineering roles");
     expect(profileIdentity.openTo).not.toContain("I/II");
   });

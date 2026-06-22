@@ -13,7 +13,7 @@ export default defineConfig({
     trace: "on-first-retry",
   },
   webServer: {
-    command: `npm run dev -- --port ${port}`,
+    command: `npx -y serve -l ${port} out`,
     port,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

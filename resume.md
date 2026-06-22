@@ -1,12 +1,12 @@
 # Carlos Arancibia
-**Full-Stack & Mobile Software Engineer**  
+**Senior Product Engineer**  
 Naples, FL 34105 | carloseav15@gmail.com | (239) 300-8888  
 [linkedin.com/in/carancibiav](https://linkedin.com/in/carancibiav) | [github.com/carloseav15](https://github.com/carloseav15) | [carlos-arancibia.com](https://www.carlos-arancibia.com) | **U.S. Work Authorization: EAD (No sponsorship required)**
 
 ---
 
 ## Professional Summary
-Pragmatic Software Engineer with 7+ years of experience designing, shipping, and maintaining production-grade web and mobile applications across the U.S. and Latin America. Evolved from data center infrastructure operations to mobile development and full-stack architecture, building a strong foundation in system reliability, security-first database design, and end-to-end product delivery. Proven record of translating complex business processes into clean, scalable software. Based in the U.S. and authorized to work without sponsorship (EAD).
+Pragmatic Senior Product Engineer with 8+ years of experience designing, shipping, and maintaining production-grade web and mobile applications across the U.S. and Latin America. Evolved from data center infrastructure operations to mobile development and full-stack engineering, building a strong foundation in transactional payment systems, real-time dashboards, and end-to-end product delivery. Proven record of translating complex business processes into clean, scalable software. Based in the U.S. and authorized to work without sponsorship (EAD).
 
 ---
 
@@ -21,11 +21,11 @@ Pragmatic Software Engineer with 7+ years of experience designing, shipping, and
 ## Work Experience
 
 ### **Diaz Brother's Company LLC** | Naples, FL  
-*Full-Stack Developer (Full-Time, On-Site)* | **Jul 2024 – Sep 2025**  
+*Senior Product Engineer (Full-Time, On-Site)* | **Jul 2024 – Sep 2025**  
 *U.S.-based electrical services company specializing in residential, commercial, and industrial operations.*
-*   Designed and built a real-time operational dashboard for business transparency and technician tracking (materials/vehicles).
-*   Created an internal service order management system with custom pricing logic, memberships, PDF invoice generation, and automated email workflows.
-*   Reduced manual coordination between field teams and administration, improving operational visibility.
+*   Designed and built a real-time operational dashboard for logistical transparency, vehicle routing, and technician dispatch tracking.
+*   Created an internal service order logistics system with custom pricing logic, memberships, PDF invoice generation, and automated workflows.
+*   Eliminated manual phone coordination between field teams and administration by establishing real-time scheduling tracking.
 *   *Tech Stack:* React, Next.js, TypeScript, Tailwind CSS, Node.js, REST APIs.
 
 ### **Digicorp Bolivia / Peru / Chile** | Santa Cruz, Bolivia  
@@ -40,13 +40,13 @@ Pragmatic Software Engineer with 7+ years of experience designing, shipping, and
 *   Supported a platform serving 3,000+ daily active B2B clients in Bolivia, Chile, and Peru.
 
 ### **V@COMM** | Remote / Santa Cruz, Bolivia  
-*Co-Founder & Software Engineer (Secondary Parallel Startup Engagement)* | **Jan 2017 – Jun 2024**  
-*A payment-focused technology initiative and led end-to-end technical implementation.*
-*   Developed the "Octopus" online payment and service collection system (deployed in two credit cooperatives in Santa Cruz).
+*Co-Founder & Technical Advisor (Parallel Advisory Engagement)* | **Jan 2017 – Jun 2024**  
+*A payment-focused technology initiative where I led end-to-end technical implementation as a secondary advisory engagement.*
+*   Developed the "Octopus" online payment and service collection architecture (deployed in two credit cooperatives) as a secondary advisory role.
 *   Designed Android point-of-sale flows with integrated thermal receipt printing and settlement logic.
 *   Built a digital wallet app in Flutter with OTP verification, SMS gateways, and Firebase.
-*   Automated commission calculations and settlement processes, eliminating manual reconciliations.
-*   *Tech Stack:* HTML, CSS, JS, PHP, MySQL, Android (Java/XML), iOS (Objective-C), Flutter (Dart), Firebase, OTP.
+*   Automated commission calculations and daily settlement processes, eliminating manual reconciliations.
+*   *Tech Stack:* PHP, MySQL, Android (Java/XML), iOS (Objective-C), Flutter (Dart), Firebase, OTP.
 
 ### **Tiempo de Cambio Organization** | Santa Cruz, Bolivia  
 *Full-Stack Systems Developer (Full-Time)* | **Jun 2016 – Dec 2019**  
@@ -74,8 +74,8 @@ Pragmatic Software Engineer with 7+ years of experience designing, shipping, and
 
 ## Featured Projects
 
-### **Playfit** | *Product Developer (Latest Project)*
-*A modern, local-first game recommendation assistant solving choice fatigue without forced sign-up.*
+### **Playfit** | *Senior Product Engineer (Open Source Project)*
+*A modern, local-first game recommendation assistant (github.com/carloseav15/games-library). Roadmap includes native Android, iOS, and Flutter variants.*
 *   **Friction-Aware Engine:** Engineered a real-time recommendation scoring algorithm that evaluates user affinity vs. friction risk (applying quality penalties to Souls-like or Horror genres).
 *   **Zero-Service-Key Security:** Architected database security using PL/pgSQL database-level functions (`SECURITY DEFINER`) and Row-Level Security (RLS) to enforce zero-privilege server runtime keys.
 *   **Atomic Profile Migration:** Deployed IndexedDB local storage and Supabase Edge Functions (Deno) to atomically merge anonymous device progress into cloud accounts upon sign-up.

@@ -18,7 +18,7 @@ const aboutDescription =
   "About Carlos Arancibia, a full-stack and mobile engineer with a career path from infrastructure support and Android development to product delivery across LATAM and the U.S.";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "About Carlos Arancibia | Full-Stack & Mobile Engineer",
+  title: "About Carlos Arancibia | Senior Product Engineer",
   description: aboutDescription,
   pathname: "/about",
   ogAlt: "Carlos Arancibia profile overview",

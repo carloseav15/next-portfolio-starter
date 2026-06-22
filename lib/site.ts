@@ -13,13 +13,13 @@ export type PageSeoConfig = {
 export const siteConfig = {
   personName: "Carlos Arancibia",
   name: "Carlos Arancibia",
-  defaultTitle: "Carlos Arancibia | Full-Stack & Mobile Software Engineer",
+  defaultTitle: "Carlos Arancibia | Senior Product Engineer",
   url: "https://www.carlos-arancibia.com",
   roleLine: profileIdentity.roleLabel,
   description:
-    "Portfolio of Carlos Arancibia, a full-stack and mobile software engineer building apps, internal tools, and payment workflows for teams across LATAM and the U.S.",
+    "Portfolio of Carlos Arancibia, a senior product engineer shipping secure transactional systems, dashboards, and mobile applications across LATAM and the U.S.",
   seoSummary:
-    "Full-stack and mobile engineer with DigiApp ownership, payment integrations, and multi-product delivery across LATAM and the U.S.",
+    "Senior product engineer with B2B e-commerce platform ownership, payment integrations, and multi-product delivery across LATAM and the U.S.",
   defaultOgImagePath: "/images/digicorp-proof-2026.webp",
   developmentBanner: {
     enabled: false,

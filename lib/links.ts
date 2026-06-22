@@ -11,7 +11,8 @@ export type ExternalLinkKey =
   | "appStore"
   | "digicorpBolivia"
   | "digicorpPeru"
-  | "digicorpChile";
+  | "digicorpChile"
+  | "engagePulse";
 
 export const externalLinks: Record<ExternalLinkKey, ProofItem> = {
   email: {
@@ -34,6 +35,13 @@ export const externalLinks: Record<ExternalLinkKey, ProofItem> = {
     status: "verified",
     href: "https://github.com/carloseav15",
     note: "Public code samples and repository history.",
+  },
+  engagePulse: {
+    id: "engagePulse",
+    label: "Android Demo",
+    status: "verified",
+    href: "https://github.com/carloseav15/engage-pulse",
+    note: "Android architecture and telemetry demo repository.",
   },
   website: {
     id: "website",
@@ -83,8 +91,7 @@ validateProofItems(externalLinks);
 
 export const DIGICORP_PROOF = {
   imageSrc: "/images/digicorp-proof-2026.webp",
-  imageAlt:
-    "Digicorp DigiApp proof image showing verified production delivery and active distribution continuity.",
+  imageAlt: "Digicorp DigiApp proof image showing verified production delivery and active distribution continuity.",
   status: "verified" as const,
   note: "Digicorp DigiApp proof image aligned with verified production experience and release continuity.",
 };
