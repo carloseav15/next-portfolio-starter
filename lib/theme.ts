@@ -66,10 +66,7 @@ export function getSystemPrefersDark() {
   return window.matchMedia("(prefers-color-scheme: dark)").matches;
 }
 
-export function resolveTheme(
-  preference: ThemePreference,
-  systemPrefersDark = getSystemPrefersDark(),
-): ResolvedTheme {
+export function resolveTheme(preference: ThemePreference, systemPrefersDark = getSystemPrefersDark()): ResolvedTheme {
   if (preference === "system") {
     return systemPrefersDark ? "dark" : "light";
   }
@@ -145,11 +142,7 @@ export function subscribeThemePreference(onStoreChange: () => void) {
   };
 
   const handleStorageChange = (event: StorageEvent) => {
-    if (
-      event.key !== null &&
-      event.key !== THEME_PREFERENCE_STORAGE_KEY &&
-      event.key !== LEGACY_THEME_STORAGE_KEY
-    ) {
+    if (event.key !== null && event.key !== THEME_PREFERENCE_STORAGE_KEY && event.key !== LEGACY_THEME_STORAGE_KEY) {
       return;
     }
 

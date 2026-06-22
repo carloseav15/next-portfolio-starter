@@ -1,7 +1,7 @@
 {
   "auditDate": "2026-02-22",
   "role": "Principal Hireability UX Auditor",
-  "repository": "/Users/carancibia/Downloads/personal-web",
+  "repository": "./",
   "model": {
     "hireabilityConversion": 40,
     "accessibilityWCAG22AA": 25,
@@ -22,7 +22,7 @@
       "points": 28,
       "notes": [
         "Core narrative is clear and recruiter-oriented.",
-        "Primary proof links and media are placeholders, reducing trust at click-time."
+        "Visual proof media remains placeholder content until final screenshots are supplied."
       ]
     },
     "accessibilityWCAG22AA": {
@@ -53,9 +53,9 @@
   "totalPoints": 74,
   "riskLevel": "Moderate",
   "blockingRisks": [
-    "Placeholder external links in contact/proof channels",
-    "Placeholder Digicorp proof image",
-    "Theme selector semantics require cleanup"
+    "Placeholder visual proof slots",
+    "Deferred contact form implementation",
+    "Theme selector semantics require regression coverage"
   ],
   "lighthouse": {
     "runContext": "Static export served locally from out",

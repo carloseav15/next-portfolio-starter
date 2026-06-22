@@ -93,7 +93,7 @@ export function Nav() {
           <Link
             href="/"
             onClick={() => setMobileMenuOpen(false)}
-            className="focus-ring flex items-center gap-2.5 max-w-[14rem] truncate rounded-md text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-text)] sm:max-w-none sm:text-sm"
+            className="focus-ring flex max-w-[9.5rem] items-center gap-2.5 truncate rounded-md text-xs font-semibold uppercase tracking-[0.08em] text-[var(--color-text)] min-[380px]:max-w-[12rem] sm:max-w-none sm:text-sm"
           >
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[var(--color-accent)] font-outfit text-sm font-bold text-[var(--color-on-accent)] print:hidden">
               CA
@@ -143,6 +143,17 @@ export function Nav() {
           </div>
 
           <div className="ml-auto flex items-center gap-2 sm:hidden">
+            <ButtonLink
+              href="/#contact-section"
+              variant="primary"
+              size="sm"
+              data-cta="talk-primary"
+              aria-label="Let's Talk"
+              onClick={() => setMobileMenuOpen(false)}
+              className="min-h-11 min-w-11 px-0"
+            >
+              <MessageCircle aria-hidden="true" size={16} className="h-4 w-4" />
+            </ButtonLink>
             <button
               ref={menuButtonRef}
               type="button"

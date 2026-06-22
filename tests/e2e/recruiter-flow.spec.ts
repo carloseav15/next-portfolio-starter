@@ -33,7 +33,8 @@ test("recruiter flow across home, case study, resume, and contact", async ({ pag
   await expect(headerResumeLink).toHaveAttribute("target", "_blank");
 
   await expect(page.locator("main")).toContainText(/10,000\+ downloads/i);
-  await expect(page.locator("main")).toContainText(/3,000 daily users/i);
+  await expect(page.locator("main")).toContainText(/Daily users/i);
+  await expect(page.locator("main")).toContainText(/3,000\/day/i);
   await expect(page.getByRole("heading", { name: /three products that show how i build/i })).toBeVisible();
   await expect(
     page.getByRole("heading", { name: /what a former executive said about working with me/i }),

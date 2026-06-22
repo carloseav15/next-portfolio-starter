@@ -3,6 +3,7 @@
 ## Profile (`lib/profile.ts`)
 
 ### `ProfileIdentity`
+
 - `fullName`
 - `roleLabel`
 - `headline`
@@ -14,12 +15,14 @@
 - `languages`
 
 ### `ProfileMetric`
+
 - `label`
 - `value`
 - `context`
 - `status` (`pending` | `verified`)
 
 ### `ExperienceItem`
+
 - `company`
 - `role`
 - `period`
@@ -29,11 +32,13 @@
 - `statusNote?`
 
 ### `ActivePlatformItem`
+
 - `name`
 - `status` (`Active in Production`)
 - `note`
 
 ### `CaseStudyHighlight`
+
 - `slug`
 - `title`
 - `summary`
@@ -42,6 +47,7 @@
 - `evidenceStatus`
 
 ### `ContactChannel`
+
 - `type` (`email` | `linkedin` | `github`)
 - `label`
 - `href`
@@ -51,10 +57,12 @@
 ## Proof (`lib/proof.ts`)
 
 ### `ProofStatus`
+
 - `pending`
 - `verified`
 
 ### `ProofItem`
+
 - `id`
 - `label`
 - `status`
@@ -63,21 +71,25 @@
 - `source?`
 
 Validation rule:
+
 - `verified` proof entries must include a valid `href` (`https://` or `mailto:`).
 
 Current public configuration:
+
 - Portfolio content is published with verified proof values.
 - `pending` remains available for future compatibility.
 
 ## Case Studies (`lib/caseStudies.ts`)
 
 `CaseStudyMetadata` includes:
+
 - `impactMetrics[]`
 - `stack[]`
 - `evidenceStatus`
 - `activeInProduction?`
 
 MDX body convention:
+
 1. Context
 2. Problem
 3. Constraints

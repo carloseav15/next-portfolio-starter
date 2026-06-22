@@ -335,7 +335,7 @@ export default function HomePage() {
                   href={externalLinks.email.href!}
                   className="font-semibold text-[var(--color-text-soft)] hover:text-[var(--color-link)] transition"
                 >
-                  Email
+                  Email Carlos
                 </a>
                 <span className="text-[var(--color-border-strong)]">•</span>
                 <a

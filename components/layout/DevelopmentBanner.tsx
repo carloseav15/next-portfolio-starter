@@ -4,8 +4,7 @@ import { Container } from "@/components/ui/Container";
 const toneClasses: Record<"neutral" | "info", string> = {
   neutral:
     "border-b border-[var(--color-border)] bg-[linear-gradient(90deg,var(--color-subtle-bg),transparent_60%,var(--color-subtle-bg))] text-[var(--color-text-soft)]",
-  info:
-    "border-b border-[var(--color-proof-verified-border)] bg-[var(--color-proof-verified-bg)] text-[var(--color-proof-verified-text)]",
+  info: "border-b border-[var(--color-proof-verified-border)] bg-[var(--color-proof-verified-bg)] text-[var(--color-proof-verified-text)]",
 };
 
 export function DevelopmentBanner() {

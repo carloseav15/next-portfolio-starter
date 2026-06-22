@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CaseStudyArticle } from "@/components/case-studies/CaseStudyArticle";
-import {
-  caseStudies,
-  caseStudyContentBySlug,
-  getCaseStudyBySlug,
-  isCaseStudySlug,
-} from "@/lib/caseStudies";
+import { caseStudies, caseStudyContentBySlug, getCaseStudyBySlug, isCaseStudySlug } from "@/lib/caseStudies";
 import { profileIdentity } from "@/lib/profile";
 import { buildPageMetadata, createAbsoluteUrl, siteConfig } from "@/lib/site";
 
@@ -130,14 +125,8 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <CaseStudyArticle metadata={metadata} prevCaseStudy={prevCaseStudy} nextCaseStudy={nextCaseStudy}>
         <Content />
       </CaseStudyArticle>

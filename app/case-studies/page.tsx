@@ -183,7 +183,10 @@ export default function CaseStudiesPage() {
 
                 <div className="mt-auto flex flex-wrap items-center justify-between gap-4 pt-2 w-full">
                   <div className="flex flex-wrap items-center gap-4">
-                    <ActionLink href={`/case-studies/${caseStudy.slug}`}>
+                    <ActionLink
+                      href={`/case-studies/${caseStudy.slug}`}
+                      aria-label={`Read ${caseStudy.title} case study`}
+                    >
                       Read Case Study
                       <ArrowRight aria-hidden="true" className="h-4 w-4" />
                     </ActionLink>
@@ -298,7 +301,10 @@ export default function CaseStudiesPage() {
 
                     <div className="mt-auto flex flex-wrap items-center justify-between gap-4 pt-2 w-full">
                       <div className="flex flex-wrap items-center gap-4">
-                        <ActionLink href={`/case-studies/${caseStudy.slug}`}>
+                        <ActionLink
+                          href={`/case-studies/${caseStudy.slug}`}
+                          aria-label={`Read ${caseStudy.title} case study`}
+                        >
                           Read Case Study
                           <ArrowRight aria-hidden="true" className="h-4 w-4" />
                         </ActionLink>
