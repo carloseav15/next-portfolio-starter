@@ -1,7 +1,7 @@
 ## Context
 ![Playfit Game Assistant UI Mockup](/images/playfit/card.webp)
 
-Playfit is a modern, full-stack video game recommendation assistant built to help players manage backlog fatigue and choose their next game. The product delivers an interactive onboarding flow and personalized suggestions instantly, without requiring user registration. The entire codebase is open source ([github.com/carloseav15/games-library](https://github.com/carloseav15/games-library)), serving as the foundation for an upcoming multi-platform rollout including native Android, iOS, and Flutter clients planned for 2026.
+Playfit is a modern, full-stack video game recommendation assistant built to help players manage backlog fatigue and choose their next game. The product delivers an interactive onboarding flow and personalized suggestions instantly, without requiring user registration. The entire codebase is open source ([github.com/carloseav15/playfit](https://github.com/carloseav15/playfit)), serving as the foundation for an upcoming multi-platform rollout including native Android, iOS, and Flutter clients planned for 2026.
 
 ## Problem
 Most game discovery tools force users to go through complex setup, sign-up barriers, and manual catalog creation before giving value. This initial friction leads to high bounce rates. Additionally, recommendation engines often suffer from cold-start problems and fail to calculate friction risk (e.g., suggesting a frustrating Souls-like game to a casual player).
@@ -51,7 +51,7 @@ For cloud security, I disabled administrative service keys in runtime execution,
 
 ## Results
 - Separated business engine (`@playfit/core`) and routing (`apps/web`) to ensure codebase maintainability.
-- Open-source codebase published on GitHub ([github.com/carloseav15/games-library](https://github.com/carloseav15/games-library)) to show architecture transparency.
+- Open-source codebase published on GitHub ([github.com/carloseav15/playfit](https://github.com/carloseav15/playfit)) to show architecture transparency.
 - Fast onboarding and immediate recommendations served directly from IndexedDB state.
 - Sub-second recommendation rendering using database-backed caching tables (`api_cache`) to store raw API outputs.
 - Robust security architecture using strict RLS rules, database rate limiters, and RPCs for CRUD operations.

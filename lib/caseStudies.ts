@@ -165,12 +165,12 @@ const caseStudyEntries: CaseStudyEntry[] = [
     timeline: experienceDates.playfit.label,
     primaryOutcome: "Decoupled monorepo architecture, public codebase, and automated quality checks",
     impactMetrics: [
-      "Open-source Next.js 16 monorepo (games-library)",
+      "Open-source Next.js 16 monorepo (playfit)",
       "Zero-Login onboarding with IndexedDB store",
       "Supabase Edge Functions (Deno) atomic migrations",
       "13+ automated test files (Vitest + Playwright)",
     ],
-    cardHighlights: ["Zero-Login onboarding with IndexedDB", "Open source games-library codebase"],
+    cardHighlights: ["Zero-Login onboarding with IndexedDB", "Open source codebase on GitHub"],
     ownershipLabel: "Architected local-first client state, Supabase database schemas, and edge API integrations.",
     whyItMatters:
       "This case showcases modern product engineering using local-first storage, Deno serverless edge APIs, strict database security, and solid automated testing.",
@@ -205,9 +205,8 @@ const caseStudyEntries: CaseStudyEntry[] = [
     ],
     date: experienceDates.matchdayos.startIso,
     summary:
-      "A comprehensive web platform built to manage soccer operations end-to-end across five operational roles, from club administration to live matchday tracking. Open source codebase.",
-    cardSummary:
-      "Role-based workflows, 70 pages, and 37 database tables managing soccer club operations. Open source codebase.",
+      "A comprehensive web platform built to manage soccer operations end-to-end across five operational roles, from club administration to live matchday tracking.",
+    cardSummary: "Role-based workflows, 70 pages, and 37 database tables managing soccer club operations.",
     readingTime: "6 min",
     role: "Product Engineer",
     teamContext: "Independent open-source project demonstrating role-based workflow complexity",

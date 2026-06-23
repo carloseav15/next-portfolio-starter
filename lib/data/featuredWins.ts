@@ -42,7 +42,7 @@ export const featuredWins: FeaturedWin[] = [
     outcome: "A local-first recommendation engine that eliminates sign-up friction and game selection fatigue.",
     ownership: "Architected local-first IndexedDB state, Supabase RLS policies, and serverless edge functions.",
     proofLabel: "GitHub Repository",
-    proofHref: "https://github.com/carloseav15/games-library",
+    proofHref: "https://github.com/carloseav15/playfit",
     ctaHref: "/case-studies/playfit",
   },
 ];

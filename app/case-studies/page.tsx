@@ -3,8 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 const gitHubRepos: Record<string, string> = {
-  playfit: "https://github.com/carloseav15/games-library",
-  matchdayos: "https://github.com/carloseav15/games-library",
+  playfit: "https://github.com/carloseav15/playfit",
 };
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";

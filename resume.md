@@ -1,7 +1,7 @@
 # Carlos Arancibia
 
 **Senior Product Engineer**  
-Naples, FL 34105 | carloseav15@gmail.com | (239) 300-8888  
+Naples, FL | carloseav15@gmail.com  
 [linkedin.com/in/carancibiav](https://linkedin.com/in/carancibiav) | [github.com/carloseav15](https://github.com/carloseav15) | [carlos-arancibia.com](https://www.carlos-arancibia.com) | **U.S. Work Authorization: EAD (No sponsorship required)**
 
 ---
@@ -91,7 +91,7 @@ _IT Support / Data Center Operations (Full-Time)_ | **Aug 2014 – Dec 2014**
 
 ### **Playfit** | _Senior Product Engineer (Open Source Project)_
 
-_A modern, local-first game recommendation assistant (github.com/carloseav15/games-library). Roadmap includes native Android, iOS, and Flutter variants._
+_A modern, local-first game recommendation assistant (github.com/carloseav15/playfit). Roadmap includes native Android, iOS, and Flutter variants._
 
 - **Friction-Aware Engine:** Engineered a real-time recommendation scoring algorithm that evaluates user affinity vs. friction risk (applying quality penalties to Souls-like or Horror genres).
 - **Zero-Service-Key Security:** Architected database security using PL/pgSQL database-level functions (`SECURITY DEFINER`) and Row-Level Security (RLS) to enforce zero-privilege server runtime keys.

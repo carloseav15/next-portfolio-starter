@@ -30,7 +30,7 @@ export const careerTimeline: ExperienceItem[] = [
     type: "personal",
     highlights: [
       "Architected a Next.js 16 (App Router) and React 19 monorepo application separating apps/web and @playfit/core.",
-      "Open-sourced the codebase (github.com/carloseav15/games-library) and structured the roadmap for native Android, iOS, and Flutter variants.",
+      "Open-sourced the codebase (github.com/carloseav15/playfit) and structured the roadmap for native Android, iOS, and Flutter variants.",
       "Engineered a real-time recommendation scoring engine for user game affinity and friction risk.",
       "Implemented Supabase Row-Level Security (RLS) and PL/pgSQL database-level functions, eliminating exposed keys.",
     ],
