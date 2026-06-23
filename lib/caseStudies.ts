@@ -4,10 +4,11 @@ import OctopusCaseStudy from "@/content/case-studies/octopus.mdx";
 import PlayfitCaseStudy from "@/content/case-studies/playfit.mdx";
 import UsOpsCaseStudy from "@/content/case-studies/us-ops.mdx";
 import MatchdayOsCaseStudy from "@/content/case-studies/matchdayos.mdx";
+import PortfolioCaseStudy from "@/content/case-studies/portfolio.mdx";
 import { experienceDates } from "@/lib/experienceDates";
 import type { ProofStatus } from "@/lib/proof";
 
-export type CaseStudySlug = "digicorp" | "octopus" | "us-ops" | "playfit" | "matchdayos";
+export type CaseStudySlug = "digicorp" | "octopus" | "us-ops" | "playfit" | "matchdayos" | "portfolio";
 
 export type CaseStudyMetadata = {
   title: string;
@@ -228,6 +229,52 @@ const caseStudyEntries: CaseStudyEntry[] = [
     activeInProduction: true,
     featured: false,
     Content: MatchdayOsCaseStudy,
+  },
+  {
+    title: "Next Portfolio Starter — Personal Portfolio",
+    slug: "portfolio",
+    audienceTier: "secondary",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "MDX", "Open Source"],
+    seoKeywords: [
+      "portfolio website",
+      "Next.js portfolio starter",
+      "MDX case studies",
+      "static export",
+      "developer portfolio template",
+    ],
+    date: "2026-06-23",
+    summary:
+      "Production portfolio at carlos-arancibia.com, structured as a reusable template with MDX case studies, static export, automated quality gates, and CI/CD. Open source codebase.",
+    cardSummary: "Reusable portfolio template powering carlos-arancibia.com. Next.js, MDX, tests, CI/CD.",
+    readingTime: "5 min",
+    role: "Senior Product Engineer (solo project)",
+    teamContext: "Independent open-source portfolio and starter template",
+    timeline: "Jun 2026",
+    primaryOutcome: "Live portfolio at carlos-arancibia.com with 31 automated tests and CI release gate",
+    impactMetrics: [
+      "5+ case studies with MDX + typed metadata",
+      "31 automated tests (Vitest + Playwright + a11y)",
+      "GitHub Actions release gate (lint, typecheck, test, build, e2e)",
+    ],
+    cardHighlights: ["Open source template on GitHub", "CI/CD with Firebase Hosting"],
+    ownershipLabel: "Designed architecture, content model, proof system, theme, tests, and CI/CD pipeline.",
+    whyItMatters:
+      "This case demonstrates end-to-end product engineering: from content modeling and design tokens to static export infrastructure and automated quality gates.",
+    stack: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS v4",
+      "MDX",
+      "Vitest",
+      "Playwright",
+      "Firebase Hosting",
+    ],
+    evidenceStatus: "verified",
+    featuredOrder: 6,
+    activeInProduction: true,
+    featured: false,
+    Content: PortfolioCaseStudy,
   },
 ];
 

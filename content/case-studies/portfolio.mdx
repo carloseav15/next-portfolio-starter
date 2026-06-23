@@ -1,0 +1,54 @@
+## Context
+![Next Portfolio Starter screenshot](/images/portfolio/card.webp)
+
+This portfolio site (next-portfolio-starter) is the project you are currently browsing — a production-grade engineering portfolio and reusable template. It powers [carlos-arancibia.com](https://www.carlos-arancibia.com) and is fully open source ([github.com/carloseav15/next-portfolio-starter](https://github.com/carloseav15/next-portfolio-starter)).
+
+## Problem
+
+Engineering portfolios often fall into two extremes: overly complex custom builds that are hard to maintain, or generic template sites that fail to demonstrate real technical depth. I needed a portfolio that:
+
+- Showcases production systems with concrete metrics (downloads, daily users, transaction volumes)
+- Proves technical ownership through typed data models, tests, and CI/CD
+- Works as a static export for zero-maintenance hosting
+- Is structured well enough that other engineers can fork it and ship their own portfolio
+
+## Approach
+
+I built this as a server-first Next.js App Router project with a strong emphasis on type safety and automated quality.
+
+```text
+┌─────────────────────────────────────────────┐
+│           next-portfolio-starter            │
+├─────────────────────────────────────────────┤
+│ app/        Next.js routes, layouts, SEO    │
+│ components/ Reusable UI and layout          │
+│ content/    MDX case study bodies           │
+│ lib/        Typed data, helpers, SEO        │
+│ public/     Static assets, resume PDF       │
+│ tests/      Unit, component, a11y, e2e      │
+└─────────────────────────────────────────────┘
+```
+
+Key architectural decisions:
+
+- **Typed profile system**: Identity, experience, skills, and case studies are all defined as TypeScript types with a shared proof/verification model.
+- **MDX case studies**: Each case study is an MDX file with typed frontmatter metadata, enabling content editors to write without touching code.
+- **Proof system**: Metrics carry a `verified` status with links to public evidence (Google Play, GitHub repos).
+- **Design tokens**: CSS custom properties drive a light/dark/system theme with hydration-safe initialization.
+- **Static export**: The entire site builds to flat HTML/JS/CSS for Firebase Hosting with no server runtime.
+- **Automated quality**: Husky pre-commit hooks run linters and formatters. CI runs format, lint, typecheck, tests, e2e, and build on every push.
+
+## Results
+
+- Live production site at [carlos-arancibia.com](https://www.carlos-arancibia.com) with real case studies and verified metrics.
+- 31 automated tests across unit, component, accessibility, and Playwright e2e suites.
+- GitHub Actions pipeline enforcing format, lint, TypeScript, tests, e2e, and build before deployment.
+- Open source repository with clear customization guide for other developers.
+- Static export with sub-second page loads and no server maintenance.
+
+## Learnings
+
+- A typed data layer makes content updates safe and auditable — if a field changes, TypeScript catches every reference.
+- MDX strikes a good balance between developer control and content flexibility.
+- Static export eliminates operational overhead while still supporting rich SEO (sitemap, robots, JSON-LD, Open Graph).
+- Investing in CI/CD early pays off: every PR and push is automatically validated before reaching production.

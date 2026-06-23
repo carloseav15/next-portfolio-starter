@@ -5,6 +5,7 @@ import Image from "next/image";
 const gitHubRepos: Record<string, string> = {
   playfit: "https://github.com/carloseav15/playfit",
   matchdayos: "https://github.com/carloseav15/matchday-os",
+  portfolio: "https://github.com/carloseav15/next-portfolio-starter",
 };
 import { Card } from "@/components/ui/Card";
 import { Section } from "@/components/ui/Section";
@@ -77,6 +78,11 @@ const caseStudyExtraDetails: Record<string, { category: string; kpi: string; tec
     category: "Internal Community Ops",
     kpi: "100+ Active Users",
     tech: ["Google Maps API", "SQL", "Role Workflows"],
+  },
+  portfolio: {
+    category: "Personal Portfolio",
+    kpi: "Open Source / Live Site",
+    tech: ["Next.js 16", "TypeScript", "Tailwind CSS"],
   },
 };
 

@@ -87,7 +87,7 @@ describe("SEO metadata and canonical surface", () => {
   it("adds SEO keywords to every case study and keeps sitemap on www URLs", () => {
     const caseStudiesSource = readSource("lib/caseStudies.ts");
 
-    expect(caseStudiesSource.match(/seoKeywords:\s*\[/g)?.length).toBe(5);
+    expect(caseStudiesSource.match(/seoKeywords:\s*\[/g)?.length).toBe(6);
     expect(caseStudiesSource).toContain('"DigiApp"');
     expect(caseStudiesSource).toContain('"service collections"');
     expect(caseStudiesSource).toContain('"internal systems"');
