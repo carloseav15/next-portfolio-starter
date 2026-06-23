@@ -29,7 +29,7 @@ export const profileIdentity: ProfileIdentity = {
   fullName: "Carlos Arancibia",
   roleLabel: "Senior Product Engineer",
   headline: "Product engineer shipping high-integrity web and mobile applications.",
-  location: "Naples, FL 34105",
+  location: "Naples, FL",
   email: "carloseav15@gmail.com",
   website: "https://www.carlos-arancibia.com",
   summary:
@@ -40,7 +40,7 @@ export const profileIdentity: ProfileIdentity = {
   coreStack: ["React", "Next.js", "TypeScript", "Kotlin", "Android", "SQL"],
 };
 
-export const heroProofPoints = ["10,000+ downloads", "3,000 daily users", "~1,000 daily operations"];
+export const heroProofPoints = ["10,000+ downloads", "3,000 daily users", "1,000 daily operations"];
 
 export const recruiterQuickFacts: RecruiterQuickFact[] = [
   { label: "Availability", value: "Immediate / Full-time" },
@@ -69,7 +69,7 @@ export const profileMetrics: ProfileMetric[] = [
   },
   {
     label: "Daily operations",
-    value: "~1,000/day",
+    value: "1,000/day",
     context: "Octopus payment collections",
     status: "verified",
   },

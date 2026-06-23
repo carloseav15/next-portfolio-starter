@@ -56,7 +56,6 @@ const personJsonLd = {
     "@type": "PostalAddress",
     addressLocality: "Naples",
     addressRegion: "FL",
-    postalCode: profileIdentity.location.split(" ").at(-1) ?? "34105",
     addressCountry: "US",
   },
   sameAs: [externalLinks.linkedin.href, externalLinks.github.href, externalLinks.website.href].filter(Boolean),

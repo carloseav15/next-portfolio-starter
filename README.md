@@ -1,8 +1,8 @@
-# Next Portfolio Starter
+# Portfolio · Carlos Arancibia
 
-Reusable engineering portfolio built with Next.js App Router, TypeScript, Tailwind CSS, MDX case studies, static export, and automated quality checks.
+Senior product engineer portfolio built with Next.js App Router, TypeScript, Tailwind CSS, MDX case studies, static export, and automated quality checks.
 
-This repository powers [carlos-arancibia.com](https://www.carlos-arancibia.com), but it is structured so other developers can use it as a template, replace the profile/content data, and ship a serious portfolio foundation.
+This repository powers [carlos-arancibia.com](https://www.carlos-arancibia.com). It is also structured as a reusable template — fork it, replace the profile and content data, and ship your own portfolio.
 
 [![CI](https://github.com/carloseav15/next-portfolio-starter/actions/workflows/ci-firebase.yml/badge.svg)](https://github.com/carloseav15/next-portfolio-starter/actions/workflows/ci-firebase.yml)
 
@@ -119,8 +119,6 @@ The CI workflow deploys only from `main` and expects these GitHub secrets:
 
 ## Known Limitations
 
-- Case-study image slots are intentionally still placeholders; real screenshots/proof images should be added before treating a fork as publication-ready.
-- The contact form currently simulates submission. Replace it with a real backend, form provider, or direct `mailto:` flow before relying on it for inbound opportunities.
 - `npm audit` currently reports a moderate advisory through Next.js' internal `postcss` dependency even on the newest published Next.js version available during this update. See `SECURITY.md` for how this project tracks dependency advisories without accepting unsafe downgrades.
 
 ## License

@@ -31,7 +31,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-3">
-      <input type="hidden" name="access_key" value="cc6723a9-c139-4d35-b1f3-059d0f57d537" />
+      <input type="hidden" name="access_key" value={process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? ""} />
       <input type="hidden" name="_subject" value="Portfolio Contact" />
 
       {status === "success" && (

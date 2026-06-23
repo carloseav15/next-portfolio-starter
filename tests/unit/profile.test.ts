@@ -25,7 +25,7 @@ describe("profile source of truth", () => {
     expect(profileMetrics).toHaveLength(4);
     expect(profileMetrics.map((metric) => metric.value)).toContain("10,000+");
     expect(profileMetrics.map((metric) => metric.value)).toContain("3,000/day");
-    expect(profileMetrics.map((metric) => metric.value)).toContain("~1,000/day");
+    expect(profileMetrics.map((metric) => metric.value)).toContain("1,000/day");
     expect(profileMetrics.map((metric) => metric.value)).not.toContain("3 active");
   });
 
