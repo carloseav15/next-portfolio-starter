@@ -86,7 +86,7 @@ export function Nav() {
   return (
     <header
       ref={headerRef}
-      className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-header-bg)] backdrop-blur-sm"
+      className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-header-bg)] backdrop-blur-sm print:hidden"
     >
       <Container className="py-2.5 sm:py-3">
         <div className="flex items-center gap-2">

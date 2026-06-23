@@ -8,7 +8,7 @@ const currentYear = new Date().getFullYear();
 
 export function Footer() {
   return (
-    <footer className="border-t border-[var(--color-border)] py-8">
+    <footer className="border-t border-[var(--color-border)] py-8 print:hidden">
       <Container className="space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-[var(--color-text-muted)]">&copy; {currentYear} Carlos Arancibia</p>

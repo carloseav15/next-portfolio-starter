@@ -1,6 +1,7 @@
 import { ArrowRight, ArrowUpRight, FileText, Quote } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ButtonLink } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
@@ -149,27 +150,15 @@ export default function HomePage() {
                   index === 1 ? "motion-delay-1" : index === 2 ? "motion-delay-2" : ""
                 }`}
               >
-                {/* Image Placeholder */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-dashed border-[var(--color-border-strong)] bg-[var(--color-subtle-bg)] flex flex-col items-center justify-center text-[var(--color-text-soft)] transition duration-200">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-surface-1)] border border-[var(--color-border)] shadow-sm">
-                    <svg
-                      className="h-5 w-5 text-[var(--color-text-muted)]"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
-                  </div>
-                  <span className="mt-2 text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-muted)]">
-                    [Placeholder: {win.title}]
-                  </span>
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-subtle-bg)] shadow-sm">
+                  <Image
+                    src={`/images/${win.id}/card.webp`}
+                    alt={`${win.title} screenshot`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover"
+                    loading="lazy"
+                  />
                 </div>
 
                 <div className="space-y-3">

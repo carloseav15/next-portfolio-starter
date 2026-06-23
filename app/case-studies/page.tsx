@@ -1,5 +1,6 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 const gitHubRepos: Record<string, string> = {
   playfit: "https://github.com/carloseav15/games-library",
@@ -139,28 +140,18 @@ export default function CaseStudiesPage() {
                   </div>
                 </div>
 
-                {/* Image Placeholder */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-dashed border-[var(--color-border-strong)] bg-[var(--color-subtle-bg)] flex flex-col items-center justify-center text-[var(--color-text-muted)] transition duration-200">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-surface-1)] border border-[var(--color-border)] shadow-sm">
-                    <svg
-                      className="h-5 w-5 text-[var(--color-text-muted)]"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
+                {caseStudy.slug !== "us-ops" ? (
+                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-subtle-bg)] shadow-sm">
+                    <Image
+                      src={`/images/${caseStudy.slug}/card.webp`}
+                      alt={`${caseStudy.title} screenshot`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                      loading="lazy"
+                    />
                   </div>
-                  <span className="mt-2 text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-muted)]">
-                    [Placeholder: {caseStudy.title}]
-                  </span>
-                </div>
+                ) : null}
 
                 <div className="space-y-2">
                   <h2 className="text-xl font-bold tracking-tight text-[var(--color-text)] sm:text-2xl hover:text-[var(--color-link)] transition duration-150">
@@ -214,7 +205,7 @@ export default function CaseStudiesPage() {
         {secondaryCaseStudies.length > 0 ? (
           <div className="mt-14">
             <h2 className="display-heading text-2xl text-[var(--color-text)] sm:text-3xl">Additional Product Work</h2>
-            <p className="mt-2 max-w-[70ch] text-sm text-[var(--color-text-muted)] sm:text-base">
+            <p className="mt-2 mb-6 max-w-[70ch] text-sm text-[var(--color-text-muted)] sm:text-base">
               Supporting product work that helps round out how I think about modern product engineering.
             </p>
             <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-x-visible sm:pb-0 scrollbar-none">
@@ -255,28 +246,20 @@ export default function CaseStudiesPage() {
                       </div>
                     </div>
 
-                    {/* Image Placeholder */}
-                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-dashed border-[var(--color-border-strong)] bg-[var(--color-subtle-bg)] flex flex-col items-center justify-center text-[var(--color-text-muted)] transition duration-200">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[var(--color-surface-1)] border border-[var(--color-border)] shadow-sm">
-                        <svg
-                          className="h-5 w-5 text-[var(--color-text-muted)]"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          aria-hidden="true"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                          />
-                        </svg>
+                    {caseStudy.slug !== "us-ops" ? (
+                      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-subtle-bg)] shadow-sm">
+                        <Image
+                          src={`/images/${caseStudy.slug}/card.webp`}
+                          alt={`${caseStudy.title} screenshot`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover"
+                          loading="lazy"
+                        />
                       </div>
-                      <span className="mt-2 text-[10px] font-bold uppercase tracking-wider text-[var(--color-text-muted)]">
-                        [Placeholder: {caseStudy.title}]
-                      </span>
-                    </div>
+                    ) : (
+                      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-[var(--color-border)] bg-gradient-to-br from-sky-50 to-indigo-100 dark:from-sky-950 dark:to-indigo-900" />
+                    )}
 
                     <div className="space-y-2">
                       <h3 className="text-xl font-bold tracking-tight text-[var(--color-text)] sm:text-2xl hover:text-[var(--color-link)] transition duration-150">

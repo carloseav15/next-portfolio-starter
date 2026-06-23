@@ -90,7 +90,7 @@ export const externalLinks: Record<ExternalLinkKey, ProofItem> = {
 validateProofItems(externalLinks);
 
 export const DIGICORP_PROOF = {
-  imageSrc: "/images/digicorp-proof-2026.webp",
+  imageSrc: "/images/digicorp/card.webp",
   imageAlt: "Digicorp DigiApp proof image showing verified production delivery and active distribution continuity.",
   status: "verified" as const,
   note: "Digicorp DigiApp proof image aligned with verified production experience and release continuity.",

@@ -27,7 +27,7 @@ const jetBrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const defaultOgImage = createAbsoluteUrl("/images/digicorp-proof-2026.webp");
+const defaultOgImage = createAbsoluteUrl("/images/og.webp");
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),

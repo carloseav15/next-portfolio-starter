@@ -91,7 +91,7 @@ describe("profile source of truth", () => {
     expect(externalLinks.digicorpPeru.href).toBe("https://www.digicorp.com.pe");
     expect(externalLinks.digicorpChile.href).toBe("https://www.digicorp.cl");
     expect(DIGICORP_PROOF.status).toBe("verified");
-    expect(DIGICORP_PROOF.imageSrc).toBe("/images/digicorp-proof-2026.webp");
+    expect(DIGICORP_PROOF.imageSrc).toBe("/images/digicorp/card.webp");
   });
 
   it("keeps Octopus timeline and continuity explicit in profile data", () => {

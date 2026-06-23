@@ -20,7 +20,7 @@ export const siteConfig = {
     "Portfolio of Carlos Arancibia, a senior product engineer shipping secure transactional systems, dashboards, and mobile applications across LATAM and the U.S.",
   seoSummary:
     "Senior product engineer with B2B e-commerce platform ownership, payment integrations, and multi-product delivery across LATAM and the U.S.",
-  defaultOgImagePath: "/images/digicorp-proof-2026.webp",
+  defaultOgImagePath: "/images/og.webp",
   developmentBanner: {
     enabled: false,
     message: "Portfolio in active development; content and UX are being refined.",
