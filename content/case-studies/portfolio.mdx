@@ -14,20 +14,7 @@ Engineering portfolios often fall into two extremes: overly complex custom build
 
 ## Approach
 
-I built this as a server-first Next.js App Router project with a strong emphasis on type safety and automated quality.
-
-```text
-┌─────────────────────────────────────────────┐
-│           next-portfolio-starter            │
-├─────────────────────────────────────────────┤
-│ app/        Next.js routes, layouts, SEO    │
-│ components/ Reusable UI and layout          │
-│ content/    MDX case study bodies           │
-│ lib/        Typed data, helpers, SEO        │
-│ public/     Static assets, resume PDF       │
-│ tests/      Unit, component, a11y, e2e      │
-└─────────────────────────────────────────────┘
-```
+I built this as a server-first Next.js App Router project with a strong emphasis on type safety and automated quality. The codebase is organized into clear layers: routes and layouts under `app/`, reusable UI components in `components/`, MDX case study bodies in `content/`, typed data models and helpers in `lib/`, and a full test suite in `tests/`.
 
 Key architectural decisions:
 

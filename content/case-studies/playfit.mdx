@@ -14,40 +14,15 @@ Most game discovery tools force users to go through complex setup, sign-up barri
 - Linter and tests must run in milliseconds inside local environments and CI pipelines to support fast iterations.
 
 ## Approach
-I designed Playfit using a monorepo structure with decoupled workspaces: `apps/web` (Next.js 16 UI and API endpoints) and `packages/core` (reusable domain logic, IndexedDB store integrations, and Supabase database clients).
 
-```text
-┌────────────────────────────────────────────────────────┐
-│                   Playfit Monorepo                     │
-└────────────────────────────────────────────────────────┘
-                           │
-       ┌───────────────────┴───────────────────┐
-       ▼                                       ▼
-┌──────────────┐                        ┌──────────────┐
-│  apps/web    │ ──(import engine)───>  │packages/core │
-│  (Next.js)   │                        │ (Shared Lib) │
-└──────────────┘                        └──────────────┘
-       │                                       │
-(Serverless API)                        (Local-First DB)
-       │                                       │
-       ▼                                       ▼
-┌──────────────┐                        ┌──────────────┐
-│   Supabase   │                        │  IndexedDB   │
-│  (Postgres)  │                        │ (Browser DB) │
-└──────────────┘                        └──────────────┘
-       │
- (Deno Edge API)
-       │
-       ▼
-┌──────────────┐
-│ Atomic Merge │
-│  (Profile)   │
-└──────────────┘
-```
+### Monorepo Architecture
+I structured Playfit as a monorepo with two isolated workspaces. `apps/web` runs the Next.js 16 UI and serverless API routes. `packages/core` holds all domain logic — the recommendation engine, IndexedDB store integrations, and Supabase database clients. The core package is imported by the web app but remains framework-agnostic, making it straightforward to reuse when native mobile clients are added.
 
-To enable instant usage, I built an onboarding flow using IndexedDB for local-first persistence, linked to a browser-generated UUID v4. For recommendation scoring, I engineered an affinity engine that calculates compatibility scores based on genre and tag pairings while applying penalty scores for user-defined friction flags.
+### Local-First Onboarding
+Every visitor gets an instant session with a browser-generated UUID v4 stored in IndexedDB. No sign-up, no email, no friction. The recommendation engine scores games by genre and tag affinity, applying penalty weights when a user flags a genre as frustrating (e.g., Souls-like for casual players). All state lives locally until the user chooses to create an account.
 
-For cloud security, I disabled administrative service keys in runtime execution, delegating authorization to PostgreSQL Row-Level Security (RLS) policies and `SECURITY DEFINER` stored procedures. Finally, I built an atomic merge script in Supabase Edge Functions (Deno) to securely reconcile guest data with Supabase Auth accounts.
+### Security & Migration
+Server-side administrative keys are never available at runtime. PostgreSQL Row-Level Security (RLS) policies and `SECURITY DEFINER` functions enforce authorization directly in the database. When a guest decides to sign up, a Supabase Edge Function (Deno) atomically merges their IndexedDB profile into the cloud account — no data loss, no duplicates.
 
 ## Results
 - Separated business engine (`@playfit/core`) and routing (`apps/web`) to ensure codebase maintainability.
