@@ -205,8 +205,9 @@ const caseStudyEntries: CaseStudyEntry[] = [
     ],
     date: experienceDates.matchdayos.startIso,
     summary:
-      "A comprehensive web platform built to manage soccer operations end-to-end across five operational roles, from club administration to live matchday tracking.",
-    cardSummary: "Role-based workflows, 70 pages, and 37 database tables managing soccer club operations.",
+      "A comprehensive web platform built to manage soccer operations end-to-end across five operational roles, from club administration to live matchday tracking. Open source codebase.",
+    cardSummary:
+      "Role-based workflows, 70 pages, and 37 database tables managing soccer club operations. Open source codebase.",
     readingTime: "6 min",
     role: "Product Engineer",
     teamContext: "Independent open-source project demonstrating role-based workflow complexity",
