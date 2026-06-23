@@ -6,6 +6,8 @@ This repository powers [carlos-arancibia.com](https://www.carlos-arancibia.com).
 
 [![CI](https://github.com/carloseav15/next-portfolio-starter/actions/workflows/ci-firebase.yml/badge.svg)](https://github.com/carloseav15/next-portfolio-starter/actions/workflows/ci-firebase.yml)
 
+![Portfolio screenshot](public/images/og.webp)
+
 ## What It Demonstrates
 
 - Server-first portfolio architecture with Next.js App Router.
@@ -74,7 +76,6 @@ content/             MDX case-study bodies
 lib/                 Typed profile/content data, links, SEO helpers, utilities
 public/              Static assets and resume PDF
 tests/               Unit, component, accessibility, and e2e tests
-docs/                Design notes, content model, QA checklist, and audit notes
 .github/             CI workflow and collaboration templates
 ```
 
