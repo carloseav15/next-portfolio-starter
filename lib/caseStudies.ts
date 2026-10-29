@@ -209,7 +209,7 @@ const caseStudyEntries: CaseStudyEntry[] = [
       "Production portfolio at carlos-arancibia.com, structured as a reusable template with MDX case studies, static export, automated quality gates, and CI/CD. Open source codebase.",
     cardSummary: "Reusable portfolio template powering carlos-arancibia.com. Next.js, MDX, tests, CI/CD.",
     readingTime: "5 min",
-    role: "Senior Product Engineer (solo project)",
+    role: "Creator (Personal Project)",
     teamContext: "Independent open-source portfolio and starter template",
     timeline: "Jun 2026",
     primaryOutcome: "Live portfolio at carlos-arancibia.com with 31 automated tests and CI release gate",

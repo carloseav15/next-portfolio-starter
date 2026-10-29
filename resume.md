@@ -34,7 +34,7 @@ _Non-technical role held while pursuing my next software engineering position._
 
 ### **Diaz Brother's Company LLC** | Naples, FL
 
-_Senior Product Engineer (Full-Time, On-Site)_ | **Jul 2024 – Sep 2025**  
+_Software Engineer (Full-Time, On-Site)_ | **Jul 2024 – Sep 2025**  
 _U.S.-based electrical services company specializing in residential, commercial, and industrial operations._
 
 - Designed and built a real-time operational dashboard for logistical transparency, vehicle routing, and technician dispatch tracking.

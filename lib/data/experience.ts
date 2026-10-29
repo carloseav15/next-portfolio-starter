@@ -58,7 +58,7 @@ export const careerTimeline: ExperienceItem[] = [
   },
   {
     company: "Diaz Brothers Company LLC",
-    role: "Senior Product Engineer",
+    role: "Software Engineer",
     period: experienceDates.diaz.label,
     location: "Bonita Springs & Naples, FL",
     activeInProduction: true,
