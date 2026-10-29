@@ -5,8 +5,8 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "redirects": [
       {
-        "source": "/case-studies/fep",
-        "destination": "/case-studies/matchdayos",
+        "source": "/case-studies/us-ops",
+        "destination": "/case-studies/tiempo-de-cambio",
         "type": 301
       },
       {

@@ -54,7 +54,7 @@ test("recruiter flow across home, case study, resume, and contact", async ({ pag
   await expect(page.getByRole("heading", { name: /i started in infrastructure/i })).toBeVisible();
   await expect(page.locator("main")).toContainText(/aug 2014 - dec 2014/i);
   await expect(page.locator("main")).toContainText(/dec 2019 - jun 2024/i);
-  await expect(page.locator("main")).toContainText(/some roles overlapped by design/i);
+  await expect(page.locator("main")).not.toContainText(/scheduling conflicts|overlapped by design/i);
   await expect(page.locator("main")).not.toContainText(/parallel context:/i);
 
   await page.goto("/case-studies");
@@ -93,7 +93,7 @@ test("recruiter flow across home, case study, resume, and contact", async ({ pag
 
   await page.goto("/#contact-section");
   await expect(page.getByRole("heading", { name: "Hiring? Start here" })).toBeVisible();
-  await expect(page.locator("main")).toContainText(/Immediate/i);
+  await expect(page.locator("main")).toContainText(/2 weeks/i);
   await expect(page.locator("main").getByRole("link", { name: "Email Carlos" }).first()).toBeVisible();
 });
 
@@ -175,9 +175,4 @@ test("theme selector works with keyboard interaction and keeps radiogroup semant
   await page.keyboard.press("Escape");
 
   await expect(themeButton).toBeFocused();
-});
-
-test("legacy FEP case study route redirects to MatchdayOS", async ({ page }) => {
-  await page.goto("/case-studies/fep");
-  await expect(page).toHaveURL(/\/case-studies\/matchdayos$/);
 });

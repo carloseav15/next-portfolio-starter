@@ -8,7 +8,6 @@ import {
   careerPrinciples,
   careerTimeline,
   education,
-  parallelRolesNote,
   profileIdentity,
   technicalSkills,
 } from "@/lib/profile";
@@ -119,10 +118,6 @@ export default function AboutPage() {
         description="The timeline below keeps the full arc, from infrastructure support through product engineering."
         density="compact"
       >
-        <Card variant="flat" className="mb-5 space-y-3 motion-fade-in">
-          <p className="text-sm leading-relaxed text-[var(--color-text-soft)]">{parallelRolesNote}</p>
-        </Card>
-
         <div className="space-y-4">
           {careerTimeline.map((item, index) => (
             <Card

@@ -2,13 +2,12 @@ import type { ComponentType } from "react";
 import DigicorpCaseStudy from "@/content/case-studies/digicorp.mdx";
 import OctopusCaseStudy from "@/content/case-studies/octopus.mdx";
 import PlayfitCaseStudy from "@/content/case-studies/playfit.mdx";
-import UsOpsCaseStudy from "@/content/case-studies/us-ops.mdx";
-import MatchdayOsCaseStudy from "@/content/case-studies/matchdayos.mdx";
+import TiempoDeCambioCaseStudy from "@/content/case-studies/tiempo-de-cambio.mdx";
 import PortfolioCaseStudy from "@/content/case-studies/portfolio.mdx";
 import { experienceDates } from "@/lib/experienceDates";
 import type { ProofStatus } from "@/lib/proof";
 
-export type CaseStudySlug = "digicorp" | "octopus" | "us-ops" | "playfit" | "matchdayos" | "portfolio";
+export type CaseStudySlug = "digicorp" | "octopus" | "tiempo-de-cambio" | "playfit" | "portfolio";
 
 export type CaseStudyMetadata = {
   title: string;
@@ -112,7 +111,7 @@ const caseStudyEntries: CaseStudyEntry[] = [
   },
   {
     title: "Community Operations Platform - Iglesia Tiempo de Cambio",
-    slug: "us-ops",
+    slug: "tiempo-de-cambio",
     audienceTier: "secondary",
     tags: ["Community Ops", "Role-based Systems", "Live Events", "Reporting"],
     seoKeywords: [
@@ -141,7 +140,7 @@ const caseStudyEntries: CaseStudyEntry[] = [
     featuredOrder: 5,
     activeInProduction: true,
     featured: false,
-    Content: UsOpsCaseStudy,
+    Content: TiempoDeCambioCaseStudy,
   },
   {
     title: "Playfit Game Assistant",
@@ -161,8 +160,8 @@ const caseStudyEntries: CaseStudyEntry[] = [
     cardSummary:
       "Local-first recommendation engine resolving user sign-up barriers with IndexedDB state and serverless migrations. Open source codebase.",
     readingTime: "7 min",
-    role: "Senior Product Engineer",
-    teamContext: "Independent open-source project demonstrating production-grade web stack",
+    role: "Creator (Public Side Project)",
+    teamContext: "Public side project built to demonstrate AI-assisted product engineering",
     timeline: experienceDates.playfit.label,
     primaryOutcome: "Decoupled monorepo architecture, public codebase, and automated quality checks",
     impactMetrics: [
@@ -192,43 +191,6 @@ const caseStudyEntries: CaseStudyEntry[] = [
     activeInProduction: true,
     featured: true,
     Content: PlayfitCaseStudy,
-  },
-  {
-    title: "MatchdayOS - Soccer Operations Platform",
-    slug: "matchdayos",
-    audienceTier: "secondary",
-    tags: ["Soccer Ops", "Role-based Systems", "Next.js", "Supabase"],
-    seoKeywords: [
-      "soccer operations platform",
-      "role-based access control",
-      "Next.js App Router",
-      "Supabase database schema",
-    ],
-    date: experienceDates.matchdayos.startIso,
-    summary:
-      "A comprehensive web platform built to manage soccer operations end-to-end across five operational roles, from club administration to live matchday tracking. Open source codebase.",
-    cardSummary:
-      "Role-based workflows, 70 pages, and 37 database tables managing soccer club operations. Open source codebase.",
-    readingTime: "6 min",
-    role: "Product Engineer",
-    teamContext: "Independent open-source project demonstrating role-based workflow complexity",
-    timeline: experienceDates.matchdayos.label,
-    primaryOutcome: "Role-based platform with 70 pages, 37 schema tables, and multi-role testing.",
-    impactMetrics: [
-      "70 route-level pages implemented",
-      "37 business tables in primary schema",
-      "13 automated test files (Vitest + Playwright)",
-    ],
-    cardHighlights: ["70 route-level pages", "Open source code structure"],
-    ownershipLabel: "Owned product definition, route-guard architecture, database design, and testing.",
-    whyItMatters:
-      "This case demonstrates my ability to design complex role-based access control, manage extensive database schemas, and build state-driven workflows.",
-    stack: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Supabase", "Vitest", "Playwright"],
-    evidenceStatus: "verified",
-    featuredOrder: 4,
-    activeInProduction: true,
-    featured: false,
-    Content: MatchdayOsCaseStudy,
   },
   {
     title: "Next Portfolio Starter — Personal Portfolio",

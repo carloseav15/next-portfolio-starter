@@ -6,7 +6,6 @@ export type ExperienceItem = {
   period: string;
   location: string;
   highlights: string[];
-  parallelContext?: string;
   activeInProduction?: boolean;
   statusNote?: string;
   type?: "employment" | "personal";
@@ -18,17 +17,15 @@ export type ActivePlatformItem = {
   note: string;
 };
 
-export const parallelRolesNote =
-  "Some roles overlapped by design. V@COMM and Digicorp ran in parallel from Dec 2019 to 2020 with separate products, clients, and ownership boundaries.";
-
 export const careerTimeline: ExperienceItem[] = [
   {
     company: "Playfit",
-    role: "Senior Product Engineer",
+    role: "Creator (Public Side Project)",
     period: experienceDates.playfit.label,
     location: "Remote",
     type: "personal",
     highlights: [
+      "Public side project built to demonstrate AI-assisted product engineering end to end.",
       "Architected a Next.js 16 (App Router) and React 19 monorepo application separating apps/web and @playfit/core.",
       "Open-sourced the codebase (github.com/carloseav15/playfit) and structured the roadmap for native Android, iOS, and Flutter variants.",
       "Engineered a real-time recommendation scoring engine for user game affinity and friction risk.",
@@ -36,16 +33,27 @@ export const careerTimeline: ExperienceItem[] = [
     ],
   },
   {
-    company: "MatchdayOS",
-    role: "Product Engineer (Side Project)",
-    period: experienceDates.matchdayos.label,
+    company: "Unified-World Web RPG (Private Repository)",
+    role: "Creator (Personal Project)",
+    period: experienceDates.gamePort.label,
     location: "Remote",
     type: "personal",
     highlights: [
-      "Designed and built an end-to-end soccer operations platform with 70 route-level pages (active in development).",
-      "Implemented strict role boundaries across 5 user access modes: org-admin, team-admin, referee, representative, and player.",
-      "Engineered state-driven workflows for live matchday events (roster verification, timeline, scoreboard) and post-match reporting.",
-      "Integrated UX telemetry logging client actions into Supabase database analytics.",
+      "Porting the decompiled C source of a classic Game Boy Advance RPG to TypeScript, running in the browser on a 240x160 Canvas.",
+      "Goal: the original series split its world across separate games, one region each; this project joins three regions into one continuous world with quality-of-life improvements.",
+      "Emulates the handheld's graphics hardware (PPU, VRAM, OAM, palettes, DMA, VBlank) and translates the decomp nearly line by line.",
+      "Built with AI coding agents under explicit project rules, batch-based porting, and generated progress inventories. Code available on request.",
+    ],
+  },
+  {
+    company: "Nordstrom Rack",
+    role: "Inventory Control Specialist",
+    period: experienceDates.nordstrom.label,
+    location: "Naples, FL",
+    highlights: [
+      "Promoted from Logistics Processor to Inventory Control Specialist within one year; non-technical role held while pursuing my next software engineering position.",
+      "Support inventory accuracy through data analysis and day-to-day coordination across store teams.",
+      "Recognized as Employee of the Month (Logistics Processor) and with the Asset Protection Rackstar award (Sep 2026).",
     ],
   },
   {
@@ -67,8 +75,6 @@ export const careerTimeline: ExperienceItem[] = [
     role: "Mobile & E-Commerce Systems Engineer",
     period: experienceDates.digicorp.label,
     location: "Bolivia / Peru / Chile",
-    parallelContext:
-      "Parallel advisory engagement with V@COMM from Dec 2019 to 2020 with clear product boundaries and zero scheduling conflicts.",
     activeInProduction: true,
     statusNote: "Active in Production",
     highlights: [
@@ -76,22 +82,20 @@ export const careerTimeline: ExperienceItem[] = [
       "Designed and built the B2B e-commerce web platform from scratch in Vanilla JavaScript, HTML, CSS, and SQL Server.",
       "Built backend REST APIs from scratch in PHP; engineered reverse-engineering flows on the legacy database due to a lack of documentation.",
       "Developed Flutter mobile prototypes in fast-paced 1-month loops, heavily contributing to UI/UX design.",
-      "Integrated payment gateways and ERP systems, improving internal customer service purchase workflows by 75%.",
+      "Integrated payment gateways and ERP systems into the customer order request process, cutting order time by 75% for clients and customer service.",
       "Managed DigitalOcean (Linux) and Windows Server instances, and integrated Firebase services.",
-      "Supported a platform serving 3,000+ daily active B2B clients in Bolivia, Chile, and Peru.",
+      "Supported a platform serving 3,000+ daily active B2B clients in Bolivia.",
     ],
   },
   {
     company: "V@COMM",
-    role: "Co-Founder & Technical Advisor (Parallel Advisory Engagement)",
+    role: "Co-Founder & Technical Advisor (Part-Time)",
     period: experienceDates.vcomm.label,
     location: "Bolivia",
-    parallelContext:
-      "Co-founded startup run in parallel starting Dec 2019 as a secondary technical advisor with separate ownership boundaries and zero scheduling conflicts.",
     activeInProduction: true,
     statusNote: "Active in Production",
     highlights: [
-      "Developed 'Octopus' online payment and collection architecture, Android printing integration, and settlement logic as a secondary advisory role.",
+      "Developed 'Octopus' online payment and collection architecture, Android printing integration, and settlement logic.",
       "Designed Android point-of-sale flows with thermal printer integrations and automated settlement logic.",
       "Built a Flutter digital wallet app with OTP verification, SMS gateways, and Firebase integrations.",
       "Automated commission and daily settlement calculations, eliminating manual reconciliation.",

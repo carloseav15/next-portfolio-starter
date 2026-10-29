@@ -41,7 +41,6 @@ describe("profile source of truth", () => {
     const vcomm = careerTimeline.find((item) => item.company === "V@COMM");
     const digicorp = careerTimeline.find((item) => item.company === "DIGICORP LTDA");
     const diaz = careerTimeline.find((item) => item.company === "Diaz Brothers Company LLC");
-    const matchdayos = careerTimeline.find((item) => item.company === "MatchdayOS");
 
     expect(datec?.period).toBe("Aug 2014 - Dec 2014");
     expect(tismart?.period).toBe("Jan 2015 - May 2016");
@@ -49,7 +48,6 @@ describe("profile source of truth", () => {
     expect(vcomm?.period).toBe("Jan 2017 - Jun 2024");
     expect(digicorp?.period).toBe("Dec 2019 - Jun 2024");
     expect(diaz?.period).toBe("Jul 2024 - Sep 2025");
-    expect(matchdayos?.period).toBe("Oct 2025 - Present");
     expect(careerTimeline.some((item) => item.company.includes("FEP"))).toBe(false);
     expect(careerTimeline.map((item) => item.period)).not.toContain("January 2019 - July 2024");
     expect(diaz?.activeInProduction).toBe(true);
@@ -100,8 +98,8 @@ describe("profile source of truth", () => {
 
     expect(vcomm?.period).toBe("Jan 2017 - Jun 2024");
     expect(vcomm?.highlights.some((item) => item.toLowerCase().includes("octopus"))).toBe(true);
-    expect(vcomm?.parallelContext).toContain("Dec 2019");
-    expect(digicorp?.parallelContext).toContain("Dec 2019");
+    expect(vcomm?.role).toContain("Part-Time");
+    expect(digicorp?.highlights.join(" ")).not.toMatch(/Chile|Peru/);
   });
 
   it("keeps recommendation neutral and recruiter-facing", () => {

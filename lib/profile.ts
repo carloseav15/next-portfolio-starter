@@ -2,7 +2,7 @@ export { profileIdentity, heroProofPoints, recruiterQuickFacts, profileMetrics }
 
 export type { ProfileIdentity, ProfileMetric, RecruiterQuickFact } from "@/lib/data/identity";
 
-export { careerTimeline, activePlatformsInProduction, parallelRolesNote } from "@/lib/data/experience";
+export { careerTimeline, activePlatformsInProduction } from "@/lib/data/experience";
 
 export type { ExperienceItem, ActivePlatformItem } from "@/lib/data/experience";
 

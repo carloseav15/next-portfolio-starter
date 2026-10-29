@@ -1,7 +1,7 @@
 import type { ProofStatus } from "@/lib/proof";
 
 export type CaseStudyHighlight = {
-  slug: "digicorp" | "us-ops" | "matchdayos" | "octopus" | "playfit";
+  slug: "digicorp" | "tiempo-de-cambio" | "octopus" | "playfit";
   title: string;
   summary: string;
   outcome: string;
@@ -10,7 +10,7 @@ export type CaseStudyHighlight = {
 };
 
 export type FeaturedWin = {
-  id: "digicorp" | "octopus" | "us-ops" | "playfit";
+  id: "digicorp" | "octopus" | "tiempo-de-cambio" | "playfit";
   title: string;
   outcome: string;
   ownership: string;

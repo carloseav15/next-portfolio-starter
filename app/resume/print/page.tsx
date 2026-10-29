@@ -57,8 +57,9 @@ export default function PrintResumePage() {
           production-grade web and mobile applications across the U.S. and Latin America. Evolved from data center
           infrastructure operations to mobile development and full-stack engineering, building a strong foundation in
           transactional payment systems, real-time dashboards, and end-to-end product delivery. Proven record of
-          translating complex business processes into clean, scalable software. Currently based in the U.S. (EAD holder,
-          no sponsorship required) and seeking a product engineering role to contribute to high-impact teams.
+          translating complex business processes into clean, scalable software. AI-native workflow: I ship with coding
+          agents while owning architecture, review, and quality. Currently based in the U.S. (EAD holder, no sponsorship
+          required) and seeking a product engineering role to contribute to high-impact teams.
         </p>
       </section>
 

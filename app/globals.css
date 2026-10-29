@@ -480,6 +480,7 @@ a {
 
 /* Print styles for Resume */
 @media print {
+  html,
   body {
     background: white !important;
     color: black !important;
@@ -513,7 +514,10 @@ a {
     border: none !important;
     background: transparent !important;
     box-shadow: none !important;
-    padding: 0 !important;
+    /* Margin lives inside the page so every PDF viewer shows white edges */
+    padding: 0.5in 0.6in !important;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
     margin: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
@@ -536,6 +540,6 @@ a {
   /* Force simple page formatting */
   @page {
     size: letter;
-    margin: 0.4in;
+    margin: 0;
   }
 }

@@ -8,7 +8,7 @@ Naples, FL | carloseav15@gmail.com
 
 ## Professional Summary
 
-Pragmatic Senior Product Engineer with 8+ years of experience designing, shipping, and maintaining production-grade web and mobile applications across the U.S. and Latin America. Evolved from data center infrastructure operations to mobile development and full-stack engineering, building a strong foundation in transactional payment systems, real-time dashboards, and end-to-end product delivery. Proven record of translating complex business processes into clean, scalable software. Based in the U.S. and authorized to work without sponsorship (EAD).
+Pragmatic Senior Product Engineer with 8+ years of experience designing, shipping, and maintaining production-grade web and mobile applications across the U.S. and Latin America. Evolved from data center infrastructure operations to mobile development and full-stack engineering, building a strong foundation in transactional payment systems, real-time dashboards, and end-to-end product delivery. Proven record of translating complex business processes into clean, scalable software. AI-native workflow: I ship with coding agents while owning architecture, review, and quality. Based in the U.S. and authorized to work without sponsorship (EAD).
 
 ---
 
@@ -22,6 +22,15 @@ Pragmatic Senior Product Engineer with 8+ years of experience designing, shippin
 ---
 
 ## Work Experience
+
+### **Nordstrom Rack** | Naples, FL
+
+_Inventory Control Specialist (Full-Time)_ | **Sep 2025 – Present**  
+_Non-technical role held while pursuing my next software engineering position._
+
+- Promoted from Logistics Processor to Inventory Control Specialist within one year.
+- Support inventory accuracy through data analysis and day-to-day coordination across store teams.
+- Recognized as Employee of the Month (Logistics Processor) and with the Asset Protection Rackstar award (Sep 2026).
 
 ### **Diaz Brother's Company LLC** | Naples, FL
 
@@ -42,16 +51,16 @@ _One of Bolivia’s largest B2B technology distributors (170+ professionals, ope
 - Designed and built the B2B e-commerce web platform from scratch in Vanilla JavaScript, HTML, CSS, and SQL Server.
 - Developed backend REST APIs from scratch in PHP; engineered reverse-engineering flows on the legacy database due to a lack of documentation.
 - Developed Flutter mobile prototypes inside a fast-paced 1-month loop, playing a key role in UI/UX design.
-- Integrated payment gateways and ERP systems, improving internal customer service purchasing workflows by 75%.
+- Integrated payment gateways and ERP systems into the customer order request process, cutting order time by 75% for clients and customer service.
 - Managed DigitalOcean (Linux) and Windows Server instances, and integrated Firebase services.
-- Supported a platform serving 3,000+ daily active B2B clients in Bolivia, Chile, and Peru.
+- Supported a platform serving 3,000+ daily active B2B clients in Bolivia.
 
 ### **V@COMM** | Remote / Santa Cruz, Bolivia
 
-_Co-Founder & Technical Advisor (Parallel Advisory Engagement)_ | **Jan 2017 – Jun 2024**  
-_A payment-focused technology initiative where I led end-to-end technical implementation as a secondary advisory engagement._
+_Co-Founder & Technical Advisor (Part-Time)_ | **Jan 2017 – Jun 2024**  
+_A payment-focused technology initiative where I led end-to-end technical implementation._
 
-- Developed the "Octopus" online payment and service collection architecture (deployed in two credit cooperatives) as a secondary advisory role.
+- Developed the "Octopus" online payment and service collection architecture (deployed in two credit cooperatives).
 - Designed Android point-of-sale flows with integrated thermal receipt printing and settlement logic.
 - Built a digital wallet app in Flutter with OTP verification, SMS gateways, and Firebase.
 - Automated commission calculations and daily settlement processes, eliminating manual reconciliations.
@@ -89,9 +98,9 @@ _IT Support / Data Center Operations (Full-Time)_ | **Aug 2014 – Dec 2014**
 
 ## Featured Projects
 
-### **Playfit** | _Senior Product Engineer (Open Source Project)_
+### **Playfit** | _Creator (Public Side Project)_
 
-_A modern, local-first game recommendation assistant (github.com/carloseav15/playfit). Roadmap includes native Android, iOS, and Flutter variants._
+_A public side project built to demonstrate AI-assisted product engineering: a local-first game recommendation assistant (github.com/carloseav15/playfit). Roadmap includes native Android, iOS, and Flutter variants._
 
 - **Friction-Aware Engine:** Engineered a real-time recommendation scoring algorithm that evaluates user affinity vs. friction risk (applying quality penalties to Souls-like or Horror genres).
 - **Zero-Service-Key Security:** Architected database security using PL/pgSQL database-level functions (`SECURITY DEFINER`) and Row-Level Security (RLS) to enforce zero-privilege server runtime keys.
@@ -100,6 +109,13 @@ _A modern, local-first game recommendation assistant (github.com/carloseav15/pla
 - **Redirect Resolution Graph:** Designed a recursive resolver handling chain redirects (up to 5 loops) for clean game database catalog synchronization.
 - **Quality-Weighted Search:** Programmed titling-based quality penalties (restricting DLCs, demos, or empty listings) to optimize search relevance results.
 - _Tech Stack:_ Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4, Supabase (PostgreSQL), Biome, Vitest, Playwright.
+
+### **Unified-World Web RPG** | _Creator (Personal Project, Private Repository)_ | **Sep 2026 – Present**
+
+- Porting the decompiled C source of a classic Game Boy Advance RPG to TypeScript, running in the browser on a 240x160 Canvas.
+- Goal: the original series split its world across separate games, one region each; this project joins three regions into one continuous world with quality-of-life improvements.
+- Emulates the handheld's graphics hardware (PPU, VRAM, OAM, palettes, DMA, VBlank) and translates the decomp nearly line by line.
+- Built with AI coding agents under explicit project rules, batch-based porting, and generated progress inventories. Code available on request.
 
 ---
 

@@ -4,7 +4,6 @@ import Image from "next/image";
 
 const gitHubRepos: Record<string, string> = {
   playfit: "https://github.com/carloseav15/playfit",
-  matchdayos: "https://github.com/carloseav15/matchday-os",
   portfolio: "https://github.com/carloseav15/next-portfolio-starter",
 };
 import { Card } from "@/components/ui/Card";
@@ -69,12 +68,7 @@ const caseStudyExtraDetails: Record<string, { category: string; kpi: string; tec
     kpi: "Open Source / Next.js 16",
     tech: ["Next.js 16", "Supabase", "IndexedDB"],
   },
-  matchdayos: {
-    category: "Multi-Role B2B SaaS",
-    kpi: "70 Pages / 37 Tables",
-    tech: ["Next.js 15", "Supabase", "TypeScript"],
-  },
-  "us-ops": {
+  "tiempo-de-cambio": {
     category: "Internal Community Ops",
     kpi: "100+ Active Users",
     tech: ["Google Maps API", "SQL", "Role Workflows"],
@@ -146,7 +140,7 @@ export default function CaseStudiesPage() {
                   </div>
                 </div>
 
-                {caseStudy.slug !== "us-ops" ? (
+                {caseStudy.slug !== "tiempo-de-cambio" ? (
                   <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-subtle-bg)] shadow-sm">
                     <Image
                       src={`/images/${caseStudy.slug}/card.webp`}
@@ -252,7 +246,7 @@ export default function CaseStudiesPage() {
                       </div>
                     </div>
 
-                    {caseStudy.slug !== "us-ops" ? (
+                    {caseStudy.slug !== "tiempo-de-cambio" ? (
                       <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-subtle-bg)] shadow-sm">
                         <Image
                           src={`/images/${caseStudy.slug}/card.webp`}

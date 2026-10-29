@@ -37,18 +37,24 @@ export const experienceDates = {
     endIso: "2024-06-01",
     isOngoing: false,
   },
+  gamePort: {
+    label: "Sep 2026 - Present",
+    startIso: "2026-09-01",
+    endIso: null,
+    isOngoing: true,
+    type: "personal",
+  },
+  nordstrom: {
+    label: "Sep 2025 - Present",
+    startIso: "2025-09-01",
+    endIso: null,
+    isOngoing: true,
+  },
   diaz: {
     label: "Jul 2024 - Sep 2025",
     startIso: "2024-07-01",
     endIso: "2025-09-01",
     isOngoing: false,
-  },
-  matchdayos: {
-    label: "Oct 2025 - Present",
-    startIso: "2025-10-01",
-    endIso: null,
-    isOngoing: true,
-    type: "personal",
   },
   playfit: {
     label: "Latest Project",

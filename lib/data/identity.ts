@@ -33,7 +33,7 @@ export const profileIdentity: ProfileIdentity = {
   email: "carloseav15@gmail.com",
   website: "https://www.carlos-arancibia.com",
   summary:
-    "I build secure transactional systems, B2B platforms, and real-time operational dashboards. U.S. work authorization: EAD (no sponsorship required).",
+    "I build secure transactional systems, B2B platforms, and real-time operational dashboards. AI-native workflow: I ship with coding agents while owning architecture, review, and quality. U.S. work authorization: EAD (no sponsorship required).",
   openTo:
     "Open to remote, hybrid, or on-site software engineering roles across product, platform, and transactional systems.",
   languages: ["English (professional working)", "Spanish (native)"],
@@ -43,7 +43,7 @@ export const profileIdentity: ProfileIdentity = {
 export const heroProofPoints = ["10,000+ downloads", "3,000 daily users", "1,000 daily operations"];
 
 export const recruiterQuickFacts: RecruiterQuickFact[] = [
-  { label: "Availability", value: "Immediate / Full-time" },
+  { label: "Availability", value: "2 weeks' notice / Full-time" },
   { label: "Experience", value: "8+ Years (LATAM & U.S.)" },
   { label: "Preferred Roles", value: "Product, Full-Stack, Mobile" },
 ];
