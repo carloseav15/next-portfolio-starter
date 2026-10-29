@@ -36,14 +36,15 @@ jobs:
       - name: Unit and component tests
         run: npm run test
 
+      - name: Build
+        run: npm run build
+
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
+      # e2e serves the static export in out/, so it must run after Build
       - name: End-to-end tests
         run: npm run test:e2e
-
-      - name: Build
-        run: npm run build
 
   deploy:
     name: Deploy to Firebase Hosting
