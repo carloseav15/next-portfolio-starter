@@ -9,7 +9,7 @@ on:
 jobs:
   verify:
     name: Verify (format, lint, typecheck, tests, build)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout
@@ -49,7 +49,7 @@ jobs:
     name: Deploy to Firebase Hosting
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: verify
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout
